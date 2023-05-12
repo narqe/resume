@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.12",
+    "@react-icons/all-files": "^4.1.0",
+    "apollo-link-context": "^1.0.20",
     "formik": "^2.2.9",
+    "graphql-tag": "^2.12.6",
     "next": "13.2.4",
     "node-fetch": "^3.3.1",
     "react": "18.2.0",

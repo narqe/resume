@@ -5,6 +5,10 @@ const Toaster = (message, type) => {
 
     useEffect(() => {
         switch (type) {
+            case 'success':
+                setColor('green')
+            break
+
             case 'info':
                 setColor('blue')
             break
