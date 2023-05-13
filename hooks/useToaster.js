@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Toaster = (message, type) => {
+const useToaster = (message, type) => {
     const [color, setColor] = useState(null);
 
     useEffect(() => {
@@ -32,4 +32,4 @@ const Toaster = (message, type) => {
     )
 }
 
-export default Toaster;
+export default useToaster;

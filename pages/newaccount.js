@@ -5,6 +5,7 @@ import InputField from '../components/InputField';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { NEW_ACCOUNT } from '../GraphQL/Mutations' 
+import useToaster from '../hooks/useToaster';
 
 const NewAccount = () => {
     const [ newUser ] = useMutation(NEW_ACCOUNT);
@@ -57,7 +58,7 @@ const NewAccount = () => {
             <Layout>
                 <h1 className="text-2xl text-white font-light text-center">Crear nueva cuenta</h1>
                 
-                { Toaster(message?.message, message?.type) }
+                { useToaster(message?.message, message?.type) }
 
                 <div className="flex justify-center mt-5">
                     <div className="w-full max-w-sm">

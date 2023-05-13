@@ -7,7 +7,7 @@ import { useMutation } from '@apollo/client';
 import { NEW_CLIENT } from '../GraphQL/Mutations';
 import { useRouter } from 'next/router';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries';
-import Toaster from '../components/Messages/Toaster';
+import useToaster from '../hooks/useToaster';
 
 const NewClient = () => {
     const [ message, saveMessage ] = useState({
@@ -72,7 +72,7 @@ const NewClient = () => {
 
     return (
         <Layout>
-            { Toaster(message?.message, message?.type) }
+            { useToaster(message?.message, message?.type) }
             <h1 className="text-2xl text-gray-800 font-light">New Client</h1>
             <div className='flex justify-center mt-5'>
                 <div className='w-full max-w-lg'>

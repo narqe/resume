@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { AUTH_USER } from '../GraphQL/Mutations';
-import Toaster from '../components/Messages/Toaster';
+import useToaster from '../hooks/useToaster';
 
 const Login = () => {
     const [ authUser ] = useMutation(AUTH_USER);
@@ -59,7 +59,7 @@ const Login = () => {
             <Layout>
                 <h1 className="text-2xl text-white font-light text-center">Login</h1>
                 
-                { Toaster(message?.message, message?.type) }
+                { useToaster(message?.message, message?.type) }
 
                 <div className="flex justify-center mt-5">
                 
