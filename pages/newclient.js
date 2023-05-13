@@ -8,6 +8,7 @@ import { NEW_CLIENT } from '../GraphQL/Mutations';
 import { useRouter } from 'next/router';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries';
 import useToaster from '../hooks/useToaster';
+import SubmitBtn from '../components/SubmitBtn';
 
 const NewClient = () => {
     const [ message, saveMessage ] = useState({
@@ -71,9 +72,8 @@ const NewClient = () => {
     });
 
     return (
-        <Layout>
+        <Layout title="New Client">
             { useToaster(message?.message, message?.type) }
-            <h1 className="text-2xl text-gray-800 font-light">New Client</h1>
             <div className='flex justify-center mt-5'>
                 <div className='w-full max-w-lg'>
                     <form 
@@ -84,11 +84,7 @@ const NewClient = () => {
                         { InputField('Empresa', 'text', 'Empresa del cliente', 'company', formik) }
                         { InputField('Email', 'email', 'Email del cliente', 'email', formik) }
                         { InputField('Telefono', 'tel', 'Telefono del cliente', 'phone', formik) }
-                        <input 
-                            type="submit"
-                            className="bg-gray-800 w-full mt-5 p-2 text-white uppercase hover:bg-gray-900 cursor-pointer"
-                            value="Registrar Cliente"
-                        />
+                        { SubmitBtn('Registrar Cliente') }
                     </form>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import CustomTable from '../components/CustomTable';
 
 const Index = () => {
   const router = useRouter();
@@ -14,14 +15,14 @@ const Index = () => {
   }
 
   return (
-    <Layout>
-      <h1 className="text-2xl text-gray-800 font-light">Clientes</h1>
+    <Layout title="Clientes">
       <Link href="/newclient">
-        <span className='bg-blue-800 py-2 px-5 mt-2 inline-block text-white rounded text-sm hover:bg-blue-600 mb-3 uppercase font-bold'>
+        <span className='bg-blue-800 py-2 px-5 mt-2 text-white rounded text-sm hover:bg-blue-600 uppercase font-bold'>
           New Client
         </span>
       </Link>
-      <table className='table-auto shadow-md mt-10 w-full w-lg'>
+      <CustomTable data={data.getClientsVendedor} />
+      {/* <table className='table-auto shadow-md mt-10 w-full w-lg'>
         <thead className='bg-gray-800'>
           <tr className='text-white'>
             <th className='w-1/5 py-2'>Nombre</th>
@@ -39,7 +40,7 @@ const Index = () => {
             ))
           }
         </tbody>
-      </table>
+      </table> */}
     </Layout>
   )
 }

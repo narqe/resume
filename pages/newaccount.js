@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { NEW_ACCOUNT } from '../GraphQL/Mutations' 
 import useToaster from '../hooks/useToaster';
+import SubmitBtn from '../components/SubmitBtn';
 
 const NewAccount = () => {
     const [ newUser ] = useMutation(NEW_ACCOUNT);
@@ -55,11 +56,8 @@ const NewAccount = () => {
 
     return (
         <>
-            <Layout>
-                <h1 className="text-2xl text-white font-light text-center">Crear nueva cuenta</h1>
-                
+            <Layout title="Crear nueva cuenta">                
                 { useToaster(message?.message, message?.type) }
-
                 <div className="flex justify-center mt-5">
                     <div className="w-full max-w-sm">
                         <form 
@@ -70,11 +68,7 @@ const NewAccount = () => {
                             { InputField('Apellido', 'text', 'Apellido del usuario', 'lastname', formik) }
                             { InputField('Email', 'email', 'Email del usuario', 'email', formik) }
                             { InputField('Password', 'password', 'Password del usuario', 'password', formik) }
-                            <input 
-                                type="submit"
-                                className="bg-gray-800 w-full mt-5 p-2 text-white uppercase hover:bg-gray-900"
-                                value="Iniciar Sesión"
-                            />
+                            { SubmitBtn('Crear usuario') }
                         </form>
                     </div>
                 </div>

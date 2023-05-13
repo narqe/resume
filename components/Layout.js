@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import { useRouter } from "next/router"
 import Header from './Header';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
     const router = useRouter();
 
     return (
@@ -17,16 +17,21 @@ const Layout = ({ children }) => {
             { router.pathname === '/login' || router.pathname === '/newaccount' ? (
                 <div className="bg-gray-800 min-h-screen flex flex-col justify-center">
                     <div>
-                        {children}
+                        <h1 className="text-2xl text-white font-light flex justify-center pb-5">{ title }</h1>
+                        { children }
                     </div>
                 </div>
             ) : (
                 <div className="bg-gray-200 min-h-screen">
                     <div className="flex min-h-screen">
                         <Sidebar />
-                        <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
-                            <Header />
-                            {children}
+                        <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
+                            <Header>
+                                <h1 className="text-2xl text-gray-800 font-light">{ title }</h1>
+                            </Header>
+                            <div className='px-10 pt-5'>
+                                {children}
+                            </div>
                         </main>
                     </div>
                 </div>

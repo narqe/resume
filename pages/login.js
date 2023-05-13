@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { AUTH_USER } from '../GraphQL/Mutations';
 import useToaster from '../hooks/useToaster';
+import SubmitBtn from '../components/SubmitBtn';
 
 const Login = () => {
     const [ authUser ] = useMutation(AUTH_USER);
@@ -58,11 +59,8 @@ const Login = () => {
         <>
             <Layout>
                 <h1 className="text-2xl text-white font-light text-center">Login</h1>
-                
                 { useToaster(message?.message, message?.type) }
-
                 <div className="flex justify-center mt-5">
-                
                     <div className="w-full max-w-sm">
                         <form                             
                             onSubmit={formik.handleSubmit}
@@ -70,11 +68,7 @@ const Login = () => {
                         >
                             { InputField('Email', 'email', 'Email del usuario', 'email', formik) }
                             { InputField('Password', 'password', 'Password del usuario', 'password', formik) }
-                            <input 
-                                type="submit"
-                                className="bg-gray-800 w-full mt-5 p-2 text-white uppercase hover:bg-gray-900 cursor-pointer"
-                                value="Iniciar Sesión"
-                            />
+                            { SubmitBtn('Iniciar Sesión') }
                         </form>
                     </div>
                 </div>
