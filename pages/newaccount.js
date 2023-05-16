@@ -7,10 +7,12 @@ import { useState } from 'react';
 import { NEW_ACCOUNT } from '../GraphQL/Mutations' 
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/SubmitBtn';
+import { useRouter } from 'next/router';
 
 const NewAccount = () => {
     const [ newUser ] = useMutation(NEW_ACCOUNT);
     const [ message, saveMessage ] = useState(null);
+    const router = useRouter();
 
     const formik = useFormik({
         initialValues: {

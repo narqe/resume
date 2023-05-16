@@ -33,8 +33,55 @@ mutation Mutation($input: ClientInput) {
 }
 `
 
+export const DELETE_CLIENT = gql`
+mutation Mutation($id: ID!) {
+    deleteClient(id: $id)
+}
+`
+
+export const UPDATE_CLIENT = gql`
+mutation Mutation($id: ID!, $input: ClientInput) {
+    updateClient(id: $id, input: $input) {
+        name
+        lastname
+        email
+        company
+        phone
+    }
+}
+`
+
+export const NEW_PRODUCT = gql`
+    mutation Mutation($input: ProductInput) {
+        newProduct(input: $input) {
+            name
+            quantity
+            price
+        }
+    }
+`;
+
+export const DELETE_PRODUCT = gql`
+    mutation Mutation($id: ID!) {
+        deleteProduct(id: $id)
+    }
+`
+
+export const UPDATE_PRODUCT = gql`
+mutation Mutation($id: ID!, $input: ProductInput) {
+    updateProduct(id: $id, input: $input) {
+        name
+        price
+        quantity
+    }
+}
+`
+
 export default {
     AUTH_USER,
     NEW_ACCOUNT,
-    NEW_CLIENT
+    NEW_CLIENT,
+    DELETE_CLIENT,
+    UPDATE_CLIENT,
+    DELETE_PRODUCT
 };
