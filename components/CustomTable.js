@@ -23,13 +23,12 @@ const CustomTable = ({ data, ctx }) => {
   const [ deleteProduct ] = useMutation(DELETE_PRODUCT, {
     update(cache, { data: { deleteProduct } }) {
       const { getAllProducts } = cache.readQuery({ query: GET_PRODUCTS})
-      const name = deleteProduct.replace(' was deleted', '')
-      debugger
+      const id = deleteProduct.replace(' was deleted', '')
 
       cache.writeQuery({
         query: GET_PRODUCTS,
         data: {
-          getAllProducts: getAllProducts.filter(current => current.name !== name)
+          getAllProducts: getAllProducts.filter(current => current.id !== id)
         }
       })
     }

@@ -7,11 +7,12 @@ import CustomTable from '../components/CustomTable';
 
 const Index = () => {
   const router = useRouter();
-  const { data, loading } = useQuery(GET_CLIENT_SELLERS);
+  const { data, loading, error } = useQuery(GET_CLIENT_SELLERS);
 
-  if (loading) return 'Cargando...';
-  if (!data.getClientsVendedor) {
-    return router.push('/login');
+  if (loading) {
+    return (
+      'Cargando...'
+    );
   }
 
   return (

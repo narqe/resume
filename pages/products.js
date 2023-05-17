@@ -6,11 +6,9 @@ import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../GraphQL/Queries';
 
 const Products = () => {
-    const { data, loading, error } = useQuery(GET_PRODUCTS)
+    const { data, loading } = useQuery(GET_PRODUCTS)
 
     if(loading) return null;
-
-    console.log(data);
 
     return (
         <Layout title="Productos">
