@@ -6,14 +6,11 @@ import Link from 'next/link';
 import CustomTable from '../components/CustomTable';
 
 const Index = () => {
-  const router = useRouter();
-  const { data, loading, error } = useQuery(GET_CLIENT_SELLERS);
+  const { data, loading } = useQuery(GET_CLIENT_SELLERS);
 
-  if (loading) {
-    return (
-      'Cargando...'
-    );
-  }
+  if (loading) return ('Cargando...');
+
+  const { getClientsVendedor } = data;
 
   return (
     <Layout title="Clientes">
@@ -22,7 +19,7 @@ const Index = () => {
           New Client
         </span>
       </Link>
-      <CustomTable data={data.getClientsVendedor} ctx="Client" />
+      <CustomTable data={getClientsVendedor} ctx="Client" />
     </Layout>
   )
 }
