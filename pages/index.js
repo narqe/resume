@@ -1,7 +1,6 @@
 import Layout from '../components/Layout';
 import { useQuery } from '@apollo/client';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import CustomTable from '../components/CustomTable';
 

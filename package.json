@@ -1,6 +1,7 @@
 {
   "name": "crmclient",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
