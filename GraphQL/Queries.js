@@ -77,6 +77,35 @@ query Query {
     }
 }`
 
+export const TOP_SALESMAN = gql`
+query Query {
+    getTopSalesman {
+        total
+        salesman {
+            id
+            name
+            lastname
+            email
+        }
+    }
+}
+`
+
+export const TOP_CLIENTS = gql`
+query Query {
+    getTopClients {
+        total
+        client {
+            id
+            name
+            lastname
+            email
+            company
+            phone
+        }
+    }
+}
+`
 
 export default {
     GET_CLIENT_SELLERS,
@@ -84,5 +113,7 @@ export default {
     GET_CLIENT,
     GET_PRODUCTS,
     GET_PRODUCT_BY_ID,
-    GET_ORDERS_BY_SELLER
+    GET_ORDERS_BY_SELLER,
+    TOP_SALESMAN,
+    TOP_CLIENTS
 };

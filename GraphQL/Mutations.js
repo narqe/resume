@@ -83,7 +83,7 @@ mutation Mutation($input: OrderInput) {
             id
         }
     }
-`;
+`
 
 export const UPDATE_ORDER = gql`
 mutation Mutation($id: ID!, $input: OrderInput) {

@@ -21,7 +21,7 @@ const Header = ({ children }) => {
 
     return (
         <div className="bg-gray-300 p-5">
-            <div className='flex justify-between mb-6'>
+            <div className='sm:flex justify-between mb-6'>
                 <p>Hola, { name }</p>
                 <button 
                     onClick={() => logout()}

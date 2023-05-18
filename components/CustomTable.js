@@ -109,55 +109,57 @@ const CustomTable = ({ data, ctx }) => {
   }
 
   return (
-    <table className='table-auto shadow-md mt-10 w-full w-lg'>
-      <thead className='bg-gray-800'>
-        <tr className='text-white'>
-          { thead.map((th, i) => {
-              if(!th.startsWith('__') && th !== 'id') {
-                return <th className='w-1/5 py-2' key={th+i}>{ th.toUpperCase() }</th> 
-              }
-            })
+    <div className='overflow-x-scroll'>
+      <table className='table-auto shadow-md mt-10 w-full w-lg'>
+        <thead className='bg-gray-800'>
+          <tr className='text-white'>
+            { thead.map((th, i) => {
+                if(!th.startsWith('__') && th !== 'id') {
+                  return <th className='w-1/5 py-2' key={th+i}>{ th.toUpperCase() }</th> 
+                }
+              })
+            }
+            <th className='w-1/5 py-2'>DELETE</th> 
+            <th className='w-1/5 py-2'>EDIT</th> 
+          </tr>
+        </thead>
+        <tbody className='bg-white'>
+          { data.map(item => (
+              <tr key={item.id} className={`${markQtyZero(item.quantity)}`}>
+                { thead.map((th, i) => {
+                    if(!th.startsWith('__') && th !== 'id') {
+                      return (
+                        <td className={ `border px-4 py-2` } key={i+item.id}>
+                          { `${addCurrencyFormatPrefix(th)}${item[th]} ${addCurrencyFormatSuffix(th)}` }
+                        </td>
+                      )
+                    }
+                  })
+                }
+                <td className='border px-4 py-2'>
+                  <button 
+                    type='button' 
+                    className={ `flex justify-center items-center bg-red-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold` }
+                    onClick={() => confirmDelete(item.id)}>
+                    DELETE
+                    <CiCircleRemove className='mx-2' />
+                  </button>
+                </td>
+                <td className='border px-4 py-2'>
+                  <button 
+                    type='button' 
+                    className={ `flex justify-center items-center bg-green-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold ${btnQtyZero(item.quantity)}` }
+                    onClick={() => editElement(item.id)}>
+                    EDIT
+                    <CiEdit className='mx-2' />
+                  </button>
+                </td>
+              </tr>
+            ))
           }
-          <th className='w-1/5 py-2'>DELETE</th> 
-          <th className='w-1/5 py-2'>EDIT</th> 
-        </tr>
-      </thead>
-      <tbody className='bg-white'>
-        { data.map(item => (
-            <tr key={item.id} className={`${markQtyZero(item.quantity)}`}>
-              { thead.map((th, i) => {
-                  if(!th.startsWith('__') && th !== 'id') {
-                    return (
-                      <td className={ `border px-4 py-2` } key={i+item.id}>
-                        { `${addCurrencyFormatPrefix(th)}${item[th]} ${addCurrencyFormatSuffix(th)}` }
-                      </td>
-                    )
-                  }
-                })
-              }
-              <td className='border px-4 py-2'>
-                <button 
-                  type='button' 
-                  className={ `flex justify-center items-center bg-red-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold` }
-                  onClick={() => confirmDelete(item.id)}>
-                  DELETE
-                  <CiCircleRemove className='mx-2' />
-                </button>
-              </td>
-              <td className='border px-4 py-2'>
-                <button 
-                  type='button' 
-                  className={ `flex justify-center items-center bg-green-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold ${btnQtyZero(item.quantity)}` }
-                  onClick={() => editElement(item.id)}>
-                  EDIT
-                  <CiEdit className='mx-2' />
-                </button>
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   )
 }
 
