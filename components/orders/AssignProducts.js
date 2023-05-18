@@ -8,10 +8,11 @@ const AssignProducts = () => {
     const [ productsSelected, setProductsSelected ] = useState(null);
     const { data, loading } = useQuery(GET_PRODUCTS);
     const orderContext = useContext(OrderContext);
-    const { addProducts } = orderContext;
+    const { addProducts, updateTotal } = orderContext;
 
     useEffect(() => {
         addProducts(productsSelected);
+        updateTotal();
     }, [productsSelected])
 
     const onChangeSelected = (selected) => {
@@ -31,6 +32,7 @@ const AssignProducts = () => {
                 getOptionValue={options => options.id }
                 getOptionLabel={options => `${options.name} (${options.quantity} disponibles)` }
                 onChange={selected => onChangeSelected(selected)}
+                isOptionDisabled={options => options.quantity === 0}
                 placeholder={'Selecciona los productos'}
                 noOptionsMessage={() => 'No hay productos para seleccionar'}
                 required={true}

@@ -77,11 +77,21 @@ mutation Mutation($id: ID!, $input: ProductInput) {
 }
 `
 
+export const NEW_ORDER = gql`
+mutation Mutation($input: OrderInput) {
+        newOrder(input: $input) {
+            id
+        }
+    }
+`
+
 export default {
     AUTH_USER,
     NEW_ACCOUNT,
     NEW_CLIENT,
     DELETE_CLIENT,
     UPDATE_CLIENT,
-    DELETE_PRODUCT
+    DELETE_PRODUCT,
+    UPDATE_PRODUCT,
+    NEW_ORDER
 };

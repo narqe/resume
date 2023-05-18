@@ -1,7 +1,8 @@
 import {
     SELECT_CLIENT,
     SELECT_PRODUCTS,
-    PRODUCTS_QUANTITY
+    PRODUCTS_QUANTITY,
+    UPDATE_TOTAL
 } from '../../types';
 
 export default (state, action) => {
@@ -19,7 +20,16 @@ export default (state, action) => {
         };
 
     case PRODUCTS_QUANTITY:
-        break;
+        return {
+            ...state,
+            products: state.products.map(current => current.id === action.payload.id ? current = action.payload : current)
+        };
+
+    case UPDATE_TOTAL:
+        return {
+            ...state,
+            total: state.products?.reduce((acc, product) => acc += product.price * product.quantity, 0)
+        };
 
     default:
         return state;
