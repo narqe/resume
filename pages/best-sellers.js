@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Layout from '../components/Layout';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/client';
 import { TOP_SALESMAN } from '../GraphQL/Queries';
 
 const BestSellers = () => {
-    const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_SALESMAN);
+    const { data, loading } = useQuery(TOP_SALESMAN);
 
     if(loading) return ('Cargando...');
 
@@ -13,18 +13,11 @@ const BestSellers = () => {
 
     const bestSalesmanGraphic = [];
     getTopSalesman.map((salesman, i) => {
-      bestSalesmanGraphic[i] = {
-        ...salesman.salesman[0],
-        total: salesman.total
-      }
-    })
-
-    useEffect(() => {
-        startPolling(1000);
-        return () => {
-            stopPolling();
+        bestSalesmanGraphic[i] = {
+            ...salesman.salesman[0],
+            total: salesman.total
         }
-    }, [startPolling, stopPolling])
+    })
 
     return (
         <Layout title="Best Sellers">
