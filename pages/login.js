@@ -43,9 +43,14 @@ const Login = () => {
                 message: 'Redirecting...',
                 type: 'info'
             })
-            const { token } = data.authUser;
-            localStorage.setItem('token', token);
-            setTimeout(() => router.push('/'), 2000);
+            setTimeout(() => {
+                const { token } = data.authUser;
+                localStorage.setItem('token', token);
+            }, 1000);
+            
+            setTimeout(() => { 
+                router.push('/')
+            }, 2000);
         } catch ({ message }) {
             saveMessage({
                 message: message.replace('GraphQL error:', ''),
