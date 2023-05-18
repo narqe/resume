@@ -7,6 +7,7 @@ import Total from '../components/orders/Total';
 import OrderContext from '../context/orders/OrderContext';
 import { useMutation } from '@apollo/client';
 import { NEW_ORDER } from '../GraphQL/Mutations';
+import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries';
 import useToaster from '../hooks/useToaster';
 import { useRouter } from 'next/router';
 
@@ -16,7 +17,20 @@ const NewOrder = () => {
         type: ''
     });
     const router = useRouter();
-    const [ newOrder ] = useMutation(NEW_ORDER)
+    const [ newOrder ] = useMutation(NEW_ORDER, { 
+        update(cache, { data: { newOrder }}){
+            const { getOrderVendedor } = cache.readQuery({
+                query: GET_ORDERS_BY_SELLER
+            })
+
+            cache.writeQuery({
+                query: GET_ORDERS_BY_SELLER,
+                data: {
+                    getOrderVendedor: [ ...getOrderVendedor, newOrder ]
+                }
+            })
+        } 
+    })
     const orderContext = useContext(OrderContext);
     const { client, products, total } = orderContext;
 

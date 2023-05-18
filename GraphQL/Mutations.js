@@ -65,7 +65,7 @@ export const DELETE_PRODUCT = gql`
     mutation Mutation($id: ID!) {
         deleteProduct(id: $id)
     }
-`
+`;
 
 export const UPDATE_PRODUCT = gql`
 mutation Mutation($id: ID!, $input: ProductInput) {
@@ -75,7 +75,7 @@ mutation Mutation($id: ID!, $input: ProductInput) {
         quantity
     }
 }
-`
+`;
 
 export const NEW_ORDER = gql`
 mutation Mutation($input: OrderInput) {
@@ -83,7 +83,21 @@ mutation Mutation($input: OrderInput) {
             id
         }
     }
-`
+`;
+
+export const UPDATE_ORDER = gql`
+mutation Mutation($id: ID!, $input: OrderInput) {
+        updateOrder(id: $id, input: $input) {
+            state
+        }
+    }
+`;
+
+export const DELETE_ORDER = gql`
+mutation Mutation($id: ID!) {
+        deleteOrder(id: $id)
+    }
+`;
 
 export default {
     AUTH_USER,
@@ -93,5 +107,7 @@ export default {
     UPDATE_CLIENT,
     DELETE_PRODUCT,
     UPDATE_PRODUCT,
-    NEW_ORDER
+    NEW_ORDER,
+    UPDATE_ORDER,
+    DELETE_ORDER
 };

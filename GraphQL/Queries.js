@@ -53,10 +53,36 @@ query Query($id: ID!) {
     }
 }`
 
+export const GET_ORDERS_BY_SELLER = gql`
+query Query {
+    getOrderVendedor {
+        id
+        order {
+            id
+            quantity
+            name
+            price
+        }
+        total
+        client {
+            id
+            name
+            lastname
+            email
+            phone
+        }
+        salesman
+        createdOn
+        state
+    }
+}`
+
 
 export default {
     GET_CLIENT_SELLERS,
     GET_USER,
     GET_CLIENT,
-    GET_PRODUCTS
+    GET_PRODUCTS,
+    GET_PRODUCT_BY_ID,
+    GET_ORDERS_BY_SELLER
 };

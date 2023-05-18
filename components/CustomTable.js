@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { DELETE_CLIENT, DELETE_PRODUCT } from '../GraphQL/Mutations';
 import { GET_CLIENT_SELLERS, GET_PRODUCTS } from '../GraphQL/Queries';
 import Router from 'next/router'
+import { CiCircleRemove, CiEdit } from "react-icons/ci";
 
 const CustomTable = ({ data, ctx }) => {
   const [ deleteClient ] = useMutation(DELETE_CLIENT, {
@@ -91,6 +92,22 @@ const CustomTable = ({ data, ctx }) => {
     })
   }
 
+  const markQtyZero = (qty) => {
+    return (ctx === 'Product' && qty === 0) && " bg-gray-200 text-gray-400 "
+  }
+
+  const btnQtyZero = (qty) => {
+    return (ctx === 'Product' && qty === 0) && " animate-pulse opacity-70 "
+  }
+
+  const addCurrencyFormatPrefix = (item) => {
+    return (item === 'price' || item === 'total') ? "$" : ""
+  }
+
+  const addCurrencyFormatSuffix = (item) => {
+    return (item === 'price' || item === 'total') ? "ARS" : ""
+  }
+
   return (
     <table className='table-auto shadow-md mt-10 w-full w-lg'>
       <thead className='bg-gray-800'>
@@ -107,33 +124,33 @@ const CustomTable = ({ data, ctx }) => {
       </thead>
       <tbody className='bg-white'>
         { data.map(item => (
-            <tr key={item.id}>
+            <tr key={item.id} className={`${markQtyZero(item.quantity)}`}>
               { thead.map((th, i) => {
                   if(!th.startsWith('__') && th !== 'id') {
-                    return <td className='border px-4 py-2' key={i+item.id}>{item[th]}</td>
+                    return (
+                      <td className={ `border px-4 py-2` } key={i+item.id}>
+                        { `${addCurrencyFormatPrefix(th)}${item[th]} ${addCurrencyFormatSuffix(th)}` }
+                      </td>
+                    )
                   }
                 })
               }
               <td className='border px-4 py-2'>
                 <button 
                   type='button' 
-                  className='flex justify-center items-center bg-red-800 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold'
+                  className={ `flex justify-center items-center bg-red-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold` }
                   onClick={() => confirmDelete(item.id)}>
                   DELETE
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <CiCircleRemove className='mx-2' />
                 </button>
               </td>
               <td className='border px-4 py-2'>
                 <button 
                   type='button' 
-                  className='flex justify-center items-center bg-blue-800 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold'
+                  className={ `flex justify-center items-center bg-green-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold ${btnQtyZero(item.quantity)}` }
                   onClick={() => editElement(item.id)}>
                   EDIT
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <CiEdit className='mx-2' />
                 </button>
               </td>
             </tr>
