@@ -6,9 +6,10 @@ import Link from 'next/link';
 import CustomTable from '../components/CustomTable';
 
 const Index = () => {
-  const { data, loading } = useQuery(GET_CLIENT_SELLERS);
+  const { data, loading, error } = useQuery(GET_CLIENT_SELLERS);
 
   if (loading) return ('Cargando...');
+  if (error) return ('Error, intente nuevamente');
 
   const { getClientsVendedor } = data;
 
