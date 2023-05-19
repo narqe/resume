@@ -7,6 +7,11 @@ import { TOP_CLIENTS } from '../GraphQL/Queries';
 const BestClients = () => {
     const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_CLIENTS);
 
+    useEffect(() => {
+        startPolling(1000);
+        stopPolling();
+    }, [startPolling, stopPolling])
+
     if(loading) return ('Cargando...');
 
     const { getTopClients } = data;
@@ -18,11 +23,6 @@ const BestClients = () => {
             total: client.total
         }
     })
-
-    useEffect(() => {
-        startPolling(1000);
-        stopPolling();
-    }, [startPolling, stopPolling])
 
     return (
         <Layout title="Best Clients">
