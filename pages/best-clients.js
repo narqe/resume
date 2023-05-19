@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../components/Layout';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/client';
 import { TOP_CLIENTS } from '../GraphQL/Queries';
 
 const BestClients = () => {
-    const { data, loading } = useQuery(TOP_CLIENTS);
+    const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_CLIENTS);
 
     if(loading) return ('Cargando...');
 
@@ -18,6 +18,13 @@ const BestClients = () => {
             total: client.total
         }
     })
+
+    useEffect(() => {
+        startPolling(1000);
+        return () => {
+            stopPolling();
+        }
+    }, [startPolling, stopPolling])
 
     return (
         <Layout title="Best Clients">
