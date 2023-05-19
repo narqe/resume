@@ -12,6 +12,8 @@
     "@apollo/client": "^3.7.12",
     "@react-icons/all-files": "^4.1.0",
     "apollo-link-context": "^1.0.20",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
     "formik": "^2.2.9",
     "graphql-tag": "^2.12.6",
     "next": "^13.2.4",
@@ -22,11 +24,10 @@
     "react-select": "^5.7.3",
     "recharts": "^2.6.2",
     "sweetalert2": "^11.4.8",
-    "yup": "^1.1.1",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4"
+    "yup": "^1.1.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4"
   }
