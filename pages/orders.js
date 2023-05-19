@@ -19,7 +19,7 @@ const Orders = () => {
                     New Order
                 </span>
             </Link>
-            { !getOrderVendedor.length 
+            { !getOrderVendedor?.length 
                 ? 'No hay pedidos'
                 : <div className="grid grid-cols-2 gap-4">
                     { getOrderVendedor.map(order => <OrdersTable key={order.id} order={order} />)}

@@ -37,7 +37,7 @@ const CustomTable = ({ data, ctx }) => {
 
   const thead = data.length ? Object.keys(data[0]) : [];
 
-  if(!thead.length) return ('Empty state')
+  if(!thead?.length) return ('Empty state')
 
   const confirmDelete = (id) => {
     Swal.fire({
