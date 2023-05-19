@@ -7,6 +7,11 @@ import { TOP_SALESMAN } from '../GraphQL/Queries';
 const BestSellers = () => {
     const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_SALESMAN);
 
+    useEffect(() => {
+        startPolling(1000);
+        return () => stopPolling();
+    }, [startPolling, stopPolling])
+    
     if(loading) return ('Cargando...');
 
     const { getTopSalesman } = data;
@@ -18,11 +23,6 @@ const BestSellers = () => {
             total: salesman.total
         }
     })
-
-    useEffect(() => {
-        startPolling(1000);
-        stopPolling();
-    }, [])
 
     return (
         <Layout title="Best Sellers">
