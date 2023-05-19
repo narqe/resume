@@ -46,11 +46,11 @@ const Login = () => {
             setTimeout(() => {
                 const { token } = data.authUser;
                 localStorage.setItem('token', token);
-            }, 1000);
+            }, 1500);
             
             setTimeout(() => { 
                 router.push('/')
-            }, 2000);
+            }, 3000);
         } catch ({ message }) {
             saveMessage({
                 message: message.replace('GraphQL error:', ''),
@@ -62,7 +62,7 @@ const Login = () => {
 
     return (
         <>
-            <Layout>
+            <Layout title=''>
                 <h1 className="text-2xl text-white font-light text-center">Login</h1>
                 { useToaster(message?.message, message?.type) }
                 <div className="flex justify-center mt-5">

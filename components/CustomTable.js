@@ -35,7 +35,7 @@ const CustomTable = ({ data, ctx }) => {
     }
   })
 
-  const thead = data.length ? Object.keys(data[0]) : [];
+  const thead = data?.length ? Object.keys(data[0]) : [];
 
   if(!thead?.length) return ('Empty state')
 

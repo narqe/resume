@@ -10,7 +10,7 @@ export const AUTH_USER = gql`
 
 export const NEW_ACCOUNT = gql`
     mutation Mutation($input: UserInput) {
-        newUser(input: $input) {
+        newUser(input: $input){
             id
             name
             lastname
