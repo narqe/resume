@@ -21,9 +21,7 @@ const BestClients = () => {
 
     useEffect(() => {
         startPolling(1000);
-        return () => {
-            stopPolling();
-        }
+        stopPolling();
     }, [startPolling, stopPolling])
 
     return (
