@@ -22,7 +22,7 @@ const BestSellers = () => {
     useEffect(() => {
         startPolling(1000);
         stopPolling();
-    }, [startPolling, stopPolling])
+    }, [])
 
     return (
         <Layout title="Best Sellers">
