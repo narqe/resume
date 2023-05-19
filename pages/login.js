@@ -3,7 +3,7 @@ import InputField from '../components/InputField';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { AUTH_USER } from '../GraphQL/Mutations';
 import useToaster from '../hooks/useToaster';
@@ -15,7 +15,7 @@ const Login = () => {
         message: '',
         type: ''
     });
-    const router = useRouter(null);
+    const router = useRouter();
 
     const formik = useFormik({
         initialValues: {
@@ -59,6 +59,12 @@ const Login = () => {
             setTimeout(() => saveMessage(null), 2000);
         }
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            router.push("/")
+        }
+    }, [])
 
     return (
         <>
