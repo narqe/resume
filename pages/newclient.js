@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Layout from '../components/Layout'
-import InputField from '../components/InputField'
+import Layout from '../components/shared/Layout'
+import InputField from '../components/sharedInputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
@@ -8,7 +8,7 @@ import { NEW_CLIENT } from '../GraphQL/Mutations/Client';
 import { useRouter } from 'next/router';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries/Client';
 import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/SubmitBtn';
+import SubmitBtn from '../components/shared/SubmitBtn';
 
 const NewClient = () => {
     const [ message, saveMessage ] = useState({
