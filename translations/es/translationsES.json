@@ -5,12 +5,14 @@
     "BUTTONS": {
       "NEW_CLIENT": "Registrar cliente",
       "NEW_PRODUCT": "Cargar producto",
-      "NEW_ORDER": "Cargar pedido",
+      "NEW_ORDER": "Registrar pedido",
       "LOGIN": "Ingresar",
       "NEW_USER": "Crear usuario",
       "DELETE_ORDER": "Eliminar pedido",
       "SIGN_UP": "Todavía no tenés usuario, registrate",
-      "SIGN_IN": "Ya estás registrado, ingresá"
+      "SIGN_IN": "Ya estás registrado, ingresá",
+      "EDIT_PRODUCT": "Modificar producto",
+      "EDIT_CLIENT": "Modificar cliente"
     },
     "PLACEHOLDERS": {
       "NAME_PRODUCT": "Nombre del producto",
@@ -60,7 +62,9 @@
       "LOGIN": "Ingresar al sistema",
       "BEST_CLIENTS": "Mejores clientes",
       "BEST_SELLERS": "Mejores vendedores",
-      "STADISTICS": "Estadísticas"
+      "STADISTICS": "Estadísticas",
+      "EDIT_PRODUCT": "Modificar producto",
+      "EDIT_CLIENT": "Modificar cliente"
     },
     "TABLE_HEADERS": {
       "name": "Nombre",
@@ -100,6 +104,15 @@
           "TEXT": "Esta acción no puede deshacerse",
           "CONFIRMATION_BTN": "Borrar {{ ctx }}",
           "CANCEL_BTN": "Cancelar"
+        },
+        "ON_UPDATE_PRODUCT": {
+          "TITLE": "El producto fue modificado correctamente"
+        },
+        "ON_UPDATE_CLIENT": {
+          "TITLE": "El cliente fue modificado correctamente"
+        },
+        "ON_CREATE_ORDER": {
+          "TITLE": "El pedido se registró correctamente"
         }
       }
     },

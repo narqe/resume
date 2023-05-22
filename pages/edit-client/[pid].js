@@ -10,9 +10,12 @@ import * as Yup from 'yup';
 import { UPDATE_CLIENT } from '../../GraphQL/Mutations/Client';
 import Swal from 'sweetalert2';
 import Loading from '../../components/shared/Loading';
+import { useTranslation } from 'react-i18next';
+import ErrorCustomTableResults from '../../components/shared/ErrorCustomTableResults';
 
 const EditClient = () => {
     const router = useRouter();
+    const { t } = useTranslation()
     const { query } = router;
 
     const { data, loading, error } = useQuery(GET_CLIENT, {
@@ -24,10 +27,12 @@ const EditClient = () => {
     const [ updateClient ] = useMutation(UPDATE_CLIENT)
 
     const schemaValidation = Yup.object({
-        name: Yup.string().required('El nombre del cliente es obligatorio'),
-        lastname: Yup.string().required('El apellido del cliente es obligatorio'),
-        company: Yup.string().required('La empresa del cliente es obligatoria'),
-        email: Yup.string().email('Email is not valid').required('Email is required'),
+        name: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+        lastname: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+        company: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+        email: Yup.string()
+            .email(t('INPUT_ERRORS.INVALID_EMAIL'))
+            .required(t('INPUT_ERRORS.REQUIRED')),
     })
     
     const updateClientOnDb = async values => {
@@ -45,23 +50,25 @@ const EditClient = () => {
                     }
                 }
             })
+            Swal.fire({
+                text: t('MESSAGES.CONFIRMATION.ON_UPDATE_CLIENT.TITLE'),
+                icon: 'success',
+                iconColor: '#154e3a',
+                showConfirmButton: false,
+                timer: 1500
+            })
             router.push("/")
-            Swal.fire(
-                'Actualizado',
-                `El usuario fue actualizado correctamente`,
-                'success'
-            )
         } catch (error) {
             console.log(error);
         }
     }
 
     return (
-        <Layout title="Editar Cliente">
+        <Layout title={t('LAYOUT_TITLES.EDIT_CLIENT')}>
             { loading 
                 ?   <Loading />
                 :   error 
-                    ? 'Error component' 
+                    ? <ErrorCustomTableResults /> 
                     :   <div className='flex justify-center mt-5'>
                             <div className='w-full max-w-lg'>
                                 <Formik 
@@ -76,41 +83,41 @@ const EditClient = () => {
                                                 onSubmit={props.handleSubmit}
                                                 className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
                                                 <InputField
-                                                    label='Nombre'
+                                                    label={t('LABELS.NAME')}
                                                     type='text'
-                                                    placeholder='Nombre del cliente'
+                                                    placeholder={t('PLACEHOLDERS.NAME_CLIENT')}
                                                     value='name'
                                                     formik={props} 
                                                 />
                                                 <InputField
-                                                    label='Apellido'
+                                                    label={t('LABELS.LASTNAME')}
                                                     type='text'
-                                                    placeholder='Apellido del cliente'
+                                                    placeholder={t('PLACEHOLDERS.LASTNAME_CLIENT')}
                                                     value='lastname'
                                                     formik={props} 
                                                 />
                                                 <InputField
-                                                    label='Empresa'
+                                                    label={t('LABELS.COMPANY')}
                                                     type='text'
-                                                    placeholder='Empresa del cliente'
+                                                    placeholder={t('PLACEHOLDERS.COMPANY_CLIENT')}
                                                     value='company'
                                                     formik={props} 
                                                 />
                                                 <InputField
-                                                    label='Email'
+                                                    label={t('LABELS.EMAIL')}
                                                     type='email'
-                                                    placeholder='Email del cliente'
+                                                    placeholder={t('PLACEHOLDERS.EMAIL_CLIENT')}
                                                     value='email'
                                                     formik={props} 
                                                 />
                                                 <InputField
-                                                    label='Telefono'
+                                                    label={t('LABELS.PHONE')}
                                                     type='tel'
-                                                    placeholder='Telefono del cliente'
+                                                    placeholder={t('PLACEHOLDERS.PHONE_CLIENT')}
                                                     value='phone'
                                                     formik={props} 
                                                 />
-                                                <SubmitBtn value='Editar Cliente' />
+                                                <SubmitBtn value={t('BUTTONS.EDIT_CLIENT')} />
                                             </form>
                                         )
                                     }}

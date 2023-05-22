@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Layout from '../components/shared/Layout'
 import AssignClient from '../components/orders/AssignClient';
 import AssignProducts from '../components/orders/AssignProducts';
@@ -8,15 +8,11 @@ import OrderContext from '../context/orders/OrderContext';
 import { useMutation } from '@apollo/client';
 import { NEW_ORDER } from '../GraphQL/Mutations/Order';
 import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
-import useToaster from '../hooks/useToaster';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import Swal from 'sweetalert2';
 
 const NewOrder = () => {
-    const [ message, saveMessage ] = useState({
-        message: '',
-        type: ''
-    });
     const { t } = useTranslation();
     const router = useRouter();
     const [ newOrder ] = useMutation(NEW_ORDER, { 
@@ -37,7 +33,9 @@ const NewOrder = () => {
     const { client, products, total } = orderContext;
 
     const validateOrder = () => {
-        return (!products?.every(product => product.quantity > 0) || total === 0 || !client) ? " bg-gray-200 opacity-50 cursor-not-allowed text-gray-500" : "text-white bg-blue-700 "
+        return (!products?.every(product => product.quantity > 0) || total === 0 || !client) 
+            ? "bg-gray-200 opacity-50 cursor-not-allowed text-gray-500" 
+            : "text-white bg-yellow-800"
     }
 
     const createNewOrder = async () => {
@@ -52,24 +50,29 @@ const NewOrder = () => {
                     }
                 }
             })
-            saveMessage({
-                message: 'Your order was created succesfully',
-                type: 'success'
+            Swal.fire({
+                text: t('MESSAGES.CONFIRMATION.ON_CREATE_ORDER.TITLE'),
+                icon: 'success',
+                iconColor: '#154e3a',
+                showConfirmButton: false,
+                timer: 1500
             })
             setTimeout(() => {
                 router.push("/orders")
             }, 1500)
         } catch ({ message }) {
-            saveMessage({
-                message,
-                type: 'error'
+            Swal.fire({
+                text: message,
+                icon: 'error',
+                iconColor: '#991b1a',
+                showConfirmButton: false,
+                timer: 1500
             })
         }
     }
     
     return (
         <Layout title={ t('LAYOUT_TITLES.ORDERS') }>
-            { useToaster(message?.message, message?.type) }
             <div className='flex justify-center mt-5'>
                 <div className='w-full max-w-lg'>
                     <div className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
@@ -81,7 +84,7 @@ const NewOrder = () => {
                             type='button'
                             onClick={() => createNewOrder()}
                             className={ `w-full mt-5 p-2 uppercase cursor-pointer ${validateOrder()}` }>
-                                Generar Pedido
+                                {t('BUTTONS.NEW_ORDER')}
                         </button>
                     </div>
                 </div>

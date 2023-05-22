@@ -12,7 +12,6 @@ import CurrencyNumber from '../shared/CurrencyNumber';
 
 const OrdersTable = ({ order, ctx }) => {
     const { id, total, client: { name, lastname, email, phone }, state, client } = order;
-
     const [statusOrder, setStatusOrder] = useState(state);
     const [className, setClassName] = useState('');
     const { t } = useTranslation();
@@ -57,7 +56,7 @@ const OrdersTable = ({ order, ctx }) => {
         if (statusOrder === "PENDING") {
             setClassName('border-yellow-500 bg-yellow-50')
         } else if(statusOrder === "COMPLETED") {
-            setClassName('border-green-500 bg-green-50')
+            setClassName('border-green-500 bg-green-100')
         } else {
             setClassName('border-red-800 bg-red-50 opacity-50')
         }
@@ -68,9 +67,10 @@ const OrdersTable = ({ order, ctx }) => {
             title: t('MESSAGES.CONFIRMATION.ON_DELETE.TITLE', { ctx: t("CTX."+ctx) }),
             text: t('MESSAGES.CONFIRMATION.ON_DELETE.TEXT'),
             icon: 'warning',
+            iconColor: '#991b1a',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#154e3a',
+            cancelButtonColor: '#991b1a',
             confirmButtonText: t('MESSAGES.CONFIRMATION.ON_DELETE.CONFIRMATION_BTN', { ctx: t("CTX."+ctx) }),
             cancelButtonText: t('MESSAGES.CONFIRMATION.ON_DELETE.CANCEL_BTN')
         }).then(async (result) => {
@@ -79,11 +79,14 @@ const OrdersTable = ({ order, ctx }) => {
                     const { data } = await deleteOrder({
                     variables: { id }
                 })
-                Swal.fire(
-                    data.deleteOrder, 
-                    t('MESSAGES.SUCCESS.ON_DELETE', { ctx: t("CTX."+ctx) }),
-                    'success'
-                )
+                Swal.fire({
+                    title: data.deleteOrder, 
+                    text: t('MESSAGES.SUCCESS.ON_DELETE', { ctx: t("CTX."+ctx) }),
+                    icon: 'success',
+                    iconColor: '#154e3a',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 } catch (error) {
                     console.log(error);
                 }
@@ -112,6 +115,10 @@ const OrdersTable = ({ order, ctx }) => {
             title: t('MESSAGES.INFO.SUMMARY_ITEMS'),
             html: showSummaryItems(),
             icon: 'info',
+            iconColor: '#154e3a',
+            showCloseButton: true,
+            showConfirmButton: false,
+            timer: 3000
         })
     }
 

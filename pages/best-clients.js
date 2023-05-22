@@ -28,7 +28,7 @@ const BestClients = () => {
             { loading 
                 ? <Loading />
                 : error 
-                    ?   'Error component'
+                    ?   <ErrorCustomTableResults />
                     :   <ResponsiveContainer width={'99%'} height={550}>
                             <BarChart
                                 width={1024}
@@ -46,7 +46,7 @@ const BestClients = () => {
                                 <YAxis />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey={'total'} fill="#3182ce" />
+                                <Bar dataKey={'total'} fill="#b45308" />
                             </BarChart>
                         </ResponsiveContainer>
             }

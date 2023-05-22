@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Sidebar from './Sidebar';
 import { useRouter } from "next/router"
 import Header from './Header';
+import Separator from './Separator';
 
 const Layout = ({ children, title }) => {
     const router = useRouter();
@@ -15,19 +16,22 @@ const Layout = ({ children, title }) => {
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerPolicy="no-referrer" /> 
             </Head>
             { router.pathname === '/login' || router.pathname === '/newaccount' ? (
-                <div className="bg-gray-800 min-h-screen flex flex-col justify-center">
+                <div className="bg-green-900 min-h-screen flex flex-col justify-center">
                     <div>
                         <h1 className="text-2xl text-white font-light flex justify-center pb-5">{ title }</h1>
                         { children }
                     </div>
                 </div>
             ) : (
-                <div className="bg-gray-200 min-h-screen">
+                <div className="bg-green-50 min-h-screen">
                     <div className="sm:flex min-h-screen">
                         <Sidebar />
                         <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
                             <Header>
-                                <h1 className="text-2xl text-gray-800 font-light">{ title }</h1>
+                                <h1 className="text-2xl px-10 py-2 font-light">
+                                    { title }
+                                </h1>
+                                <Separator />
                             </Header>
                             <div className='px-10 pt-5'>
                                 { children }

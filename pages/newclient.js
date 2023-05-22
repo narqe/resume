@@ -35,7 +35,7 @@ const NewClient = () => {
                 .required(t('INPUT_ERRORS.REQUIRED')),
         }),
         onSubmit: async (values) => {
-            const {name, lastname, company, email, phone } = values;
+            const { name, lastname, company, email, phone } = values;
             try {
                 const { data } = await newClient({
                     variables: {

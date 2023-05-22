@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { TOP_SALESMAN } from '../GraphQL/Queries/TopPages';
 import Loading from '../components/shared/Loading';
 import { useTranslation } from 'react-i18next';
+import ErrorCustomTableResults from '../components/shared/ErrorCustomTableResults';
 
 const BestSellers = () => {
     const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_SALESMAN);
@@ -28,7 +29,7 @@ const BestSellers = () => {
             { loading 
                 ? <Loading />
                 : error 
-                    ? 'Error component'
+                    ?   <ErrorCustomTableResults />
                     :   <ResponsiveContainer width={'99%'} height={550}>
                             <BarChart
                                 width={1024}
@@ -46,7 +47,7 @@ const BestSellers = () => {
                                 <YAxis />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey={'total'} fill="#3182ce" />
+                                <Bar dataKey={'total'} fill="#b45308"  />
                             </BarChart>
                         </ResponsiveContainer>
             }

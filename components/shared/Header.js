@@ -22,19 +22,19 @@ const Header = ({ children }) => {
     const { name } = data.getUser;
 
     return (
-        <div className="bg-gray-300 p-5">
-            <div className='sm:flex justify-between mb-6'>
+        <>
+            <div className='sm:flex justify-end gap-10 mb-6 px-10 py-1 bg-gray-900 text-white'>
                 <p>{ t('WELCOME', { name }) }</p>
                 <div className='flex gap-5'>
                     <button 
                         type='button' 
-                        className="cursor-pointer bg-red-600 w-full py-1 px-2 text-white rounded text-xs text-red-900 font-bold border-2 border-red-800" 
+                        className="cursor-pointer bg-red-600 w-full py-1 px-2 rounded text-xs text-red-900 font-bold border-2 border-red-800" 
                         onClick={() => i18n.changeLanguage('es')}>
                         ES
                     </button>
                     <button 
                         onClick={() => logout()}
-                        className="cursor-pointer bg-red-600 w-full sm:w-auto font-bold uppercase text-xs rounded py-1 px-2 text-white shadow-md"
+                        className="cursor-pointer bg-red-600 w-full sm:w-auto font-bold uppercase text-xs rounded py-1 px-2 shadow-md"
                         type='button'>
                         <div className='flex align-middle'>
                             <AiOutlinePoweroff />  
@@ -43,7 +43,7 @@ const Header = ({ children }) => {
                 </div>
             </div>
             { children }
-        </div>
+        </>
     ) 
 }
 

@@ -10,11 +10,13 @@ import * as Yup from 'yup';
 import { UPDATE_PRODUCT } from '../../GraphQL/Mutations/Product';
 import Swal from 'sweetalert2';
 import Loading from '../../components/shared/Loading';
+import { useTranslation } from 'react-i18next';
+import ErrorCustomTableResults from '../../components/shared/ErrorCustomTableResults';
 
 const EditProduct = () => {
     const router = useRouter();
     const { query } = router;
-
+    const { t } = useTranslation();
     const { data, loading, error } = useQuery(GET_PRODUCT_BY_ID, {
         variables: {
             id: query.pid
@@ -23,9 +25,9 @@ const EditProduct = () => {
     const [ updateProduct ] = useMutation(UPDATE_PRODUCT)
 
     const schemaValidation = Yup.object({
-        name: Yup.string().required('El nombre del producto es obligatorio'),
-        price: Yup.string().required('El precio es obligatorio'),
-        quantity: Yup.string().required('La cantidad es obligatoria'),
+        name: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+        price: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+        quantity: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
     })
     
     const updateProductOnDb = async values => {
@@ -42,22 +44,24 @@ const EditProduct = () => {
                 }
             })
             router.push("/products")
-            Swal.fire(
-                'Actualizado',
-                `El producto fue actualizado correctamente`,
-                'success'
-            )
+            Swal.fire({
+                text: t('MESSAGES.CONFIRMATION.ON_UPDATE_PRODUCT.TITLE'),
+                icon: 'success',
+                iconColor: '#154e3a',
+                showConfirmButton: false,
+                timer: 1500
+            })
         } catch (error) {
             console.log(error);
         }
     }
 
     return (
-        <Layout title="Editar Producto">
+        <Layout title={t('LAYOUT_TITLES.EDIT_PRODUCT')}>
             { loading 
                 ?   <Loading />
                 :   error 
-                    ? 'error' 
+                    ? <ErrorCustomTableResults /> 
                     :   <div className='flex justify-center mt-5'>
                             <div className='w-full max-w-lg'>
                                 <Formik 
@@ -72,27 +76,27 @@ const EditProduct = () => {
                                                 onSubmit={props.handleSubmit}
                                                 className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
                                                 <InputField
-                                                    label='Nombre'
+                                                    label={t('LABELS.NAME')}
                                                     type='text'
-                                                    placeholder='Nombre del producto'
+                                                    placeholder={t('PLACEHOLDERS.NAME_PRODUCT')}
                                                     value='name'
                                                     formik={props} 
                                                 />
                                                 <InputField
-                                                    label='Price'
+                                                    label={t('LABELS.PRICE')}
                                                     type='number'
-                                                    placeholder='Precio del producto'
+                                                    placeholder={t('PLACEHOLDERS.PRICE_PRODUCT')}
                                                     value='price'
                                                     formik={props} 
                                                 />
                                                 <InputField
-                                                    label='Quantity'
+                                                    label={t('LABELS.QUANTITY')}
                                                     type='number'
-                                                    placeholder='Cantidad disponible'
+                                                    placeholder={t('PLACEHOLDERS.QTY_PRODUCT')}
                                                     value='quantity'
                                                     formik={props} 
                                                 />
-                                                <SubmitBtn value='Editar Producto' />
+                                                <SubmitBtn value={t('BUTTONS.EDIT_PRODUCT')} />
                                             </form>
                                         )
                                     }}

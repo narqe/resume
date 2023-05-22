@@ -105,7 +105,7 @@ const NewAccount = () => {
                             <Separator />
                             <SubmitBtn value={t('BUTTONS.NEW_USER')} />
                             <Link href="/login">
-                                <p className='pt-2 text-center cursor-pointer hover:underline text-blue-800 text-sm hover:font-bold'>
+                                <p className='pt-2 text-center cursor-pointer hover:underline text-yellow-700 text-sm hover:font-bold'>
                                     {t('BUTTONS.SIGN_IN')}
                                 </p>
                             </Link>

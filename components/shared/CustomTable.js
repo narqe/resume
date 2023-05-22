@@ -66,9 +66,10 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
       title: t('MESSAGES.CONFIRMATION.ON_DELETE.TITLE', { ctx: t("CTX."+ctx) }),
       text: t('MESSAGES.CONFIRMATION.ON_DELETE.TEXT'),
       icon: 'warning',
+      iconColor: '#991b1a',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#154e3a',
+      cancelButtonColor: '#991b1a',
       confirmButtonText: t('MESSAGES.CONFIRMATION.ON_DELETE.CONFIRMATION_BTN', { ctx: t("CTX."+ctx) }),
       cancelButtonText: t('MESSAGES.CONFIRMATION.ON_DELETE.CANCEL_BTN')
     }).then(async (result) => {
@@ -83,11 +84,14 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
               variables: { id }
             })
           }
-          Swal.fire(
-            contextRead(data),
-            t('MESSAGES.SUCCESS.ON_DELETE', { ctx: t("CTX."+ctx) }),
-            'success'
-          )
+          Swal.fire({
+            title: contextRead(data),
+            text: t('MESSAGES.SUCCESS.ON_DELETE', { ctx: t("CTX."+ctx) }),
+            icon: 'success',
+            iconColor: '#154e3a',
+            showConfirmButton: false,
+            timer: 1500
+          })
         } catch (error) {
           console.log(error);
         }
@@ -128,7 +132,7 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
   return (
     <div className='overflow-x-scroll mb-10'>
       <table className='table-auto shadow-md mt-10 w-full w-lg'>
-        <thead className='bg-gray-800'>
+        <thead className='bg-green-900'>
           <tr className='text-white'>
             { thead.map((th, i) => {
                 if(!th.startsWith('__') && th !== 'id') {
@@ -159,13 +163,13 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
                 <td className='border-t flex justify-between gap-1 items-center px-4 py-2'>
                   <button 
                     type='button' 
-                    className='flex justify-center items-center text-red-500 py-2 px-4 w-full text-lg font-bold'
+                    className='flex justify-center items-center text-red-800 py-2 px-4 w-full text-lg font-bold'
                     onClick={() => confirmDelete(item.id)}>
                       <RiDeleteBin2Line className='mx-2' />
                   </button>
                   <button 
                     type='button' 
-                    className='flex justify-center items-center text-blue-500 py-2 px-4 w-full text-lg font-bold'
+                    className='flex justify-center items-center text-green-800 py-2 px-4 w-full text-lg font-bold'
                     onClick={() => editElement(item.id)}>
                       <CiEdit className='mx-2' />
                   </button>
