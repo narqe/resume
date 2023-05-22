@@ -4,7 +4,7 @@ import InputField from '../components/shared/InputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { NEW_PRODUCT } from '../GraphQL/Mutations';
+import { NEW_PRODUCT } from '../GraphQL/Mutations/Product';
 import { GET_PRODUCTS } from '../GraphQL/Queries/Product';
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';

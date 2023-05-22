@@ -6,7 +6,7 @@ import SummaryOrder from '../components/orders/SummaryOrder';
 import Total from '../components/orders/Total';
 import OrderContext from '../context/orders/OrderContext';
 import { useMutation } from '@apollo/client';
-import { NEW_ORDER } from '../GraphQL/Mutations';
+import { NEW_ORDER } from '../GraphQL/Mutations/Order';
 import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
 import useToaster from '../hooks/useToaster';
 import { useRouter } from 'next/router';

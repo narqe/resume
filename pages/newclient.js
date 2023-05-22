@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../components/shared/Layout'
-import InputField from '../components/sharedInputField'
+import InputField from '../components/shared/InputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
