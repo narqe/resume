@@ -1,14 +1,15 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../components/Layout';
-import InputField from '../../components/InputField';
-import SubmitBtn from '../../components/SubmitBtn';
+import Layout from '../../components/shared/Layout';
+import InputField from '../../components/shared/InputField';
+import SubmitBtn from '../../components/shared/SubmitBtn';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_PRODUCT_BY_ID } from '../../GraphQL/Queries';
+import { GET_PRODUCT_BY_ID } from '../../GraphQL/Queries/Product';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { UPDATE_PRODUCT } from '../../GraphQL/Mutations';
+import { UPDATE_PRODUCT } from '../../GraphQL/Mutations/Product';
 import Swal from 'sweetalert2';
+import Loading from '../../components/shared/Loading';
 
 const EditProduct = () => {
     const router = useRouter();
@@ -19,8 +20,6 @@ const EditProduct = () => {
             id: query.pid
         }
     });
-    console.log(data);
-
     const [ updateProduct ] = useMutation(UPDATE_PRODUCT)
 
     const schemaValidation = Yup.object({
@@ -28,10 +27,6 @@ const EditProduct = () => {
         price: Yup.string().required('El precio es obligatorio'),
         quantity: Yup.string().required('La cantidad es obligatoria'),
     })
-
-    if(loading) return 'Cargando...';
-
-    const { getProductById } = data;
     
     const updateProductOnDb = async values => {
         const { name, price, quantity } = values;
@@ -59,29 +54,52 @@ const EditProduct = () => {
 
     return (
         <Layout title="Editar Producto">
-            <div className='flex justify-center mt-5'>
-                <div className='w-full max-w-lg'>
-                    <Formik 
-                        validationSchema={schemaValidation}
-                        enableReinitialize
-                        initialValues={getProductById}
-                        onSubmit={ (values) => updateProductOnDb(values) }
-                    >
-                        { props => {
-                            return (
-                                <form
-                                    onSubmit={props.handleSubmit}
-                                    className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
-                                    { InputField('Nombre', 'text', 'Nombre del producto', 'name', props) }
-                                    { InputField('Price', 'number', 'Precio del producto', 'price', props) }
-                                    { InputField('Quantity', 'number', 'Cantidad disponible', 'quantity', props) }
-                                    { SubmitBtn('Editar Producto') }
-                                </form>
-                            )
-                        }}
-                    </Formik>
-                </div>
-            </div> 
+            { loading 
+                ?   <Loading />
+                :   error 
+                    ? 'error' 
+                    :   <div className='flex justify-center mt-5'>
+                            <div className='w-full max-w-lg'>
+                                <Formik 
+                                    validationSchema={schemaValidation}
+                                    enableReinitialize
+                                    initialValues={ data?.getProductById }
+                                    onSubmit={ (values) => updateProductOnDb(values) }
+                                >
+                                    { props => {
+                                        return (
+                                            <form
+                                                onSubmit={props.handleSubmit}
+                                                className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
+                                                <InputField
+                                                    label='Nombre'
+                                                    type='text'
+                                                    placeholder='Nombre del producto'
+                                                    value='name'
+                                                    formik={props} 
+                                                />
+                                                <InputField
+                                                    label='Price'
+                                                    type='number'
+                                                    placeholder='Precio del producto'
+                                                    value='price'
+                                                    formik={props} 
+                                                />
+                                                <InputField
+                                                    label='Quantity'
+                                                    type='number'
+                                                    placeholder='Cantidad disponible'
+                                                    value='quantity'
+                                                    formik={props} 
+                                                />
+                                                <SubmitBtn value='Editar Producto' />
+                                            </form>
+                                        )
+                                    }}
+                                </Formik>
+                            </div>
+                        </div> 
+            }
         </Layout>
     )
 }

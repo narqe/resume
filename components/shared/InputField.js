@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = ( label, type = 'text', placeholder, value, formik ) => {
+const InputField = ({ label, type = 'text', placeholder, value, formik }) => {
     
     const errorMessageValidator = (field) => {
         return (

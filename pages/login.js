@@ -1,13 +1,13 @@
-import Layout from '../components/Layout';
-import InputField from '../components/InputField';
+import Layout from '../components/shared/Layout';
+import InputField from '../components/shared/InputField';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { AUTH_USER } from '../GraphQL/Mutations';
 import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/SubmitBtn';
+import SubmitBtn from '../components/shared/SubmitBtn';
+import { AUTH_USER } from '../GraphQL/Mutations/Authentication';
 
 const Login = () => {
     const [ authUser ] = useMutation(AUTH_USER);
@@ -77,9 +77,21 @@ const Login = () => {
                             onSubmit={formik.handleSubmit}
                             className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
                         >
-                            { InputField('Email', 'email', 'Email del usuario', 'email', formik) }
-                            { InputField('Password', 'password', 'Password del usuario', 'password', formik) }
-                            { SubmitBtn('Iniciar Sesión') }
+                            <InputField
+                                label='Email' 
+                                type='email'
+                                placeholder='Email del usuario'
+                                value='email'
+                                formik={formik}
+                            />
+                            <InputField 
+                                label='Password' 
+                                type='password' 
+                                placeholder='Password del usuario' 
+                                value='password' 
+                                formik={formik} 
+                            />
+                            <SubmitBtn value='Iniciar Sesión' />
                         </form>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import { GET_USER } from '../GraphQL/Queries';
+import { GET_USER } from '../../GraphQL/Queries/Authentication';
 import { AiOutlinePoweroff } from '@react-icons/all-files/ai/AiOutlinePoweroff';
 import { useRouter } from 'next/router';
 

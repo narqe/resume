@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import Layout from '../components/Layout'
+import Layout from '../components/shared/Layout'
 import AssignClient from '../components/orders/AssignClient';
 import AssignProducts from '../components/orders/AssignProducts';
 import SummaryOrder from '../components/orders/SummaryOrder';
@@ -7,7 +7,7 @@ import Total from '../components/orders/Total';
 import OrderContext from '../context/orders/OrderContext';
 import { useMutation } from '@apollo/client';
 import { NEW_ORDER } from '../GraphQL/Mutations';
-import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries';
+import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
 import useToaster from '../hooks/useToaster';
 import { useRouter } from 'next/router';
 

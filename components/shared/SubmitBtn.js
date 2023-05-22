@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SubmitBtn = (value) => {
+const SubmitBtn = ({ value }) => {
     return (
         <input 
             type="submit"

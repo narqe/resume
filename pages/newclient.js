@@ -4,9 +4,9 @@ import InputField from '../components/InputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { NEW_CLIENT } from '../GraphQL/Mutations';
+import { NEW_CLIENT } from '../GraphQL/Mutations/Client';
 import { useRouter } from 'next/router';
-import { GET_CLIENT_SELLERS } from '../GraphQL/Queries';
+import { GET_CLIENT_SELLERS } from '../GraphQL/Queries/Client';
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/SubmitBtn';
 
@@ -79,12 +79,38 @@ const NewClient = () => {
                     <form 
                         onSubmit={formik.handleSubmit} 
                         className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
-                        { InputField('Nombre', 'text', 'Nombre del cliente', 'name', formik) }
-                        { InputField('Apellido', 'text', 'Apellido del cliente', 'lastname', formik) }
-                        { InputField('Empresa', 'text', 'Empresa del cliente', 'company', formik) }
-                        { InputField('Email', 'email', 'Email del cliente', 'email', formik) }
-                        { InputField('Telefono', 'tel', 'Telefono del cliente', 'phone', formik) }
-                        { SubmitBtn('Registrar Cliente') }
+                        <InputField
+                            label='Nombre'
+                            type='text'
+                            placeholder='Nombre del cliente'
+                            value='name'
+                            formik={formik}
+                        />
+                        <InputField 
+                            label='Apellido'
+                            type='text'
+                            placeholder='Apellido del cliente'
+                            value='lastname'
+                            formik={formik} />
+                        <InputField 
+                            label='Empresa'
+                            type='text'
+                            placeholder='Empresa del cliente'
+                            value='company'
+                            formik={formik} />
+                        <InputField 
+                            label='Email'
+                            type='email'
+                            placeholder='Email del cliente'
+                            value='email'
+                            formik={formik} />
+                        <InputField 
+                            label='Telefono'
+                            type='tel'
+                            placeholder='Telefono del cliente'
+                            value='phone'
+                            formik={formik} />
+                        <SubmitBtn value='Registrar cliente' />
                     </form>
                 </div>
             </div>

@@ -1,12 +1,17 @@
 import { useMutation } from '@apollo/client';
 import React from 'react'
 import Swal from 'sweetalert2';
-import { DELETE_CLIENT, DELETE_PRODUCT } from '../GraphQL/Mutations';
-import { GET_CLIENT_SELLERS, GET_PRODUCTS } from '../GraphQL/Queries';
+import { DELETE_CLIENT } from '../../GraphQL/Mutations/Client';
+import { DELETE_PRODUCT } from '../../GraphQL/Mutations/Product';
+import { GET_CLIENT_SELLERS } from '../../GraphQL/Queries/Client';
+import { GET_PRODUCTS } from '../../GraphQL/Queries/Product';
 import Router from 'next/router'
-import { CiCircleRemove, CiEdit } from "react-icons/ci";
+import { CiEdit } from "react-icons/ci";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import CurrencyNumber from './CurrencyNumber';
+import Loading from './Loading';
 
-const CustomTable = ({ data, ctx }) => {
+const CustomTable = ({ data, ctx, loading = false, error = false }) => {
   const [ deleteClient ] = useMutation(DELETE_CLIENT, {
     update(cache, { data: { deleteClient } }) {
       const { getClientsVendedor } = cache.readQuery({ query: GET_CLIENT_SELLERS})
@@ -37,6 +42,8 @@ const CustomTable = ({ data, ctx }) => {
 
   const thead = data?.length ? Object.keys(data[0]) : [];
 
+  if (loading) return (<Loading />);
+  if (error) return ('Error, intente nuevamente');
   if(!thead?.length) return ('Empty state')
 
   const confirmDelete = (id) => {
@@ -75,10 +82,10 @@ const CustomTable = ({ data, ctx }) => {
   const contextRead = (data) => {
     switch (ctx) {
       case 'product':
-        return data.deleteProduct
+        return data.deleteProduct;
     
       default:
-        return data.deleteClient
+        return data.deleteClient;
     }
   }
   
@@ -92,24 +99,18 @@ const CustomTable = ({ data, ctx }) => {
     })
   }
 
-  const markQtyZero = (qty) => {
-    return (ctx === 'Product' && qty === 0) && " bg-gray-200 text-gray-400 "
+  const qtyZero = (qty) => {
+    return (ctx === 'Product' && qty === 0) && "bg-yellow-50 text-red-500 font-bold border-b-2 border-yellow-500"
   }
 
-  const btnQtyZero = (qty) => {
-    return (ctx === 'Product' && qty === 0) && " animate-pulse opacity-70 "
-  }
-
-  const addCurrencyFormatPrefix = (item) => {
-    return (item === 'price' || item === 'total') ? "$" : ""
-  }
-
-  const addCurrencyFormatSuffix = (item) => {
-    return (item === 'price' || item === 'total') ? "ARS" : ""
+  const isCurrencyField = (item, th) => {
+    return (th === 'price' || th === 'total') 
+      ? <CurrencyNumber value={item[th]} /> 
+      : item[th];
   }
 
   return (
-    <div className='overflow-x-scroll'>
+    <div className='overflow-x-scroll mb-10'>
       <table className='table-auto shadow-md mt-10 w-full w-lg'>
         <thead className='bg-gray-800'>
           <tr className='text-white'>
@@ -119,39 +120,34 @@ const CustomTable = ({ data, ctx }) => {
                 }
               })
             }
-            <th className='w-1/5 py-2'>DELETE</th> 
-            <th className='w-1/5 py-2'>EDIT</th> 
+            <th className='w-1/5 py-2'>ACTIONS</th> 
           </tr>
         </thead>
         <tbody className='bg-white'>
           { data.map(item => (
-              <tr key={item.id} className={`${markQtyZero(item.quantity)}`}>
+              <tr key={item.id} className={`${ qtyZero(item.quantity) }`}>
                 { thead.map((th, i) => {
                     if(!th.startsWith('__') && th !== 'id') {
                       return (
                         <td className={ `border px-4 py-2` } key={i+item.id}>
-                          { `${addCurrencyFormatPrefix(th)}${item[th]} ${addCurrencyFormatSuffix(th)}` }
+                          { isCurrencyField(item, th) }
                         </td>
                       )
                     }
                   })
                 }
-                <td className='border px-4 py-2'>
+                <td className='border-t flex justify-between gap-1 items-center px-4 py-2'>
                   <button 
                     type='button' 
-                    className={ `flex justify-center items-center bg-red-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold` }
+                    className='flex justify-center items-center text-red-500 py-2 px-4 w-full text-lg font-bold'
                     onClick={() => confirmDelete(item.id)}>
-                    DELETE
-                    <CiCircleRemove className='mx-2' />
+                      <RiDeleteBin2Line className='mx-2' />
                   </button>
-                </td>
-                <td className='border px-4 py-2'>
                   <button 
                     type='button' 
-                    className={ `flex justify-center items-center bg-green-500 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold ${btnQtyZero(item.quantity)}` }
+                    className='flex justify-center items-center text-blue-500 py-2 px-4 w-full text-lg font-bold'
                     onClick={() => editElement(item.id)}>
-                    EDIT
-                    <CiEdit className='mx-2' />
+                      <CiEdit className='mx-2' />
                   </button>
                 </td>
               </tr>
@@ -163,4 +159,4 @@ const CustomTable = ({ data, ctx }) => {
   )
 }
 
-export default CustomTable
+export default CustomTable;

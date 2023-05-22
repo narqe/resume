@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import Layout from '../components/Layout'
-import InputField from '../components/InputField'
+import Layout from '../components/shared/Layout'
+import InputField from '../components/shared/InputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
 import { NEW_PRODUCT } from '../GraphQL/Mutations';
-import { GET_PRODUCTS } from '../GraphQL/Queries';
+import { GET_PRODUCTS } from '../GraphQL/Queries/Product';
 import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/SubmitBtn';
+import SubmitBtn from '../components/shared/SubmitBtn';
 import Swal from 'sweetalert2';
 
 const NewProduct = () => {
@@ -75,10 +75,25 @@ const NewProduct = () => {
                     <form 
                         onSubmit={formik.handleSubmit} 
                         className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
-                        { InputField('Nombre', 'text', 'Nombre del producto', 'name', formik) }
-                        { InputField('Price', 'number', 'Precio del producto', 'price', formik) }
-                        { InputField('Quantity', 'number', 'Cantidad disponible', 'quantity', formik) }
-                        { SubmitBtn('Cargar Producto') }
+                        <InputField
+                            label='Nombre'
+                            type='text'
+                            placeholder='Nombre del producto'
+                            value='name'
+                            formik={formik} />
+                        <InputField
+                            label='Price'
+                            type='number'
+                            placeholder='Precio del producto'
+                            value='price'
+                            formik={formik} />
+                        <InputField
+                            label='Quantity'
+                            type='number'
+                            placeholder='Cantidad disponible'
+                            value='quantity'
+                            formik={formik} />
+                        <SubmitBtn value='Cargar Producto' />
                     </form>
                 </div>
             </div>

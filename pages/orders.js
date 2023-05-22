@@ -1,16 +1,13 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/shared/Layout';
 import Link from 'next/link';
-import OrdersTable from '../components/OrdersTable';
+import OrdersTable from '../components/orders/OrdersTable';
 import { useQuery } from '@apollo/client';
-import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries';
+import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
+import Loading from '../components/shared/Loading';
 
 const Orders = () => {
     const { data, loading } = useQuery(GET_ORDERS_BY_SELLER);
-
-    if(loading) return ('Cargando...')
-
-    const { getOrderVendedor } = data;
 
     return (
         <Layout title="Orders">
@@ -19,11 +16,18 @@ const Orders = () => {
                     New Order
                 </span>
             </Link>
-            { !getOrderVendedor?.length 
-                ? 'No hay pedidos'
-                : <div className="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
-                    { getOrderVendedor.map(order => <OrdersTable key={order.id} order={order} />)}
-                </div>
+            { loading 
+                ? <Loading /> 
+                :  data?.getOrderVendedor.length 
+                    ? <div className="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
+                        { data.getOrderVendedor.map(order => 
+                            <OrdersTable 
+                                key={order.id} 
+                                order={order} 
+                            />
+                        )}
+                    </div>
+                    : 'Empty state'
             }
         </Layout>
     )

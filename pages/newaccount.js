@@ -1,12 +1,12 @@
-import Layout from '../components/Layout';
+import Layout from '../components/shared/Layout';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import InputField from '../components/InputField';
+import InputField from '../components/shared/InputField';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
-import { NEW_ACCOUNT } from '../GraphQL/Mutations' 
+import { NEW_ACCOUNT } from '../GraphQL/Mutations/Authentication' 
 import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/SubmitBtn';
+import SubmitBtn from '../components/shared/SubmitBtn';
 import { useRouter } from 'next/router';
 
 const NewAccount = () => {
@@ -66,11 +66,35 @@ const NewAccount = () => {
                             onSubmit={formik.handleSubmit}
                             className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
                         >
-                            { InputField('Nombre', 'text', 'Nombre del usuario', 'name', formik) }
-                            { InputField('Apellido', 'text', 'Apellido del usuario', 'lastname', formik) }
-                            { InputField('Email', 'email', 'Email del usuario', 'email', formik) }
-                            { InputField('Password', 'password', 'Password del usuario', 'password', formik) }
-                            { SubmitBtn('Crear usuario') }
+                            <InputField
+                                label='Nombre'
+                                type='text'
+                                placeholder='Nombre del usuario'
+                                value='name'
+                                formik={formik} 
+                            />
+                            <InputField
+                                label='Apellido'
+                                type='text'
+                                placeholder='Apellido del usuario'
+                                value='lastname'
+                                formik={formik} 
+                            />
+                            <InputField
+                                label='Email'
+                                type='email'
+                                placeholder='Email del usuario'
+                                value='email'
+                                formik={formik} 
+                            />
+                            <InputField
+                                label='Password'
+                                type='password'
+                                placeholder='Password del usuario'
+                                value='password'
+                                formik={formik} 
+                            />
+                            <SubmitBtn value='Crear usuario' />
                         </form>
                     </div>
                 </div>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useQuery } from '@apollo/client';
 import Select from 'react-select';
-import { GET_PRODUCTS } from '../../GraphQL/Queries';
+import { GET_PRODUCTS } from '../../GraphQL/Queries/Product';
 import OrderContext from '../../context/orders/OrderContext';
+import Loading from '../shared/Loading';
 
 const AssignProducts = () => {
     const [ productsSelected, setProductsSelected ] = useState(null);
@@ -19,7 +20,7 @@ const AssignProducts = () => {
         setProductsSelected(selected)
     }
 
-    if(loading) return ('Cargando...');
+    if(loading) return (<Loading />);
 
     return (
         <>

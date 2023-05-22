@@ -1,14 +1,12 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/shared/Layout';
 import Link from 'next/link';
-import CustomTable from '../components/CustomTable';
+import CustomTable from '../components/shared/CustomTable';
 import { useQuery } from '@apollo/client';
-import { GET_PRODUCTS } from '../GraphQL/Queries';
+import { GET_PRODUCTS } from '../GraphQL/Queries/Product';
 
 const Products = () => {
-    const { data, loading } = useQuery(GET_PRODUCTS)
-
-    if(loading) return null;
+    const { data, loading, error } = useQuery(GET_PRODUCTS);
 
     return (
         <Layout title="Productos">
@@ -17,7 +15,7 @@ const Products = () => {
                 New Product
                 </span>
             </Link>
-            <CustomTable data={data.getAllProducts} ctx="Product" />
+            <CustomTable data={data?.getAllProducts} ctx="Product" loading={loading} error={error} />
         </Layout>
     )
 }
