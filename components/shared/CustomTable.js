@@ -10,8 +10,10 @@ import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import CurrencyNumber from './CurrencyNumber';
 import Loading from './Loading';
+import { useTranslation } from 'react-i18next';
 
 const CustomTable = ({ data, ctx, loading = false, error = false }) => {
+  const { t } = useTranslation();
   const [ deleteClient ] = useMutation(DELETE_CLIENT, {
     update(cache, { data: { deleteClient } }) {
       const { getClientsVendedor } = cache.readQuery({ query: GET_CLIENT_SELLERS})
@@ -48,13 +50,14 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
 
   const confirmDelete = (id) => {
     Swal.fire({
-      title: `¿Está seguro que desea eliminar este ${ctx}?`,
-      text: "Esta acción no puede deshacerse",
+      title: t('MESSAGES.CONFIRMATION.ON_DELETE.TITLE', { ctx: t("CTX."+ctx) }),
+      text: t('MESSAGES.CONFIRMATION.ON_DELETE.TEXT'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, borrarlo'
+      confirmButtonText: t('MESSAGES.CONFIRMATION.ON_DELETE.CONFIRMATION_BTN', { ctx: t("CTX."+ctx) }),
+      cancelButtonText: t('MESSAGES.CONFIRMATION.ON_DELETE.CANCEL_BTN')
     }).then(async (result) => {
       if (result.value) {
         try {
@@ -69,7 +72,7 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
           }
           Swal.fire(
             contextRead(data),
-            `El ${ctx} fue eliminado correctamente`,
+            t('MESSAGES.SUCCESS.ON_DELETE', { ctx: t("CTX."+ctx) }),
             'success'
           )
         } catch (error) {
@@ -116,11 +119,15 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
           <tr className='text-white'>
             { thead.map((th, i) => {
                 if(!th.startsWith('__') && th !== 'id') {
-                  return <th className='w-1/5 py-2' key={th+i}>{ th.toUpperCase() }</th> 
+                  return <th className='w-1/5 py-2' key={th+i}>
+                    { t(`TABLE_HEADERS.${th}`) }
+                  </th> 
                 }
               })
             }
-            <th className='w-1/5 py-2'>ACTIONS</th> 
+            <th className='w-1/5 py-2'>
+              { t('TABLE_HEADERS.ACTIONS')}
+            </th> 
           </tr>
         </thead>
         <tbody className='bg-white'>

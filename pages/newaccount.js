@@ -8,10 +8,12 @@ import { NEW_ACCOUNT } from '../GraphQL/Mutations/Authentication'
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 const NewAccount = () => {
     const [ newUser ] = useMutation(NEW_ACCOUNT);
     const [ message, saveMessage ] = useState(null);
+    const { t } = useTranslation();
     const router = useRouter();
 
     const formik = useFormik({
@@ -22,10 +24,14 @@ const NewAccount = () => {
             password: ''
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Name is required'),
-            lastname: Yup.string().required('Last is required'),
-            email: Yup.string().email('Email is not valid').required('Email is required'),
-            password: Yup.string().min(6, 'Password must have at least 6 characters').required('Password is required'),
+            name: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            lastname: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            email: Yup.string()
+                .email(t('INPUT_ERRORS.INVALID_EMAIL'))
+                .required(t('INPUT_ERRORS.REQUIRED')),
+            password: Yup.string()
+                .min(6, t('INPUT_ERRORS.MIN_REQUIRED', { qty: 6 }))
+                .required(t('INPUT_ERRORS.REQUIRED')),
         }),
         onSubmit: async values => {
             const { name, lastname, password, email } = values
@@ -41,7 +47,7 @@ const NewAccount = () => {
                     }
                 })                
                 saveMessage({
-                    message: `${ data.newUser.email } was created sucessfully`,
+                    message: t('MESSAGES.SUCCESS.ON_CREATION.USER', { user: data.newUser.email }),
                     type: 'info'
                 });
                 setTimeout(() => router.push('/login'), 2000);
@@ -58,7 +64,7 @@ const NewAccount = () => {
 
     return (
         <>
-            <Layout title="Crear nueva cuenta">                
+            <Layout title={ t('LAYOUT_TITLES.NEW_ACCOUNT') }>                
                 { useToaster(message?.message, message?.type) }
                 <div className="flex justify-center mt-5">
                     <div className="w-full max-w-sm">
@@ -67,34 +73,34 @@ const NewAccount = () => {
                             className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
                         >
                             <InputField
-                                label='Nombre'
+                                label={t('LABELS.NAME')}
                                 type='text'
-                                placeholder='Nombre del usuario'
+                                placeholder={t('PLACEHOLDERS.NAME_ACCOUNT')}
                                 value='name'
                                 formik={formik} 
                             />
                             <InputField
-                                label='Apellido'
+                                label={t('LABELS.LASTNAME')}
                                 type='text'
-                                placeholder='Apellido del usuario'
+                                placeholder={t('PLACEHOLDERS.LASTNAME_ACCOUNT')}
                                 value='lastname'
                                 formik={formik} 
                             />
                             <InputField
-                                label='Email'
+                                label={t('LABELS.EMAIL')}
                                 type='email'
-                                placeholder='Email del usuario'
+                                placeholder={t('PLACEHOLDERS.EMAIL_ACCOUNT')}
                                 value='email'
                                 formik={formik} 
                             />
                             <InputField
-                                label='Password'
+                                label={t('LABELS.PASSWORD')}
                                 type='password'
-                                placeholder='Password del usuario'
+                                placeholder={t('PLACEHOLDERS.PASSWORD_ACCOUNT')}
                                 value='password'
                                 formik={formik} 
                             />
-                            <SubmitBtn value='Crear usuario' />
+                            <SubmitBtn value={t('BUTTONS.NEW_USER')} />
                         </form>
                     </div>
                 </div>

@@ -10,12 +10,14 @@ import { NEW_ORDER } from '../GraphQL/Mutations/Order';
 import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
 import useToaster from '../hooks/useToaster';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 const NewOrder = () => {
     const [ message, saveMessage ] = useState({
         message: '',
         type: ''
     });
+    const { t } = useTranslation();
     const router = useRouter();
     const [ newOrder ] = useMutation(NEW_ORDER, { 
         update(cache, { data: { newOrder }}){
@@ -66,7 +68,7 @@ const NewOrder = () => {
     }
     
     return (
-        <Layout title="New Order">
+        <Layout title={ t('LAYOUT_TITLES.ORDERS') }>
             { useToaster(message?.message, message?.type) }
             <div className='flex justify-center mt-5'>
                 <div className='w-full max-w-lg'>

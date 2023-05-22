@@ -4,9 +4,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { useQuery } from '@apollo/client';
 import { TOP_CLIENTS } from '../GraphQL/Queries/TopPages';
 import Loading from '../components/shared/Loading';
+import { useTranslation } from 'react-i18next';
 
 const BestClients = () => {
     const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_CLIENTS);
+    const { t } = useTranslation();
 
     useEffect(() => {
         startPolling(1000);
@@ -22,7 +24,7 @@ const BestClients = () => {
     })
 
     return (
-        <Layout title="Best Clients">
+        <Layout title={t('LAYOUT_TITLES.BEST_SELLERS')}>
             { loading 
                 ? <Loading />
                 : error 

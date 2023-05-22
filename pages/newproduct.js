@@ -9,8 +9,10 @@ import { GET_PRODUCTS } from '../GraphQL/Queries/Product';
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
 const NewProduct = () => {
+    const { t } = useTranslation();
     const [ message, saveMessage ] = useState({
         message: '',
         type: ''
@@ -22,9 +24,9 @@ const NewProduct = () => {
             quantity: '',
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('El nombre del producto es obligatorio'),
-            price: Yup.string().required('El precio del producto es obligatorio'),
-            quantity: Yup.string().required('La cantidad del producto es obligatoria'),
+            name: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            price: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            quantity: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
         }),
         onSubmit: async (values) => {
             const { name, price, quantity } = values;
@@ -39,8 +41,8 @@ const NewProduct = () => {
                     }
                 })
                 Swal.fire({
-                    title: `Exito!`,
-                    text: `El producto ${name} fue creado correctamente`,
+                    title: t('MESSAGES.SUCCESS.ON_CREATION.TITLE', { product: name }),
+                    text: t('MESSAGES.SUCCESS.ON_CREATION.TEXT'),
                     icon: 'success',
                     timer: 2000
                 })
@@ -68,7 +70,7 @@ const NewProduct = () => {
     });
 
     return (
-        <Layout title="New Product">
+        <Layout title={ t('LAYOUT_TITLES.PRODUCTS') }>
             { useToaster(message?.message, message?.type) }
             <div className='flex justify-center mt-5'>
                 <div className='w-full max-w-lg'>
@@ -76,24 +78,24 @@ const NewProduct = () => {
                         onSubmit={formik.handleSubmit} 
                         className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
                         <InputField
-                            label='Nombre'
+                            label={t('LABELS.NAME')}
                             type='text'
-                            placeholder='Nombre del producto'
+                            placeholder={t('PLACEHOLDERS.NAME_PRODUCT')}
                             value='name'
                             formik={formik} />
                         <InputField
-                            label='Price'
+                            label={t('LABELS.PRICE')}
                             type='number'
-                            placeholder='Precio del producto'
+                            placeholder={t('PLACEHOLDERS.PRICE_PRODUCT')}
                             value='price'
                             formik={formik} />
                         <InputField
-                            label='Quantity'
+                            label={t('LABELS.QUANTITY')}
                             type='number'
-                            placeholder='Cantidad disponible'
+                            placeholder={t('PLACEHOLDERS.QTY_PRODUCT')}
                             value='quantity'
                             formik={formik} />
-                        <SubmitBtn value='Cargar Producto' />
+                        <SubmitBtn value={t('BUTTONS.NEW_PRODUCT')} />
                     </form>
                 </div>
             </div>

@@ -30,7 +30,7 @@ const Layout = ({ children, title }) => {
                                 <h1 className="text-2xl text-gray-800 font-light">{ title }</h1>
                             </Header>
                             <div className='px-10 pt-5'>
-                                {children}
+                                { children }
                             </div>
                         </main>
                     </div>

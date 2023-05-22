@@ -9,12 +9,14 @@ import { useRouter } from 'next/router';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries/Client';
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';
+import { useTranslation } from 'react-i18next';
 
 const NewClient = () => {
     const [ message, saveMessage ] = useState({
         message: '',
         type: ''
     });
+    const { t } = useTranslation();
     const router = useRouter();
     const formik = useFormik({
         initialValues: {
@@ -25,10 +27,12 @@ const NewClient = () => {
             phone: ''
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('El nombre del cliente es obligatorio'),
-            lastname: Yup.string().required('El apellido del cliente es obligatorio'),
-            company: Yup.string().required('La empresa del cliente es obligatoria'),
-            email: Yup.string().email('Email is not valid').required('Email is required'),
+            name: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            lastname: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            company: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            email: Yup.string()
+                .email(t('INPUT_ERRORS.INVALID_EMAIL'))
+                .required(t('INPUT_ERRORS.REQUIRED')),
         }),
         onSubmit: async (values) => {
             const {name, lastname, company, email, phone } = values;
@@ -45,7 +49,7 @@ const NewClient = () => {
                     }
                 })
                 saveMessage({
-                    message: 'Client created sucessfully',
+                    message: t('MESSAGES.SUCCESS.ON_CREATION.CLIENT'),
                     type: 'success'
                 })
                 setTimeout(() => {
@@ -72,7 +76,7 @@ const NewClient = () => {
     });
 
     return (
-        <Layout title="New Client">
+        <Layout title={ t('LAYOUT_TITLES.CLIENTS') }>
             { useToaster(message?.message, message?.type) }
             <div className='flex justify-center mt-5'>
                 <div className='w-full max-w-lg'>
@@ -80,37 +84,37 @@ const NewClient = () => {
                         onSubmit={formik.handleSubmit} 
                         className='bg-white shadow-md px-8 pt-8 pb-8 mb-4'>
                         <InputField
-                            label='Nombre'
+                            label={t('LABELS.NAME')}
                             type='text'
-                            placeholder='Nombre del cliente'
+                            placeholder={t('PLACEHOLDERS.NAME_CLIENT')}
                             value='name'
                             formik={formik}
                         />
                         <InputField 
-                            label='Apellido'
+                            label={t('LABELS.LASTNAME')}
                             type='text'
-                            placeholder='Apellido del cliente'
+                            placeholder={t('PLACEHOLDERS.LASTNAME_CLIENT')}
                             value='lastname'
                             formik={formik} />
                         <InputField 
-                            label='Empresa'
+                            label={t('LABELS.COMPANY')}
                             type='text'
-                            placeholder='Empresa del cliente'
+                            placeholder={t('PLACEHOLDERS.COMPANY_CLIENT')}
                             value='company'
                             formik={formik} />
                         <InputField 
-                            label='Email'
+                            label={t('LABELS.EMAIL')}
                             type='email'
-                            placeholder='Email del cliente'
+                            placeholder={t('PLACEHOLDERS.EMAIL_CLIENT')}
                             value='email'
                             formik={formik} />
                         <InputField 
-                            label='Telefono'
+                            label={t('LABELS.PHONE')}
                             type='tel'
-                            placeholder='Telefono del cliente'
+                            placeholder={t('PLACEHOLDERS.PHONE_CLIENT')}
                             value='phone'
                             formik={formik} />
-                        <SubmitBtn value='Registrar cliente' />
+                        <SubmitBtn value={t('BUTTONS.NEW_CLIENT')} />
                     </form>
                 </div>
             </div>

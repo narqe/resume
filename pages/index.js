@@ -5,8 +5,11 @@ import { GET_CLIENT_SELLERS } from '../GraphQL/Queries/Client';
 import Link from 'next/link';
 import CustomTable from '../components/shared/CustomTable';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
+import { BsPlusCircle } from 'react-icons/bs';
 
 const Index = () => {
+  const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_CLIENT_SELLERS);
   const router = useRouter()
 
@@ -17,10 +20,11 @@ const Index = () => {
   }, [])
 
   return(
-    <Layout title="Clientes">
+    <Layout title={ t('LAYOUT_TITLES.CLIENTS') }>
       <Link href="/newclient">
-        <span className='bg-blue-800 py-2 px-5 mt-2 text-white rounded text-sm hover:bg-blue-600 uppercase font-bold'>
-          New Client
+        <span className='inline-flex leading-4 gap-3 bg-blue-800 py-2 px-5 mt-2 text-white rounded text-sm hover:bg-blue-600 uppercase font-bold'>
+          <BsPlusCircle />
+          { t('BUTTONS.NEW_CLIENT') }
         </span>
       </Link>
       <CustomTable 

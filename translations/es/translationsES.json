@@ -1,0 +1,111 @@
+{ 
+    "WELCOME": "Hola, {{ name }}",
+    "PAGE_TITLE": "CRM",
+    "LOADING": "Cargando datos, esperá unos momentos.",
+    "BUTTONS": {
+      "NEW_CLIENT": "Registrar cliente",
+      "NEW_PRODUCT": "Cargar producto",
+      "NEW_ORDER": "Cargar pedido",
+      "LOGIN": "Ingresar",
+      "NEW_USER": "Crear usuario",
+      "DELETE_ORDER": "Eliminar pedido"
+    },
+    "PLACEHOLDERS": {
+      "NAME_PRODUCT": "Nombre del producto",
+      "PRICE_PRODUCT": "Precio del producto",
+      "QTY_PRODUCT": "Cantidad disponible",
+      "QTY_ORDER": "Cantidad a pedir (unidades)",
+      "EMAIL": "Ingresá tu e-mail",
+      "PASSWORD": "Ingresá tu contraseña",
+      "NAME_CLIENT": "Nombre del cliente",
+      "LASTNAME_CLIENT": "Apellido del cliente",
+      "COMPANY_CLIENT": "Empresa del cliente",
+      "PHONE_CLIENT": "Teléfono del cliente",
+      "EMAIL_CLIENT": "E-mail del cliente",
+      "LASTNAME_ACCOUNT": "Apellido del usuario",
+      "NAME_ACCOUNT": "Nombre del usuario",
+      "PASSWORD_ACCOUNT": "Ingresá una contraseña para el usuario",
+      "EMAIL_ACCOUNT": "E-mail del usuario",
+      "ASSIGN_CLIENT": "Seleccioná un cliente",
+      "ASSIGN_PRODUCTS": "Seleccioná productos"
+    },
+    "LABELS": {
+      "CLIENT": "Cliente",
+      "TOTAL": "Total",
+      "TOTAL_TO_PAY": "Total a pagar",
+      "ORDER_SUMMARY": "Resumen del pedido",
+      "NAME": "Nombre",
+      "LASTNAME": "Apellido",
+      "PRICE": "Precio",
+      "QUANTITY": "Cantidad",
+      "EMAIL": "E-mail",
+      "PASSWORD": "Contraseña",
+      "COMPANY": "Empresa",
+      "PHONE": "Teléfono",
+      "ASSIGN_CLIENT": "Asignar un cliente al pedido",
+      "ASSIGN_PRODUCTS": "Asignar productos al pedido (podés seleccionar varios)",
+      "STATUS": {
+        "COMPLETED": "Entregado",
+        "PENDING": "Pendiente",
+        "CANCELLED": "Cancelado"
+      }
+    },
+    "LAYOUT_TITLES": {
+      "CLIENTS": "Clientes",
+      "PRODUCTS": "Productos",
+      "ORDERS": "Pedidos",
+      "NEW_ACCOUNT": "Crear nueva cuenta",
+      "LOGIN": "Ingresar al sistema",
+      "BEST_CLIENTS": "Mejores clientes",
+      "BEST_SELLERS": "Mejores vendedores",
+      "STADISTICS": "Estadísticas"
+    },
+    "TABLE_HEADERS": {
+      "name": "Nombre",
+      "lastname": "Apellido",
+      "email": "Correo",
+      "phone": "Telefono",
+      "company": "Empresa",
+      "price": "Precio ($)",
+      "quantity": "Cantidad (ud.)",
+      "ACTIONS": "Acciones"
+    },
+    "EMPTY": {
+      "ASSIGN_CLIENT": "No hay clientes para seleccionar. Registrálos en la solapa de clientes para poder ver resultados",
+      "ASSIGN_PRODUCTS": "No hay productos para seleccionar. Registrá nuevos productos para poder ver resultados",
+      "PRODUCTS_SELECTED": "No hay productos seleccionados."
+    },
+    "MESSAGES": {
+      "REDIRECTING": "Redirigiendo...",
+      "INFO": {
+        "SUMMARY_ITEMS": "Productos del pedido"
+      },
+      "SUCCESS": {
+        "ON_DELETE": "El {{ ctx }} fue eliminado correctamente",
+        "ON_CREATION": {
+          "TITLE": "{{ product }}",
+          "TEXT": "Fue creado correctamente",
+          "CLIENT": "El cliente fue creado correctamente",
+          "USER": "El usuario {{ user }} fue creado correctamente"
+        }
+      },
+      "CONFIRMATION": {
+        "ON_DELETE": {
+          "TITLE": "¿Está seguro que desea eliminar este {{ ctx }}?",
+          "TEXT": "Esta acción no puede deshacerse",
+          "CONFIRMATION_BTN": "Borrar {{ ctx }}",
+          "CANCEL_BTN": "Cancelar"
+        }
+      }
+    },
+    "INPUT_ERRORS": {
+      "REQUIRED": "Este campo es obligatorio",
+      "MIN_REQUIRED": "Tiene que tener un mínimo de {{ qty }} caracteres",
+      "INVALID_EMAIL": "El email no es válido"
+    },
+    "CTX": {
+      "Product": "producto",
+      "Client": "cliente",
+      "Order": "pedido"
+    }
+  }
