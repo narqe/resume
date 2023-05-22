@@ -9,6 +9,8 @@ import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';
 import { AUTH_USER } from '../GraphQL/Mutations/Authentication';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
+import Separator from '../components/shared/Separator';
 
 const Login = () => {
     const [ authUser ] = useMutation(AUTH_USER);
@@ -98,7 +100,13 @@ const Login = () => {
                                 value='password' 
                                 formik={formik} 
                             />
+                            <Separator />
                             <SubmitBtn value={t('BUTTONS.LOGIN')} />
+                            <Link href="/newaccount">
+                                <p className='pt-2 text-center cursor-pointer  text-blue-800 text-sm hover:underline hover:font-bold'>
+                                    {t('BUTTONS.SIGN_UP')}
+                                </p>
+                            </Link>
                         </form>
                     </div>
                 </div>

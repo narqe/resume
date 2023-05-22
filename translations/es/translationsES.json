@@ -8,7 +8,9 @@
       "NEW_ORDER": "Cargar pedido",
       "LOGIN": "Ingresar",
       "NEW_USER": "Crear usuario",
-      "DELETE_ORDER": "Eliminar pedido"
+      "DELETE_ORDER": "Eliminar pedido",
+      "SIGN_UP": "Todavía no tenés usuario, registrate",
+      "SIGN_IN": "Ya estás registrado, ingresá"
     },
     "PLACEHOLDERS": {
       "NAME_PRODUCT": "Nombre del producto",

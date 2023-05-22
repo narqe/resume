@@ -9,6 +9,8 @@ import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
+import Separator from '../components/shared/Separator';
 
 const NewAccount = () => {
     const [ newUser ] = useMutation(NEW_ACCOUNT);
@@ -70,7 +72,7 @@ const NewAccount = () => {
                     <div className="w-full max-w-sm">
                         <form 
                             onSubmit={formik.handleSubmit}
-                            className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
+                            className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4 block"
                         >
                             <InputField
                                 label={t('LABELS.NAME')}
@@ -100,7 +102,13 @@ const NewAccount = () => {
                                 value='password'
                                 formik={formik} 
                             />
+                            <Separator />
                             <SubmitBtn value={t('BUTTONS.NEW_USER')} />
+                            <Link href="/login">
+                                <p className='pt-2 text-center cursor-pointer hover:underline text-blue-800 text-sm hover:font-bold'>
+                                    {t('BUTTONS.SIGN_IN')}
+                                </p>
+                            </Link>
                         </form>
                     </div>
                 </div>
