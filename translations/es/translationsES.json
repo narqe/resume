@@ -73,7 +73,10 @@
     "EMPTY": {
       "ASSIGN_CLIENT": "No hay clientes para seleccionar. Registrálos en la solapa de clientes para poder ver resultados",
       "ASSIGN_PRODUCTS": "No hay productos para seleccionar. Registrá nuevos productos para poder ver resultados",
-      "PRODUCTS_SELECTED": "No hay productos seleccionados."
+      "PRODUCTS_SELECTED": "No hay productos seleccionados.",
+      "ORDERS": "No hay pedidos cargados momentáneamente",
+      "CLIENT_RESULTS": "No hay clientes registrados momentáneamente",
+      "PRODUCT_RESULTS": "No hay productos disponibles momentáneamente"
     },
     "MESSAGES": {
       "REDIRECTING": "Redirigiendo...",
@@ -107,5 +110,8 @@
       "Product": "producto",
       "Client": "cliente",
       "Order": "pedido"
+    },
+    "ERRORS": {
+      "MESSAGE_001": "Hubo un error al cargar los resultados. Por favor, intentá nuevamente."
     }
   }

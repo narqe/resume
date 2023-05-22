@@ -4,7 +4,7 @@ import ProductSummary from './ProductSummary';
 import { useTranslation } from 'react-i18next';
 
 const SummaryOrder = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation()
     const orderContext = useContext(OrderContext);
     const { products } = orderContext;
 

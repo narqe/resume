@@ -11,6 +11,8 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 import CurrencyNumber from './CurrencyNumber';
 import Loading from './Loading';
 import { useTranslation } from 'react-i18next';
+import EmptyResults from './EmptyResults';
+import ErrorCustomTableResults from './ErrorCustomTableResults';
 
 const CustomTable = ({ data, ctx, loading = false, error = false }) => {
   const { t } = useTranslation();
@@ -44,9 +46,20 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
 
   const thead = data?.length ? Object.keys(data[0]) : [];
 
+  const getEmptyMessage = () => {
+    return ctx === 'Client' ? 'EMPTY.CLIENT_RESULTS' : 'EMPTY.PRODUCT_RESULTS'
+  }
+
   if (loading) return (<Loading />);
-  if (error) return ('Error, intente nuevamente');
-  if(!thead?.length) return ('Empty state')
+
+  if (error) {
+    return <ErrorCustomTableResults message={t('ERRORS.MESSAGE_001')} />
+  };
+
+  if (!thead?.length) {
+    const message = getEmptyMessage();
+    return <EmptyResults message={t(message)} />
+  }
 
   const confirmDelete = (id) => {
     Swal.fire({

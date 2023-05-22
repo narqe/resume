@@ -3,14 +3,10 @@ import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import translationES from "./translations/es/translationsES.json";
-import translationEN from "./translations/en/translationsEN.json";
 
 const resources = {
     es: {
         translation: translationES,
-    },
-    en: {
-        translation: translationEN
     }
 };
 

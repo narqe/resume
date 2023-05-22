@@ -7,6 +7,7 @@ import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
 import Loading from '../components/shared/Loading';
 import { BsPlusCircle } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
+import EmptyResults from '../components/shared/EmptyResults';
 
 const Orders = () => {
     const { data, loading } = useQuery(GET_ORDERS_BY_SELLER);
@@ -32,7 +33,9 @@ const Orders = () => {
                             />
                         )}
                     </div>
-                    : 'Empty state'
+                    : <EmptyResults 
+                        message={t('EMPTY.ORDERS')} 
+                    />
             }
         </Layout>
     )
