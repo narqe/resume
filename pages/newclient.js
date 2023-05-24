@@ -39,7 +39,7 @@ const NewClient = () => {
             try {
                 const { data } = await newClient({
                     variables: {
-                        input: {
+                        input:  {
                             name,
                             lastname,
                             company,

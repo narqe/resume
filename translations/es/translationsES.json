@@ -12,7 +12,9 @@
       "SIGN_UP": "Todavía no tenés usuario, registrate",
       "SIGN_IN": "Ya estás registrado, ingresá",
       "EDIT_PRODUCT": "Modificar producto",
-      "EDIT_CLIENT": "Modificar cliente"
+      "EDIT_CLIENT": "Modificar cliente",
+      "MORE_DETAILS": "Ver más",
+      "NEW_BLOG": "Crear entrada"
     },
     "PLACEHOLDERS": {
       "NAME_PRODUCT": "Nombre del producto",
@@ -31,7 +33,10 @@
       "PASSWORD_ACCOUNT": "Ingresá una contraseña para el usuario",
       "EMAIL_ACCOUNT": "E-mail del usuario",
       "ASSIGN_CLIENT": "Seleccioná un cliente",
-      "ASSIGN_PRODUCTS": "Seleccioná productos"
+      "ASSIGN_PRODUCTS": "Seleccioná productos",
+      "TITLE": "Ingresá el título del artículo",
+      "AUTHOR": "Ingresá el autor del artículo",
+      "SUMMARY": "Ingresá un resumen del artículo"
     },
     "LABELS": {
       "CLIENT": "Cliente",
@@ -52,7 +57,11 @@
         "COMPLETED": "Entregado",
         "PENDING": "Pendiente",
         "CANCELLED": "Cancelado"
-      }
+      },
+      "TITLE": "Título",
+      "AUTHOR": "Autor",
+      "CONTENT": "Contenido (En la columna de la derecha se irá viendo el resultado final)",
+      "SUMMARY": "Copete"
     },
     "LAYOUT_TITLES": {
       "CLIENTS": "Clientes",
@@ -64,7 +73,9 @@
       "BEST_SELLERS": "Mejores vendedores",
       "STADISTICS": "Estadísticas",
       "EDIT_PRODUCT": "Modificar producto",
-      "EDIT_CLIENT": "Modificar cliente"
+      "EDIT_CLIENT": "Modificar cliente",
+      "BLOG": "Blog",
+      "NEW_BLOG": "Nueva entrada"
     },
     "TABLE_HEADERS": {
       "name": "Nombre",

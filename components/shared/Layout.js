@@ -28,7 +28,7 @@ const Layout = ({ children, title }) => {
                         <Sidebar />
                         <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">
                             <Header>
-                                <h1 className="text-2xl px-10 py-2 font-light">
+                                <h1 className="md:text-2xl px-10 py-2 font-light sm:text-md">
                                     { title }
                                 </h1>
                                 <Separator />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import Layout from '../components/shared/Layout';
 import { useQuery } from '@apollo/client';
 import { GET_CLIENT_SELLERS } from '../GraphQL/Queries/Client';
@@ -10,7 +10,7 @@ import NewEntityBtn from '../components/shared/NewEntityBtn';
 const Index = () => {
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_CLIENT_SELLERS);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     if (!localStorage.getItem('token')) {

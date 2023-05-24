@@ -36,6 +36,13 @@ const Sidebar = () => {
                         </span>
                     </Link>
                 </li>
+                <li className={router.pathname === "/blog" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/blog">
+                        <span className="text-white block">
+                            {t('LAYOUT_TITLES.BLOG')}
+                        </span>
+                    </Link>
+                </li>
             </nav>
             <div className='mt-10'>
                 <p className="text-white font-bold text-lg">

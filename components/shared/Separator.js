@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Separator = () => {
+const Separator = ( {size = 3} ) => {
     return (
-        <hr className='mt-5 mb-1'></hr>
+        <hr className={`my-${size}`}></hr>
     )
 }
 

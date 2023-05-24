@@ -4,17 +4,22 @@ import { GET_USER } from '../../GraphQL/Queries/Authentication';
 import { AiOutlinePoweroff } from '@react-icons/all-files/ai/AiOutlinePoweroff';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import Loading from './Loading';
+import ErrorCustomTableResults from './ErrorCustomTableResults';
 
 const Header = ({ children }) => {
     const router = useRouter();
     const { t, i18n } = useTranslation();
-    const { data, loading } = useQuery(GET_USER);
+    const { data, loading, error } = useQuery(GET_USER);
     const logout = () => {
         localStorage.removeItem('token');
         router.push('/login')
     }
 
-    if (loading) return null;
+    if (loading) return <Loading />;
+
+    if (error) return <ErrorCustomTableResults />;
+
     if (!data.getUser) {
         return router.push('/login')
     };
