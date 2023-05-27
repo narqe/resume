@@ -1,0 +1,1 @@
+export const emptyImageDefault = 'https://cdn11.bigcommerce.com/s-7i4g8cpydv/stencil/fb578d50-303a-0138-4ab9-0242ac11000d/e/4faec660-af9f-013b-a27c-72e784ce2e8f/icons/icon-no-image.svg'

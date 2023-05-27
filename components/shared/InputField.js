@@ -1,16 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import InputFieldError from './InputFieldError';
 
 const InputField = ({ label, type = 'text', placeholder, value, formik }) => {
     const { t } = useTranslation();
-    const errorMessageValidator = (field) => {
-        return (
-            (formik.touched[field] && formik.errors[field]) &&
-            <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                <p className="font-bold">Error: {formik.errors[field]} </p>
-            </div>
-        );
-    }
 
     return (
         <div className="mb-4">
@@ -39,7 +32,7 @@ const InputField = ({ label, type = 'text', placeholder, value, formik }) => {
                     onBlur={formik && formik.handleBlur}
                 />
             }
-            { formik && errorMessageValidator(value) }
+            <InputFieldError value={value} formik={formik} />
         </div>
     )
 }

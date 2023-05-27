@@ -24,6 +24,7 @@ const ViewArticle = () => {
             author={data?.getBlogById && data.getBlogById.author}
             createdOn={data?.getBlogById && data.getBlogById.createdOn}
             url={data?.getBlogById && window.location}
+            urlImage={data?.getBlogById && data.getBlogById?.urlImage}
         >
             { loading 
                 ?   <Loading />

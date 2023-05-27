@@ -14,7 +14,9 @@
       "EDIT_PRODUCT": "Modificar producto",
       "EDIT_CLIENT": "Modificar cliente",
       "MORE_DETAILS": "Ver más",
-      "NEW_BLOG": "Crear entrada"
+      "NEW_BLOG": "Crear entrada",
+      "UPLOAD_PHOTO": "Subir imagen de portada",
+      "EDIT_BLOG": "Modificar nota"
     },
     "PLACEHOLDERS": {
       "NAME_PRODUCT": "Nombre del producto",
@@ -75,7 +77,8 @@
       "EDIT_PRODUCT": "Modificar producto",
       "EDIT_CLIENT": "Modificar cliente",
       "BLOG": "Blog",
-      "NEW_BLOG": "Nueva entrada"
+      "NEW_BLOG": "Nueva entrada",
+      "EDIT_BLOG": "Modificar nota"
     },
     "TABLE_HEADERS": {
       "name": "Nombre",
@@ -124,6 +127,9 @@
         },
         "ON_CREATE_ORDER": {
           "TITLE": "El pedido se registró correctamente"
+        },
+        "ON_UPDATE_BLOG": {
+          "TITLE": "La nota se modificó correctamente"
         }
       }
     },
@@ -135,7 +141,8 @@
     "CTX": {
       "Product": "producto",
       "Client": "cliente",
-      "Order": "pedido"
+      "Order": "pedido",
+      "BLOG": "post"
     },
     "ERRORS": {
       "MESSAGE_001": "Hubo un error al cargar los resultados. Por favor, intentá nuevamente."

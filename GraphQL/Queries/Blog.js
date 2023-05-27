@@ -8,6 +8,7 @@ const GET_BLOGS = gql`
             content
             author
             summary
+            urlImage
             createdOn
         }
     }
@@ -20,6 +21,7 @@ const GET_BLOG_BY_ID = gql`
             content
             author
             summary
+            urlImage
             createdOn
         }
     }

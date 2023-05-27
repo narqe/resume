@@ -28,7 +28,7 @@ const Header = ({ children }) => {
 
     return (
         <>
-            <div className='sm:flex justify-end gap-10 mb-6 px-10 py-1 bg-gray-900 text-white'>
+            <div className='sm:flex justify-end gap-10 px-10 py-1 bg-gray-900 text-white'>
                 <p>{ t('WELCOME', { name }) }</p>
                 <div className='flex gap-5'>
                     <button 
