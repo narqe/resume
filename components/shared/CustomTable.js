@@ -1,18 +1,18 @@
 import { useMutation } from '@apollo/client';
 import React from 'react'
 import Swal from 'sweetalert2';
-import { DELETE_CLIENT } from '../../GraphQL/Mutations/Client';
-import { DELETE_PRODUCT } from '../../GraphQL/Mutations/Product';
-import { GET_CLIENT_SELLERS } from '../../GraphQL/Queries/Client';
-import { GET_PRODUCTS } from '../../GraphQL/Queries/Product';
+import { DELETE_CLIENT } from '@graphql/Mutations/Client';
+import { DELETE_PRODUCT } from '@graphql/Mutations/Product';
+import { GET_CLIENT_SELLERS } from '@graphql/Queries/Client';
+import { GET_PRODUCTS } from '@graphql/Queries/Product';
 import Router from 'next/router'
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin2Line } from "react-icons/ri";
-import CurrencyNumber from './CurrencyNumber';
-import Loading from './Loading';
+import CurrencyNumber from '@components/shared/CurrencyNumber';
+import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
-import EmptyResults from './EmptyResults';
-import ErrorCustomTableResults from './ErrorCustomTableResults';
+import EmptyResults from '@components/shared/EmptyResults';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 
 const CustomTable = ({ data, ctx, loading = false, error = false }) => {
   const { t } = useTranslation();
@@ -112,7 +112,7 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
   const editElement = id => {
     const ctxLower = ctx.toLowerCase();
     Router.push({
-      pathname: `/edit-${ctxLower}/[id]`,
+      pathname: `/admin/edit-${ctxLower}/[id]`,
       query: { 
         id 
       }

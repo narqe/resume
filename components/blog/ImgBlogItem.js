@@ -1,5 +1,5 @@
 import React from 'react';
-import { emptyImageDefault } from '../../constants/urls';
+import { emptyImageDefault } from '@constants/urls';
 
 const ImgBlogItem = ({ img }) => {
     return (

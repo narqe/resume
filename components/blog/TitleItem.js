@@ -1,5 +1,4 @@
 import React from 'react'
-import Separator from '../shared/Separator'
 
 const TitleItem = ({ title }) => {
     return (

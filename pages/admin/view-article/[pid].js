@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import ClientBlogLayout from '@components/layouts/ClientBlogLayout';
+import BlogLayout from '@components/layouts/BlogLayout';
 import { useQuery } from '@apollo/client';
 import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,7 @@ const ViewArticle = () => {
     });
 
     return (
-        <ClientBlogLayout 
+        <BlogLayout 
             title={data?.getBlogById && data.getBlogById.title}
             author={data?.getBlogById && data.getBlogById.author}
             createdOn={data?.getBlogById && data.getBlogById.createdOn}
@@ -32,7 +32,7 @@ const ViewArticle = () => {
                     ?   <ErrorCustomTableResults /> 
                     :   <ArticleDetail article={data.getBlogById} />
             }
-        </ClientBlogLayout>
+        </BlogLayout>
     )
 }
 

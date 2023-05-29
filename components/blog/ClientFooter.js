@@ -3,11 +3,12 @@ import Router from 'next/router';
 import { useTranslation } from 'react-i18next'
 import { MdOutlineReadMore } from 'react-icons/md';
 
-const Footer = ({ id }) => {
+const ClientFooter = ({ id }) => {
     const { t } = useTranslation();
+    
     const viewMoreDetail = () => {
         Router.push({
-            pathname: `/admin/view-article/[id]`,
+            pathname: `/view-article/[id]`,
             query: { 
                 id 
             }
@@ -27,4 +28,4 @@ const Footer = ({ id }) => {
     )
 }
 
-export default Footer
+export default ClientFooter

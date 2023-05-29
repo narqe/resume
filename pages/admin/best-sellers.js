@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import Layout from '../components/shared/Layout';
+import Layout from '@components/layouts/Layout';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/client';
-import { TOP_SALESMAN } from '../GraphQL/Queries/TopPages';
-import Loading from '../components/shared/Loading';
+import { TOP_SALESMAN } from '@graphql/Queries/TopPages';
+import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
-import ErrorCustomTableResults from '../components/shared/ErrorCustomTableResults';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 
 const BestSellers = () => {
     const { data, loading, error, startPolling, stopPolling } = useQuery(TOP_SALESMAN);

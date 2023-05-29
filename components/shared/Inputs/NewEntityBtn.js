@@ -3,7 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { BsPlusCircle } from 'react-icons/bs'
 
-const NewEntityBtn = ({ link, buttonLabel }) => {
+const NewEntityBtn = ({ link = '', buttonLabel }) => {
     const { t } = useTranslation()
     return (
         <Link href={link} className='flex justify-end'>

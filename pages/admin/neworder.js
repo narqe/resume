@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import Layout from '../components/shared/Layout'
-import AssignClient from '../components/orders/AssignClient';
-import AssignProducts from '../components/orders/AssignProducts';
-import SummaryOrder from '../components/orders/SummaryOrder';
-import Total from '../components/orders/Total';
-import OrderContext from '../context/orders/OrderContext';
+import Layout from '@components/layouts/Layout'
+import AssignClient from '@components/orders/AssignClient';
+import AssignProducts from '@components/orders/AssignProducts';
+import SummaryOrder from '@components/orders/SummaryOrder';
+import Total from '@components/orders/Total';
+import OrderContext from '@context/orders/OrderContext';
 import { useMutation } from '@apollo/client';
-import { NEW_ORDER } from '../GraphQL/Mutations/Order';
-import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
+import { NEW_ORDER } from '@graphql/Mutations/Order';
+import { GET_ORDERS_BY_SELLER } from '@graphql/Queries/Order';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
@@ -58,7 +58,7 @@ const NewOrder = () => {
                 timer: 1500
             })
             setTimeout(() => {
-                router.push("/orders")
+                router.push("/admin/orders")
             }, 1500)
         } catch ({ message }) {
             Swal.fire({

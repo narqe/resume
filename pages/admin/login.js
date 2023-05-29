@@ -1,16 +1,16 @@
-import Layout from '../components/shared/Layout';
-import InputField from '../components/shared/InputField';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { useState } from 'react';
 import { useRouter } from 'next/router';
-import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/shared/SubmitBtn';
-import { AUTH_USER } from '../GraphQL/Mutations/Authentication';
+import useToaster from '@hooks/useToaster';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
+import { AUTH_USER } from '@graphql/Mutations/Authentication';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import Separator from '../components/shared/Separator';
+import Separator from '@components/shared/Structure/Separator';
+import AuthLayout from '@components/layouts/AuthLayout';
+import InputField from '@components/shared/Inputs/InputField';
 
 const Login = () => {
     const [ authUser ] = useMutation(AUTH_USER);
@@ -59,7 +59,7 @@ const Login = () => {
             }, 1500);
             
             setTimeout(() => { 
-                router.push('/')
+                router.push('/admin')
             }, 3000);
 
         } catch ({ message }) {
@@ -76,7 +76,7 @@ const Login = () => {
 
     return (
         <>
-            <Layout title=''>
+            <AuthLayout title=''>
                 <h1 className="text-2xl text-white font-light text-center">
                     { t('LAYOUT_TITLES.LOGIN') }
                 </h1>
@@ -103,7 +103,7 @@ const Login = () => {
                             />
                             <Separator />
                             <SubmitBtn value={t('BUTTONS.LOGIN')} />
-                            <Link href="/newaccount">
+                            <Link href="/admin/newaccount">
                                 <p className='pt-2 text-center cursor-pointer text-yellow-700 text-sm hover:underline hover:font-bold'>
                                     {t('BUTTONS.SIGN_UP')}
                                 </p>
@@ -111,7 +111,7 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
-            </Layout>
+            </AuthLayout>
         </>
     )
 }

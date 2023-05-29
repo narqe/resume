@@ -20,6 +20,11 @@ const MyApp = ({ Component, pageProps }) => {
         setIsAuth(false);
       }
     }, [localStorage.getItem('token'), isExpired, decodedToken])
+
+    if (!isAuth) {
+      router.push('admin/login');
+    }
+
   }
 
   return (

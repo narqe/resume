@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import Layout from '../components/shared/Layout'
-import InputField from '../components/shared/InputField'
+import Layout from '@components/layouts/Layout'
+import InputField from '@components/shared/Inputs/InputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { NEW_CLIENT } from '../GraphQL/Mutations/Client';
+import { NEW_CLIENT } from '@graphql/Mutations/Client';
 import { useRouter } from 'next/router';
-import { GET_CLIENT_SELLERS } from '../GraphQL/Queries/Client';
-import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/shared/SubmitBtn';
+import { GET_CLIENT_SELLERS } from '@graphql/Queries/Client';
+import useToaster from '@hooks/useToaster';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import { useTranslation } from 'react-i18next';
 
 const NewClient = () => {
@@ -53,7 +53,7 @@ const NewClient = () => {
                     type: 'success'
                 })
                 setTimeout(() => {
-                    router.push('/')
+                    router.push('/admin')
                 }, 1000);
             } catch ({ message }) {
                 saveMessage({

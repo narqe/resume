@@ -1,17 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../components/shared/Layout';
-import InputField from '../../components/shared/InputField';
-import SubmitBtn from '../../components/shared/SubmitBtn';
+import Layout from '@components/layouts/Layout';
+import InputField from '@components/shared/Inputs/InputField';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_PRODUCT_BY_ID } from '../../GraphQL/Queries/Product';
+import { GET_PRODUCT_BY_ID } from '@graphql/Queries/Product';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { UPDATE_PRODUCT } from '../../GraphQL/Mutations/Product';
+import { UPDATE_PRODUCT } from '@graphql/Mutations/Product';
 import Swal from 'sweetalert2';
-import Loading from '../../components/shared/Loading';
+import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
-import ErrorCustomTableResults from '../../components/shared/ErrorCustomTableResults';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 
 const EditProduct = () => {
     const router = useRouter();
@@ -43,7 +43,7 @@ const EditProduct = () => {
                     }
                 }
             })
-            router.push("/products")
+            router.push("/admin/products")
             Swal.fire({
                 text: t('MESSAGES.CONFIRMATION.ON_UPDATE_PRODUCT.TITLE'),
                 icon: 'success',

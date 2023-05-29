@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import Sidebar from './Sidebar';
-import Header from './Header';
-import Separator from './Separator';
-import Metadata from '../blog/Metadata';
-import SocialShareToolbar from './SocialShareToolbar';
+import Sidebar from '@components/shared/Structure/Sidebar';
+import Header from '@components/shared/Structure/Header';
+import Separator from '@components/shared/Structure/Separator';
+import Metadata from '@components/blog/Metadata';
+import SocialShareToolbar from '@components/shared/SocialShareToolbar';
 
 const BlogLayout = ({ children, title, author, createdOn, url, urlImage }) => {
     return (

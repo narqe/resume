@@ -1,12 +1,12 @@
 import React from 'react';
-import Layout from '../components/shared/Layout';
-import OrdersTable from '../components/orders/OrdersTable';
+import Layout from '@components/layouts/Layout';
+import OrdersTable from '@components/orders/OrdersTable';
 import { useQuery } from '@apollo/client';
-import { GET_ORDERS_BY_SELLER } from '../GraphQL/Queries/Order';
-import Loading from '../components/shared/Loading';
+import { GET_ORDERS_BY_SELLER } from '@graphql/Queries/Order';
+import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
-import EmptyResults from '../components/shared/EmptyResults';
-import NewEntityBtn from '../components/shared/NewEntityBtn';
+import EmptyResults from '@components/shared/EmptyResults';
+import NewEntityBtn from '@components/shared/Inputs/NewEntityBtn';
 
 const Orders = () => {
     const { data, loading } = useQuery(GET_ORDERS_BY_SELLER);
@@ -14,7 +14,7 @@ const Orders = () => {
 
     return (
         <Layout title={ t('LAYOUT_TITLES.ORDERS') }>
-            <NewEntityBtn link={'/neworder'} buttonLabel={'NEW_ORDER'} />
+            <NewEntityBtn link={'/admin/neworder'} buttonLabel={'NEW_ORDER'} />
             { loading 
                 ? <Loading /> 
                 :  data?.getOrderVendedor?.length 

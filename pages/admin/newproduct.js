@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import Layout from '../components/shared/Layout'
-import InputField from '../components/shared/InputField'
+import Layout from '@components/layouts/Layout'
+import InputField from '@components/shared/Inputs/InputField'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { NEW_PRODUCT } from '../GraphQL/Mutations/Product';
-import { GET_PRODUCTS } from '../GraphQL/Queries/Product';
-import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/shared/SubmitBtn';
+import { NEW_PRODUCT } from '@graphql/Mutations/Product';
+import { GET_PRODUCTS } from '@graphql/Queries/Product';
+import useToaster from '@hooks/useToaster';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next';
 

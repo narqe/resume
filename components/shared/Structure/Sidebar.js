@@ -15,29 +15,29 @@ const Sidebar = () => {
                 </p>
             </div>
             <nav className="mt-5 list-none">
-                <li className={router.pathname === "/" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/">
+                <li className={router.pathname === "/admin/" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/admin/">
                         <span className="text-white block">
                             {t('LAYOUT_TITLES.CLIENTS')}
                         </span>
                     </Link>
                 </li>
-                <li className={router.pathname === "/orders" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/orders">
+                <li className={router.pathname === "/admin/orders/" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/admin/orders">
                         <span className="text-white block">
                             {t('LAYOUT_TITLES.ORDERS')}
                         </span>
                     </Link>
                 </li>
-                <li className={router.pathname === "/products" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/products">
+                <li className={router.pathname === "/admin/products/" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/admin/products">
                         <span className="text-white block">
                             {t('LAYOUT_TITLES.PRODUCTS')}
                         </span>
                     </Link>
                 </li>
-                <li className={router.pathname === "/blog" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/blog">
+                <li className={router.pathname === "/admin/blog/" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/admin/blog">
                         <span className="text-white block">
                             {t('LAYOUT_TITLES.BLOG')}
                         </span>
@@ -50,15 +50,15 @@ const Sidebar = () => {
                 </p>
             </div>
             <nav className="mt-5 list-none">
-                <li className={router.pathname === "/best-sellers" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/best-sellers">
+                <li className={router.pathname === "/admin/best-sellers/" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/admin/best-sellers">
                         <span className="text-white block">
                             {t('LAYOUT_TITLES.BEST_SELLERS')}
                         </span>
                     </Link>
                 </li>
-                <li className={router.pathname === "/best-clients" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/best-clients">
+                <li className={router.pathname === "/admin/best-clients" ? "bg-yellow-700 p-2" : "p-2"}>
+                    <Link href="/admin/best-clients">
                         <span className="text-white block">
                             {t('LAYOUT_TITLES.BEST_CLIENTS')}
                         </span>

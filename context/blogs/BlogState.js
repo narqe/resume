@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
-import BlogContext from "./BlogContext";
-import BlogReducer from "./BlogReducer";
+import BlogContext from "@context/blogs/BlogContext";
+import BlogReducer from "@context/blogs/BlogReducer";
 import { SET_COVER_IMAGE } from '../../types';
 
 const BlogState = ({ children }) => {

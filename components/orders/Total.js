@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import OrderContext from '../../context/orders/OrderContext';
-import CurrencyNumber from '../shared/CurrencyNumber';
+import OrderContext from '@context/orders/OrderContext';
+import CurrencyNumber from '@components/shared/CurrencyNumber';
 import { useTranslation } from 'react-i18next';
 
 const Total = () => {

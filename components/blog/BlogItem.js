@@ -1,10 +1,9 @@
 import React from 'react'
-import TitleItem from './TitleItem'
-import Metadata from './Metadata'
-import SummaryItem from './SummaryItem'
-import Footer from './Footer'
-import Separator from '../shared/Separator';
-import ImgBlogItem from './ImgBlogItem'
+import TitleItem from '@components/blog/TitleItem'
+import Metadata from '@components/blog/Metadata'
+import SummaryItem from '@components/blog/SummaryItem'
+import ImgBlogItem from '@components/blog/ImgBlogItem'
+import Separator from '@components/shared/Structure/Separator';
 
 const BlogItem = ({ article }) => {
     return (
@@ -14,7 +13,6 @@ const BlogItem = ({ article }) => {
             <Metadata author={article.author} createdOn={article.createdOn} />
             <Separator size={1} />
             <SummaryItem summary={article.summary} />
-            <Footer id={article.id} />
         </div>
     )
 }

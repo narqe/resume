@@ -4,11 +4,11 @@ import { CiCircleRemove } from 'react-icons/ci';
 import { IoMdPhonePortrait } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import { AiFillPlusCircle } from 'react-icons/ai';
-import { DELETE_ORDER, UPDATE_ORDER } from '../../GraphQL/Mutations/Order';
+import { DELETE_ORDER, UPDATE_ORDER } from '@graphql/Mutations/Order';
 import Swal from 'sweetalert2';
-import { GET_ORDERS_BY_SELLER } from '../../GraphQL/Queries/Order';
+import { GET_ORDERS_BY_SELLER } from '@graphql/Queries/Order';
 import { useTranslation } from 'react-i18next';
-import CurrencyNumber from '../shared/CurrencyNumber';
+import CurrencyNumber from '@components/shared/CurrencyNumber';
 
 const OrdersTable = ({ order, ctx }) => {
     const { id, total, client: { name, lastname, email, phone }, state, client } = order;

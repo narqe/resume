@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import Layout from '../components/shared/Layout';
+import Layout from '@components/layouts/Layout';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/client';
-import { TOP_CLIENTS } from '../GraphQL/Queries/TopPages';
-import Loading from '../components/shared/Loading';
-import ErrorCustomTableResults from '../components/shared/ErrorCustomTableResults';
+import { TOP_CLIENTS } from '@graphql/Queries/TopPages';
+import Loading from '@components/shared/Loading';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 import { useTranslation } from 'react-i18next';
 
 const BestClients = () => {

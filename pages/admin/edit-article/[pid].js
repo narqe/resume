@@ -1,17 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../components/shared/Layout';
+import Layout from '@components/layouts/Layout';
 import { useQuery, useMutation } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
-import { GET_BLOG_BY_ID } from '../../GraphQL/Queries/Blog';
-import { UPDATE_BLOG } from '../../GraphQL/Mutations/Blog';
-import Loading from '../../components/shared/Loading';
-import ErrorCustomTableResults from '../../components/shared/ErrorCustomTableResults';
-import InputField from '../../components/shared/InputField';
-import SubmitBtn from '../../components/shared/SubmitBtn';
+import { GET_BLOG_BY_ID } from '@graphql/Queries/Blog';
+import { UPDATE_BLOG } from '@graphql/Mutations/Blog';
+import Loading from '@components/shared/Loading';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
+import InputField from '@components/shared/Inputs/InputField';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import MarkdownInput from '../../components/blog/MarkdownInput';
+import MarkdownInput from '@components/blog/MarkdownInput';
 import Swal from 'sweetalert2';
 
 const EditArticle = () => {
@@ -44,7 +44,7 @@ const EditArticle = () => {
                     }
                 }
             })
-            router.push(`/view-article/${query.pid}`)
+            router.push(`/admin/view-article/${query.pid}`)
             Swal.fire({
                 text: t('MESSAGES.CONFIRMATION.ON_UPDATE_BLOG.TITLE'),
                 icon: 'success',

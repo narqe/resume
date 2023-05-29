@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '../components/shared/Layout';
+import React, { useEffect } from 'react';
+import Layout from '@components/layouts/Layout';
 import { useRouter } from 'next/router';
-import BlogForm from '../components/shared/Forms/BlogForm';
-import ImgBlogForm from '../components/shared/Forms/ImgBlogForm';
+import BlogForm from '@components/shared/Forms/BlogForm';
+import ImgBlogForm from '@components/shared/Forms/ImgBlogForm';
 import { useTranslation } from 'react-i18next';
-import BlogState from '../context/blogs/BlogState';
+import BlogState from '@context/blogs/BlogState';
 
 const NewBlog = () => {  
   const router = useRouter();
@@ -12,7 +12,7 @@ const NewBlog = () => {
 
   useEffect(() => {
     if (!localStorage.getItem('token')) {
-        router.push("/login")
+        router.push("/admin/login")
     }
   }, [])
 

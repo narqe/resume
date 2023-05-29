@@ -1,7 +1,6 @@
 import React, { useReducer } from "react";
-import OrderContext from "./OrderContext";
-import OrderReducer from "./OrderReducer";
-
+import OrderContext from "@context/orders/OrderContext";
+import OrderReducer from "@context/orders/OrderReducer";
 import {
     SELECT_CLIENT,
     SELECT_PRODUCTS,

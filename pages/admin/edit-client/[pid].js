@@ -1,17 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../components/shared/Layout';
-import InputField from '../../components/shared/InputField';
-import SubmitBtn from '../../components/shared/SubmitBtn';
+import Layout from '@components/layouts/Layout';
+import InputField from '@components/shared/Inputs/InputField';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_CLIENT } from '../../GraphQL/Queries/Client';
+import { GET_CLIENT } from '@graphql/Queries/Client';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { UPDATE_CLIENT } from '../../GraphQL/Mutations/Client';
+import { UPDATE_CLIENT } from '@graphql/Mutations/Client';
 import Swal from 'sweetalert2';
-import Loading from '../../components/shared/Loading';
+import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
-import ErrorCustomTableResults from '../../components/shared/ErrorCustomTableResults';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 
 const EditClient = () => {
     const router = useRouter();
@@ -57,7 +57,7 @@ const EditClient = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
-            router.push("/")
+            router.push("/admin")
         } catch (error) {
             console.log(error);
         }

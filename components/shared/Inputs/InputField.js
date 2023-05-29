@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import InputFieldError from './InputFieldError';
+import InputFieldError from '@components/shared/Inputs/InputFieldError';
 
 const InputField = ({ label, type = 'text', placeholder, value, formik }) => {
     const { t } = useTranslation();

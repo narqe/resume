@@ -2,7 +2,7 @@ import React from 'react';
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import dynamic from 'next/dynamic';
-import InputFieldError from '../shared/InputFieldError';
+import InputFieldError from '@components/shared/Inputs/InputFieldError';
 
 const MDEditor = dynamic(
     () => import("@uiw/react-md-editor"),

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import OrderContext from '../../context/orders/OrderContext';
-import ProductSummary from './ProductSummary';
+import OrderContext from '@context/orders/OrderContext';
 import { useTranslation } from 'react-i18next';
+import ProductSummary from '@components/orders/ProductSummary';
 
 const SummaryOrder = () => {
     const { t } = useTranslation()

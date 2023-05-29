@@ -1,16 +1,16 @@
-import Layout from '../components/shared/Layout';
+import AuthLayout from '@components/layouts/AuthLayout';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import InputField from '../components/shared/InputField';
+import InputField from '@components/shared/Inputs/InputField';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
-import { NEW_ACCOUNT } from '../GraphQL/Mutations/Authentication' 
-import useToaster from '../hooks/useToaster';
-import SubmitBtn from '../components/shared/SubmitBtn';
+import { NEW_ACCOUNT } from '@graphql/Mutations/Authentication' 
+import useToaster from '@hooks/useToaster';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import Separator from '../components/shared/Separator';
+import Separator from '@components/shared/Structure/Separator';
 
 const NewAccount = () => {
     const [ newUser ] = useMutation(NEW_ACCOUNT);
@@ -52,7 +52,7 @@ const NewAccount = () => {
                     message: t('MESSAGES.SUCCESS.ON_CREATION.USER', { user: data.newUser.email }),
                     type: 'info'
                 });
-                setTimeout(() => router.push('/login'), 2000);
+                setTimeout(() => router.push('/admin/login'), 2000);
 
             } catch ({ message }) {
                 saveMessage({
@@ -66,7 +66,7 @@ const NewAccount = () => {
 
     return (
         <>
-            <Layout title={ t('LAYOUT_TITLES.NEW_ACCOUNT') }>                
+            <AuthLayout title={ t('LAYOUT_TITLES.NEW_ACCOUNT') }>                
                 { useToaster(message?.message, message?.type) }
                 <div className="flex justify-center mt-5">
                     <div className="w-full max-w-sm">
@@ -104,7 +104,7 @@ const NewAccount = () => {
                             />
                             <Separator />
                             <SubmitBtn value={t('BUTTONS.NEW_USER')} />
-                            <Link href="/login">
+                            <Link href="/admin/login">
                                 <p className='pt-2 text-center cursor-pointer hover:underline text-yellow-700 text-sm hover:font-bold'>
                                     {t('BUTTONS.SIGN_IN')}
                                 </p>
@@ -112,7 +112,7 @@ const NewAccount = () => {
                         </form>
                     </div>
                 </div>
-            </Layout>
+            </AuthLayout>
         </>
     )
 }

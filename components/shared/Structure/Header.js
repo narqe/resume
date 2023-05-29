@@ -1,11 +1,11 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import { GET_USER } from '../../GraphQL/Queries/Authentication';
+import { GET_USER } from '@graphql/Queries/Authentication';
 import { AiOutlinePoweroff } from '@react-icons/all-files/ai/AiOutlinePoweroff';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
-import Loading from './Loading';
-import ErrorCustomTableResults from './ErrorCustomTableResults';
+import Loading from '@components/shared/Loading';
+import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 
 const Header = ({ children }) => {
     const router = useRouter();
@@ -14,7 +14,7 @@ const Header = ({ children }) => {
     
     const logout = () => {
         localStorage.removeItem('token');
-        router.push('/login')
+        router.push('/admin/login')
     }
 
     if (loading) return <Loading />;

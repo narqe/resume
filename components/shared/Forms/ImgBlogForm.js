@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useMutation } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { UPLOAD_FILE } from '../../../GraphQL/Mutations/File';
-import SubmitBtn from '../SubmitBtn';
-import BlogContext from '../../../context/blogs/BlogContext';
+import { UPLOAD_FILE } from '@graphql/Mutations/File';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
+import BlogContext from '@context/blogs/BlogContext';
 
 const ImgBlogForm = () => {
     const blogContext = useContext(BlogContext);

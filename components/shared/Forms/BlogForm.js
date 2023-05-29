@@ -3,13 +3,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
-import InputField from '../InputField';
-import MarkdownInput from '../../blog/MarkdownInput';
-import SubmitBtn from '../SubmitBtn';
+import InputField from '@components/shared/Inputs/InputField';
+import MarkdownInput from '@components/blog/MarkdownInput';
+import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
 import { useMutation } from '@apollo/client';
-import { NEW_BLOG } from '../../../GraphQL/Mutations/Blog';
-import { GET_BLOGS } from '../../../GraphQL/Queries/Blog';
-import BlogContext from '../../../context/blogs/BlogContext';
+import { NEW_BLOG } from '@graphql/Mutations/Blog';
+import { GET_BLOGS } from '@graphql/Queries/Blog';
+import BlogContext from '@context/blogs/BlogContext';
 
 const BlogForm = () => {
     const blogContext = useContext(BlogContext);

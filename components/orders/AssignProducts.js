@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useQuery } from '@apollo/client';
 import Select from 'react-select';
-import { GET_PRODUCTS } from '../../GraphQL/Queries/Product';
-import OrderContext from '../../context/orders/OrderContext';
-import Loading from '../shared/Loading';
+import { GET_PRODUCTS } from '@graphql/Queries/Product';
+import OrderContext from '@context/orders/OrderContext';
+import Loading from '@components/shared/Loading';
 import { useTranslation } from 'react-i18next';
 
 const AssignProducts = () => {
