@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { useQuery } from '@apollo/client';
 import { TOP_CLIENTS } from '../GraphQL/Queries/TopPages';
 import Loading from '../components/shared/Loading';
+import ErrorCustomTableResults from '../components/shared/ErrorCustomTableResults';
 import { useTranslation } from 'react-i18next';
 
 const BestClients = () => {

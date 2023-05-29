@@ -17,19 +17,17 @@ const Orders = () => {
             <NewEntityBtn link={'/neworder'} buttonLabel={'NEW_ORDER'} />
             { loading 
                 ? <Loading /> 
-                :  data?.getOrderVendedor.length 
-                    ? <div className="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
-                        { data.getOrderVendedor.map(order => 
-                            <OrdersTable 
-                                ctx={'Order'}
-                                key={order.id} 
-                                order={order} 
-                            />
-                        )}
-                    </div>
-                    : <EmptyResults 
-                        message={t('EMPTY.ORDERS')} 
-                    />
+                :  data?.getOrderVendedor?.length 
+                    ?   <div className="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
+                            { data.getOrderVendedor.map(order => 
+                                <OrdersTable 
+                                    ctx={'Order'}
+                                    key={order.id} 
+                                    order={order} 
+                                />
+                            )}
+                        </div>
+                    : <EmptyResults  message={t('EMPTY.ORDERS')} />
             }
         </Layout>
     )

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Layout from '../components/shared/Layout';
 import { useQuery } from '@apollo/client';
 import { GET_BLOGS } from '../GraphQL/Queries/Blog';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
@@ -15,13 +14,6 @@ import BlogItem from '../components/blog/BlogItem';
 const Blog = () => {  
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_BLOGS);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!localStorage.getItem('token')) {
-        router.push("/login")
-    }
-  }, [])
 
   return(
     <Layout title={ t('LAYOUT_TITLES.BLOG') }>
@@ -30,7 +22,7 @@ const Blog = () => {
         ? <Loading />
         : error 
           ? <ErrorCustomTableResults />
-          : data.getBlogs.length
+          : data?.getBlogs.length
             ? <div className="lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid">
                 { data.getBlogs.map(article => 
                   <BlogItem key={article.id} article={article} />

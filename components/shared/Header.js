@@ -11,6 +11,7 @@ const Header = ({ children }) => {
     const router = useRouter();
     const { t, i18n } = useTranslation();
     const { data, loading, error } = useQuery(GET_USER);
+    
     const logout = () => {
         localStorage.removeItem('token');
         router.push('/login')
@@ -20,16 +21,10 @@ const Header = ({ children }) => {
 
     if (error) return <ErrorCustomTableResults />;
 
-    if (!data.getUser) {
-        return router.push('/login')
-    };
-
-    const { name } = data.getUser;
-
     return (
         <>
             <div className='sm:flex justify-end gap-10 px-10 py-1 bg-gray-900 text-white'>
-                <p>{ t('WELCOME', { name }) }</p>
+                <p>{ t('WELCOME', data?.getUser) }</p>
                 <div className='flex gap-5'>
                     <button 
                         type='button' 

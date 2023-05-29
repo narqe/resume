@@ -3,7 +3,7 @@ import InputField from '../components/shared/InputField';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import useToaster from '../hooks/useToaster';
 import SubmitBtn from '../components/shared/SubmitBtn';
@@ -37,6 +37,9 @@ const Login = () => {
     })
 
     const onLogin = async ({ email, password }) => {
+        if (localStorage.getItem('token')) {
+            localStorage.removeItem('token');
+        }
         try {
             const { data } = await authUser({
                 variables: {
@@ -58,20 +61,18 @@ const Login = () => {
             setTimeout(() => { 
                 router.push('/')
             }, 3000);
+
         } catch ({ message }) {
             saveMessage({
                 message: message.replace('GraphQL error:', ''),
                 type: 'error'
             })
+            if (localStorage.getItem('token')) {
+                localStorage.removeItem('token');
+            }
             setTimeout(() => saveMessage(null), 2000);
         }
     }
-
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            router.push("/")
-        }
-    }, [])
 
     return (
         <>
