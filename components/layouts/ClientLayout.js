@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import NavMenu from '@components/shared/Structure/NavMenu';
 
 const ClientLayout = ({ children }) => {
     return (
@@ -10,7 +11,8 @@ const ClientLayout = ({ children }) => {
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerPolicy="no-referrer" /> 
             </Head>
             <div className="bg-green-50 min-h-screen">
-                <div className="sm:flex min-h-screen">
+                <div className="flex-col min-h-screen">
+                    <NavMenu />
                     <main className="w-full sm:min-h-screen">
                         <div className='px-10 pt-5'>
                             { children }

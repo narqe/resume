@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
@@ -6,22 +6,23 @@ import { useTranslation } from 'react-i18next';
 import InputField from '@components/shared/Inputs/InputField';
 import MarkdownInput from '@components/blog/MarkdownInput';
 import SubmitBtn from '@components/shared/Inputs/SubmitBtn';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { NEW_BLOG } from '@graphql/Mutations/Blog';
-import { GET_BLOGS } from '@graphql/Queries/Blog';
-import BlogContext from '@context/blogs/BlogContext';
+import { GET_BLOGS, GET_BLOG_CATEGORIES } from '@graphql/Queries/Blog';
+import Select from 'react-select';
 
 const BlogForm = () => {
-    const blogContext = useContext(BlogContext);
-    const { coverImage, setCoverImage } = blogContext;
+    const [ categoriesSelected, setCategoriesSelected ] = useState(null);
     const router = useRouter()
     const { t } = useTranslation();
+    const { data, loading } = useQuery(GET_BLOG_CATEGORIES);
 
     const formik = useFormik({
         initialValues: {
             title: '',
             author: '',
             summary: '',
+            category: '',
             content: '## Hello world!'
         },
         validationSchema: Yup.object({ 
@@ -33,6 +34,7 @@ const BlogForm = () => {
     })
 
     const onUpload = async ({ title, author, summary, content }) => {
+        const catTitle = categoriesSelected.map(el => el.title)
         try {
             const { data } = await newBlog({
                 variables: {
@@ -40,14 +42,13 @@ const BlogForm = () => {
                         title, 
                         content,
                         author,
-                        summary,
-                        urlImage: coverImage
+                        category: catTitle,
+                        summary
                     }
                 }
             });
-            setCoverImage(null)
             setTimeout(() => {
-                router.push("/blog");
+                router.push("/admin/blog");
             }, 1000);
         } catch (error) {
             console.log(error);
@@ -66,9 +67,14 @@ const BlogForm = () => {
             })} 
         }
     )
+    
+
+    const onChangeSelected = (selected) => {
+        setCategoriesSelected(selected)
+    }
 
     return (
-        <form onSubmit={formik.handleSubmit} className='col-span-2'>
+        <form onSubmit={formik.handleSubmit}>
             <InputField
                 label={t('LABELS.TITLE')}
                 type='text'
@@ -82,6 +88,19 @@ const BlogForm = () => {
                 placeholder={t('PLACEHOLDERS.AUTHOR')}
                 value='author'
                 formik={formik}
+            />
+            <Select
+                className="appearance-none rounder w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                options={data?.getBlogCategories}
+                getOptionValue={options => options.id}
+                getOptionLabel={options => options.title}
+                onBlur={formik.handleBlur}
+                onChange={selected => onChangeSelected(selected)}
+                placeholder={t('PLACEHOLDERS.CATEGORY')}
+                noOptionsMessage={() => t('EMPTY.CATEGORIES')}
+                required={true}
+                isMulti={true}
+                id='category'
             />
             <InputField
                 label={t('LABELS.SUMMARY')}

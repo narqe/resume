@@ -5,8 +5,11 @@ import Header from '@components/shared/Structure/Header';
 import Separator from '@components/shared/Structure/Separator';
 import Metadata from '@components/blog/Metadata';
 import SocialShareToolbar from '@components/shared/SocialShareToolbar';
+import useCoverPhoto from '@hooks/useCoverPhoto';
 
-const BlogLayout = ({ children, title, author, createdOn, url, urlImage }) => {
+const BlogLayout = ({ children, title, author, createdOn, url, content }) => {
+    const { coverPhoto } = useCoverPhoto(content)
+
     return (
         <>
             <Head>
@@ -19,11 +22,11 @@ const BlogLayout = ({ children, title, author, createdOn, url, urlImage }) => {
                     <Sidebar />
                     <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen relative">
                         <Header>
-                            { urlImage && 
-                                <div className='w-full h-80 opacity-30 top-0 left-0'>
+                            { coverPhoto && 
+                                <div className='w-full h-44 lg:h-80 opacity-30 top-0 left-0'>
                                     <img
                                         className="h-48 w-full object-cover lg:h-full lg:w-full"
-                                        src={urlImage} 
+                                        src={coverPhoto} 
                                         height={'100%'} 
                                         width={'100%'}
                                     />

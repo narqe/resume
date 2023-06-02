@@ -1,70 +1,66 @@
-import Link from 'next/link';
-import React from 'react';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import MenuLi from '@components/shared/Structure/MenuLi';
+import useWindowDimensions from '@hooks/useWindowDimensions';
+import Link from 'next/link';
 
 const Sidebar = () => {
-    const router = useRouter();
+    const [ hamburgerClass, setHamburgerClass ] = useState('hidden');
+    const [ menuClass, setMenuClass ] = useState('flex-col justify-between');
     const { t } = useTranslation();
+    const { height, width } = useWindowDimensions();
+
+    const toogleMenu = () => {
+        if (hamburgerClass === 'hidden') {
+            setHamburgerClass('flex-col');
+        } else {
+            setHamburgerClass('hidden');
+        }
+    }
+
+    useEffect(() => {
+        if (height >= 470 && width >= 1440) {
+            setMenuClass('flex-col justify-between')
+        } else {
+            setHamburgerClass('flex-col');
+        }
+
+    }, [height, width])
 
     return (
-        <aside className="bg-green-900 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">
-            <div>
+        <aside className={`${menuClass} bg-green-900 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5`}>
+            <div className="inline-flex justify-start lg:w-full w-2/4">
                 <p className="text-white text-2xl">
-                    {t('PAGE_TITLE')}
+                    <Link href="/admin/">{t('PAGE_TITLE')}</Link>
                 </p>
             </div>
-            <nav className="mt-5 list-none">
-                <li className={router.pathname === "/admin/" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/admin/">
-                        <span className="text-white block">
-                            {t('LAYOUT_TITLES.CLIENTS')}
-                        </span>
-                    </Link>
-                </li>
-                <li className={router.pathname === "/admin/orders/" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/admin/orders">
-                        <span className="text-white block">
-                            {t('LAYOUT_TITLES.ORDERS')}
-                        </span>
-                    </Link>
-                </li>
-                <li className={router.pathname === "/admin/products/" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/admin/products">
-                        <span className="text-white block">
-                            {t('LAYOUT_TITLES.PRODUCTS')}
-                        </span>
-                    </Link>
-                </li>
-                <li className={router.pathname === "/admin/blog/" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/admin/blog">
-                        <span className="text-white block">
-                            {t('LAYOUT_TITLES.BLOG')}
-                        </span>
-                    </Link>
-                </li>
-            </nav>
-            <div className='mt-10'>
-                <p className="text-white font-bold text-lg">
-                    {t('LAYOUT_TITLES.STADISTICS')}
-                </p>
+            <div className="inline-flex justify-end lg:w-full w-2/4">
+                <div className="lg:hidden">
+                    <button className="navbar-burger text-white p-3" onClick={() => toogleMenu()}>
+                        <svg className="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <nav className="mt-5 list-none">
-                <li className={router.pathname === "/admin/best-sellers/" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/admin/best-sellers">
-                        <span className="text-white block">
-                            {t('LAYOUT_TITLES.BEST_SELLERS')}
-                        </span>
-                    </Link>
-                </li>
-                <li className={router.pathname === "/admin/best-clients" ? "bg-yellow-700 p-2" : "p-2"}>
-                    <Link href="/admin/best-clients">
-                        <span className="text-white block">
-                            {t('LAYOUT_TITLES.BEST_CLIENTS')}
-                        </span>
-                    </Link>
-                </li>
-            </nav>
+            <div className={`${hamburgerClass} w-full`}>
+                <nav className="mt-5 list-none">
+                    <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.WEB')} />
+                    <MenuLi pathname={'/admin/'} label={t('LAYOUT_TITLES.CLIENTS')} />
+                    <MenuLi pathname={'/admin/orders'} label={t('LAYOUT_TITLES.ORDERS')} />
+                    <MenuLi pathname={'/admin/products'} label={t('LAYOUT_TITLES.PRODUCTS')} />
+                    <MenuLi pathname={'/admin/blog/'} label={t('LAYOUT_TITLES.BLOG')} />
+                </nav>
+                <div className='mt-10'>
+                    <p className="text-white font-bold text-lg">
+                        {t('LAYOUT_TITLES.STADISTICS')}
+                    </p>
+                </div>
+                <nav className="mt-5 list-none">
+                    <MenuLi pathname={'/admin/best-sellers/'} label={t('LAYOUT_TITLES.BEST_SELLERS')} />
+                    <MenuLi pathname={'/admin/best-clients'} label={t('LAYOUT_TITLES.BEST_CLIENTS')} />
+                </nav>
+            </div>
         </aside>
     )
 }

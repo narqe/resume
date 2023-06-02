@@ -4,8 +4,11 @@ import { DELETE_BLOG } from '@graphql/Mutations/Blog';
 import Swal from 'sweetalert2';
 import { GET_BLOGS } from '@graphql/Queries/Blog';
 import { useMutation } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
+import Router from 'next/router';
 
 const ActionsBtns = ({ id }) => {
+    const { t } = useTranslation();
     const [ deleteBlog ] = useMutation(DELETE_BLOG, {
         update( cache ) {
             const { getBlogs } = cache.readQuery({ query: GET_BLOGS });

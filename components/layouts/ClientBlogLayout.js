@@ -3,8 +3,12 @@ import Head from 'next/head';
 import Separator from '@components/shared/Structure/Separator';
 import Metadata from '@components/blog/Metadata';
 import SocialShareToolbar from '@components/shared/SocialShareToolbar';
+import NavMenu from '@components/shared/Structure/NavMenu';
+import useCoverPhoto from '@hooks/useCoverPhoto'
 
-const ClientBlogLayout = ({ children, title, author, createdOn, url, urlImage }) => {
+const ClientBlogLayout = ({ children, title, author, createdOn, url, content }) => {
+    const { coverPhoto } = useCoverPhoto(content)
+
     return (
         <>
             <Head>
@@ -13,13 +17,14 @@ const ClientBlogLayout = ({ children, title, author, createdOn, url, urlImage })
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerPolicy="no-referrer" /> 
             </Head>
             <div className="bg-gray-100 min-h-screen">
-                <div className="sm:flex min-h-screen">
+                <div className="flex-col min-h-screen">
+                    <NavMenu />
                     <main className="w-full sm:min-h-screen relative">
-                        { urlImage && 
-                            <div className='w-full h-80 opacity-30 top-0 left-0'>
+                        { coverPhoto && 
+                            <div className='w-full h-44 lg:h-80 opacity-30 top-0 left-0'>
                                 <img
                                     className="h-48 w-full object-cover lg:h-full lg:w-full"
-                                    src={urlImage} 
+                                    src={coverPhoto} 
                                     height={'100%'} 
                                     width={'100%'}
                                 />

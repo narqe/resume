@@ -1,15 +1,17 @@
+import { useRouter } from 'next/router';
 import React from 'react';
-import Router from 'next/router';
 import { useTranslation } from 'react-i18next'
 import { MdOutlineReadMore } from 'react-icons/md';
 
-const Footer = ({ id }) => {
+const Footer = ({ id, isAdmin }) => {
+    const router = useRouter()
     const { t } = useTranslation();
-    const viewMoreDetail = () => {
-        Router.push({
-            pathname: `/admin/view-article/[id]`,
-            query: { 
-                id 
+    const pathname = !!isAdmin ? '/admin' : '';
+    const viewMoreDetail = (id) => {
+        router.push({
+            pathname: `${pathname}/view-article/[id]`,
+            query: {
+                id
             }
         })
     }
@@ -17,7 +19,7 @@ const Footer = ({ id }) => {
     return (
         <div className='flex justify-end items-center py-2 px-5 gap-5'>
             <button 
-                className='bg-yellow-800 flex justify-center items-center gap-2 my-1 p-2 text-white text-sm rounded-lg uppercase hover:bg-yellow-700 cursor-pointer'
+                className='bg-yellow-800 flex justify-center items-center gap-2 my-1 px-2 py-1 text-white text-xs rounded-lg uppercase hover:bg-yellow-700 cursor-pointer'
                 onClick={() => viewMoreDetail(id)}
                 type='button'>
                     <MdOutlineReadMore />

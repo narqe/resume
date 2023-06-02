@@ -1,13 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import { useRouter } from "next/router"
 import Sidebar from '@components/shared/Structure/Sidebar';
 import Separator from '@components/shared/Structure/Separator';
 import Header from '@components/shared/Structure/Header';
 
 const Layout = ({ children, title }) => {
-    const router = useRouter();
-
     return (
         <>
             <Head>

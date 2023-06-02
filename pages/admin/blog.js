@@ -10,8 +10,6 @@ import EmptyResults from '@components/shared/EmptyResults';
 import Loading from '@components/shared/Loading';
 import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
 import BlogItem from '@components/blog/BlogItem';
-import ActionsBtns from '@components/blog/ActionsBtns';
-import Footer from '@components/blog/Footer';
 
 const Blog = () => {  
   const { t } = useTranslation();
@@ -29,8 +27,6 @@ const Blog = () => {
                 { data.getBlogs.map(article => 
                   <div key={article.id} style={{'height': 'fit-content'}}>
                     <BlogItem article={article} />
-                    <ActionsBtns id={article.id} />
-                    <Footer id={article.id} />
                   </div>
                 )}
               </div>

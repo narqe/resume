@@ -78,7 +78,8 @@
       "EDIT_CLIENT": "Modificar cliente",
       "BLOG": "Blog",
       "NEW_BLOG": "Nueva entrada",
-      "EDIT_BLOG": "Modificar nota"
+      "EDIT_BLOG": "Modificar nota",
+      "WEB": "Inicio"
     },
     "TABLE_HEADERS": {
       "name": "Nombre",
@@ -101,7 +102,8 @@
     "MESSAGES": {
       "REDIRECTING": "Redirigiendo...",
       "INFO": {
-        "SUMMARY_ITEMS": "Productos del pedido"
+        "SUMMARY_ITEMS": "Productos del pedido",
+        "CONTENT_LABEL": "Info: La primera foto de tu contenido será la imagen de portada."
       },
       "SUCCESS": {
         "ON_DELETE": "El {{ ctx }} fue eliminado correctamente",
