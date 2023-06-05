@@ -6,7 +6,7 @@ import { GET_LAST_BLOGS_BY_CATEGORY } from '@graphql/Queries/Blog';
 import { useTranslation } from 'react-i18next';
 import Loading from '@components/shared/Loading';
 import ErrorCustomTableResults from '@components/shared/ErrorCustomTableResults';
-import Separator from '@components/shared/structure/Separator';
+import Separator from '@components/shared/Structure/Separator';
 
 const IndexCategoryBlog = ({ cat, limit = 10 }) => {
     const { t } = useTranslation();
