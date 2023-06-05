@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { emptyImageDefault } from '@constants/urls';
 
 const useCoverPhoto = (content) => {
     const [coverPhoto, setCoverPhoto] = useState();
@@ -7,8 +8,10 @@ const useCoverPhoto = (content) => {
         const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
         const matches = content && content.match(expression);
 
-        if (matches && matches.length) {
+        if (matches?.length) {
             setCoverPhoto(matches[0])
+        } else {
+            setCoverPhoto(emptyImageDefault)
         }
     }, [content])
 

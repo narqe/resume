@@ -12,7 +12,8 @@ const Footer = ({ id, isAdmin }) => {
             pathname: `${pathname}/view-article/[id]`,
             query: {
                 id
-            }
+            },
+            
         })
     }
 

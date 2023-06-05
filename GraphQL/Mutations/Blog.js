@@ -9,6 +9,7 @@ const NEW_BLOG = gql`
             author
             summary
             category
+            isFeatured
             createdOn
         }
     }
@@ -16,10 +17,13 @@ const NEW_BLOG = gql`
 const UPDATE_BLOG = gql`
     mutation Mutation($id: ID!, $input: BlogInput) {
         updateBlog(id: $id, input: $input) {
+            id
             title
+            content
+            author
             summary
             category
-            content
+            isFeatured
         }
     }
 `;

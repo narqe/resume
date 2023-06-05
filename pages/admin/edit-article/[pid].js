@@ -28,11 +28,13 @@ const EditArticle = () => {
     const [ categoriesSelected, setCategoriesSelected ] = useState(null);
     const { t } = useTranslation();
     const [ updateBlog ] = useMutation(UPDATE_BLOG)
+    const [ isFeatured, setIsFeatured ] = useState(false);
 
     const schemaValidation = Yup.object({
         title: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
         summary: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
         content: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+        isFeatured: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
     })
 
     const updateBlogOnDb = async values => {
@@ -46,7 +48,8 @@ const EditArticle = () => {
                         title, 
                         summary, 
                         content,
-                        category: titlesCatSelected
+                        category: titlesCatSelected,
+                        isFeatured: isFeatured
                     }
                 }
             })
@@ -87,10 +90,20 @@ const EditArticle = () => {
     }
 
     useEffect(() => {
-        if(data?.getBlogById && dataCategories.getBlogCategories) {
+        if (data?.getBlogById && dataCategories?.getBlogCategories) {
             setCategoriesSelected(selectedValues())
         }
     }, [data, dataCategories])
+
+    useEffect(() => {
+        if (data?.getBlogById) {
+            setIsFeatured(data?.getBlogById.isFeatured)
+        }
+    }, [data])
+
+    const onChangeIsFeatured = ({ checked }) => {
+        setIsFeatured(checked)
+    }
 
     return (
         <Layout title={ t('LAYOUT_TITLES.EDIT_BLOG') }>
@@ -103,7 +116,7 @@ const EditArticle = () => {
                             validationSchema={schemaValidation}
                             enableReinitialize
                             initialValues={ data.getBlogById }
-                            onSubmit={ (values) => updateBlogOnDb(values) }
+                            onSubmit={(values) => updateBlogOnDb(values)}
                         >
                         { props => {
                             return (
@@ -142,6 +155,16 @@ const EditArticle = () => {
                                         placeholder={t('PLACEHOLDERS.SUMMARY')}
                                         value='summary'
                                         formik={props}
+                                    />
+                                    <label className="inline-flex justify-center text-gray-700 text-sm font-bold mb-2 mr-2 leading-5" htmlFor="isFeatured">Marcar como destacada</label>
+                                    <input 
+                                        type="checkbox" 
+                                        id="isFeatured" 
+                                        name="isFeatured" 
+                                        value="isFeatured"
+                                        checked={isFeatured}
+                                        onBlur={props.handleBlur}
+                                        onChange={ev => onChangeIsFeatured(ev.target)}
                                     />
                                     <MarkdownInput 
                                         formik={props} 

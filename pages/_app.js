@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import { ApolloProvider } from "@apollo/client";
 import client from '@config/apollo';
 import OrderState from "@context/orders/OrderState";
+import Router from "next/router";
 import '../i18n';
-import { useRouter } from 'next/router';
 
 const MyApp = ({ Component, pageProps }) => {
   const [isAuth, setIsAuth] = useState(false)
-  const router = useRouter();
   
   if (typeof window !== "undefined") {
     const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
@@ -19,13 +18,22 @@ const MyApp = ({ Component, pageProps }) => {
       } else {
         setIsAuth(false);
       }
-    }, [localStorage.getItem('token'), isExpired, decodedToken])
+
+      if (isExpired) {
+        localStorage.removeItem('token');
+        if (!Router.pathname.includes('/admin/login') || Router.pathname.includes('/admin/newaccount')) {
+          Router.push("/");
+        }
+      }
+      
+    }, [isExpired, decodedToken])
+
   }
 
   return (
     <ApolloProvider client={client}>
       <OrderState>
-        <Component {...pageProps} />
+        <Component {...pageProps} isAuth={isAuth} />
       </OrderState>
     </ApolloProvider>
   )

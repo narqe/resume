@@ -10,9 +10,11 @@ import { useMutation, useQuery } from '@apollo/client';
 import { NEW_BLOG } from '@graphql/Mutations/Blog';
 import { GET_BLOGS, GET_BLOG_CATEGORIES } from '@graphql/Queries/Blog';
 import Select from 'react-select';
+import Swal from 'sweetalert2';
 
 const BlogForm = () => {
     const [ categoriesSelected, setCategoriesSelected ] = useState(null);
+    const [ isFeatured, setIsFeatured ] = useState(false);
     const router = useRouter()
     const { t } = useTranslation();
     const { data, loading } = useQuery(GET_BLOG_CATEGORIES);
@@ -23,12 +25,14 @@ const BlogForm = () => {
             author: '',
             summary: '',
             category: '',
+            isFeatured: false,
             content: '## Hello world!'
         },
         validationSchema: Yup.object({ 
             title: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
             summary: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
             content: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
+            isFeatured: Yup.string().required(t('INPUT_ERRORS.REQUIRED')),
         }),
         onSubmit: (values) => onUpload(values)
     })
@@ -43,13 +47,21 @@ const BlogForm = () => {
                         content,
                         author,
                         category: catTitle,
-                        summary
+                        summary,
+                        isFeatured: isFeatured
                     }
                 }
             });
+            Swal.fire({
+                text: t('MESSAGES.CONFIRMATION.ON_CREATE_BLOG.TITLE'),
+                icon: 'success',
+                iconColor: '#154e3a',
+                showConfirmButton: false,
+                timer: 1500
+            })
             setTimeout(() => {
-                router.push("/admin/blog");
-            }, 1000);
+                router.push("/admin/blog")
+            }, 1500)
         } catch (error) {
             console.log(error);
         }
@@ -71,6 +83,11 @@ const BlogForm = () => {
 
     const onChangeSelected = (selected) => {
         setCategoriesSelected(selected)
+    }
+
+
+    const onChangeIsFeatured = ({ checked }) => {
+        setIsFeatured(checked)
     }
 
     return (
@@ -108,12 +125,21 @@ const BlogForm = () => {
                 placeholder={t('PLACEHOLDERS.SUMMARY')}
                 value='summary'
                 formik={formik}
+            />  
+            <label className="inline-flex justify-center text-gray-700 text-sm font-bold mb-2 mr-2 leading-5" htmlFor="isFeatured">Marcar como destacada</label>
+            <input 
+                type="checkbox" 
+                id="isFeatured" 
+                name="isFeatured" 
+                value="isFeatured"
+                onBlur={formik.handleBlur}
+                onChange={ev => onChangeIsFeatured(ev.target)}
             />
             <MarkdownInput
                 formik={formik} 
                 label={t('LABELS.CONTENT')}
                 value='content' 
-            />
+            />         
             <SubmitBtn value={t('BUTTONS.NEW_BLOG')} />
         </form>
     )

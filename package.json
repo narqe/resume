@@ -34,6 +34,7 @@
     "react-jwt": "^1.1.8",
     "react-markdown": "^8.0.7",
     "react-render-markup": "^3.5.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-select": "^5.7.3",
     "recharts": "^2.6.2",
     "sweetalert2": "^11.4.8",

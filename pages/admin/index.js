@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from '@components/layouts/Layout';
 import { useQuery } from '@apollo/client';
 import CustomTable from '@components/shared/CustomTable';
@@ -9,8 +9,6 @@ import { GET_CLIENT_SELLERS } from '@graphql/Queries/Client';
 const Index = () => {
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_CLIENT_SELLERS);
-
-  if (!data?.getClientsVendedor) return null
 
   return (
     <Layout title={ t('LAYOUT_TITLES.CLIENTS') }>

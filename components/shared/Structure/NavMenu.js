@@ -9,6 +9,7 @@ const NavMenu = () => {
     const [ menuClass, setMenuClass ] = useState('lg:flex lg:flex-row flex-col justify-between');
     const { t } = useTranslation();
     const { height, width } = useWindowDimensions();
+    const [ hasToken, setHasToken ] = useState();
 
     const toogleMenu = () => {
         if (hamburgerClass === 'hidden') {
@@ -26,9 +27,19 @@ const NavMenu = () => {
         }
 
     }, [height, width])
+    
+    if (typeof window !== "undefined") {
+        useEffect(() => {
+            if(localStorage.getItem('token')) {
+                setHasToken(true)
+            } else {
+                setHasToken(false);
+            }
+        }, [hasToken])
+    }
 
     return (
-        <div className={`${menuClass} bg-green-900 w-full p-5`}>
+        <div className={`${menuClass} bg-green-900 w-full py-5 px-12`}>
             <div className='inline-flex justify-start lg:w-full w-2/4'>
                 <p className="text-white lg:text-2xl">
                     <Link href="/">
@@ -46,10 +57,17 @@ const NavMenu = () => {
                 </div>
             </div>
             <nav className={`${hamburgerClass} lg:flex list-none w-full justify-end lg:text-left text-center`}>
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.CLIENTS')} />
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.ORDERS')} />
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.PRODUCTS')} />
-                <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.BLOG')} />
+                <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.HOME')} />
+                <MenuLi pathname={'/music'} label={t('LAYOUT_TITLES.MUSIC')} />
+                <MenuLi pathname={'/cinema'} label={t('LAYOUT_TITLES.CINEMA')} />
+                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.SERIES')} />
+                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.BOOKS')} />
+                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.GAMES')} />
+                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.EVENTS')} />
+                { hasToken
+                    ? <MenuLi pathname={'/admin/'} label={t('LAYOUT_TITLES.ADMIN')} />
+                    : <MenuLi pathname={'/admin/login'} label={t('LAYOUT_TITLES.LOGIN')} />
+                }
             </nav>
         </div>
     )

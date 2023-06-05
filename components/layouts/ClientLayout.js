@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import NavMenu from '@components/shared/Structure/NavMenu';
 
-const ClientLayout = ({ children }) => {
+const ClientLayout = ({ children, isAuth }) => {
     return (
         <>
             <Head>
@@ -12,7 +12,7 @@ const ClientLayout = ({ children }) => {
             </Head>
             <div className="bg-green-50 min-h-screen">
                 <div className="flex-col min-h-screen">
-                    <NavMenu />
+                    <NavMenu isAuth={isAuth} />
                     <main className="w-full sm:min-h-screen">
                         <div className='px-10 pt-5'>
                             { children }

@@ -12,7 +12,7 @@ const ViewArticle = () => {
     const { query } = router;
     const { data, loading, error } = useQuery(GET_BLOG_BY_ID, {
         variables: {
-            id: query.pid
+            id: query.pid,
         }
     });
 

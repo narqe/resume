@@ -53,11 +53,10 @@ const Login = () => {
                 message: t('MESSAGES.REDIRECTING'),
                 type: 'info'
             })
-            setTimeout(() => {
-                const { token } = data.authUser;
-                localStorage.setItem('token', token);
-            }, 1500);
-            
+
+            const { token } = data.authUser;
+            localStorage.setItem('token', token);
+        
             setTimeout(() => { 
                 router.push('/admin')
             }, 3000);

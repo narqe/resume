@@ -79,7 +79,14 @@
       "BLOG": "Blog",
       "NEW_BLOG": "Nueva entrada",
       "EDIT_BLOG": "Modificar nota",
-      "WEB": "Inicio"
+      "HOME": "Inicio",
+      "ADMIN": "Dashboard",
+      "CINEMA": "Cine",
+      "SERIES": "Series",
+      "BOOKS": "Libros",
+      "MUSIC": "Música",
+      "GAMES": "Juegos",
+      "EVENTS": "Eventos"
     },
     "TABLE_HEADERS": {
       "name": "Nombre",
@@ -148,5 +155,15 @@
     },
     "ERRORS": {
       "MESSAGE_001": "Hubo un error al cargar los resultados. Por favor, intentá nuevamente."
+    },
+    "CATEGORY_BLOG": {
+      "MUSIC": "Música",
+      "GAMES": "Juegos",
+      "SERIES": "Series",
+      "CINEMA": "Cine",
+      "EVENTS": "Eventos",
+      "BOOKS": "Libros",
+      "OTHER": "Sin categoría",
+      "FEATURED": "Destacadas"
     }
   }
