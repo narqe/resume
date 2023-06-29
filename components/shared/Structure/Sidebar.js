@@ -45,7 +45,7 @@ const Sidebar = () => {
             </div>
             <div className={`${hamburgerClass} w-full`}>
                 <nav className="mt-5 list-none">
-                    <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.WEB')} />
+                    <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.HOME')} />
                     <MenuLi pathname={'/admin/'} label={t('LAYOUT_TITLES.CLIENTS')} />
                     <MenuLi pathname={'/admin/orders'} label={t('LAYOUT_TITLES.ORDERS')} />
                     <MenuLi pathname={'/admin/products'} label={t('LAYOUT_TITLES.PRODUCTS')} />
