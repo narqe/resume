@@ -7,7 +7,8 @@ const Index = ({ isAuth }) => {
     
     return (
         <ClientLayout isAuth={isAuth}>
-            <Featured limit={3} />
+            <h1 className='2xl'>It's coming home...</h1>
+            {/* <Featured limit={3} />
             <div className="lg:inline-flex w-full">
                 <div className='lg:w-2/3 w-full'>
                     <IndexCategoryBlog cat='MUSIC' limit={2} />
@@ -24,7 +25,7 @@ const Index = ({ isAuth }) => {
                 <div className='lg:w-2/4'>
                     <IndexCategoryBlog cat='SERIES' limit={4} />
                 </div>
-            </div>
+            </div> */}
         </ClientLayout>
     )
 }

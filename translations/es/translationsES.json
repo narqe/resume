@@ -1,6 +1,6 @@
 { 
     "WELCOME": "Hola, {{ name }}",
-    "PAGE_TITLE": "CRM",
+    "PAGE_TITLE": "Narcotica",
     "LOADING": "Cargando datos, esperá unos momentos.",
     "BUTTONS": {
       "NEW_CLIENT": "Registrar cliente",
