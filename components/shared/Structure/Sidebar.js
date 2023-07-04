@@ -28,7 +28,7 @@ const Sidebar = () => {
     }, [height, width])
 
     return (
-        <aside className={`${menuClass} bg-green-900 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5`}>
+        <aside className={`${menuClass} bg-purple-900 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5`}>
             <div className="inline-flex justify-start lg:w-full w-2/4">
                 <p className="text-white text-2xl">
                     <Link href="/admin/">{t('PAGE_TITLE')}</Link>

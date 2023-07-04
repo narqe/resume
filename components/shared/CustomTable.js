@@ -132,7 +132,7 @@ const CustomTable = ({ data, ctx, loading = false, error = false }) => {
   return (
     <div className='overflow-x-scroll mb-10'>
       <table className='table-auto shadow-md mt-10 w-full w-lg'>
-        <thead className='bg-green-900'>
+        <thead className='bg-purple-900'>
           <tr className='text-white'>
             { thead.map((th, i) => {
                 if(!th.startsWith('__') && th !== 'id') {

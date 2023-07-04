@@ -8,11 +8,14 @@ const Layout = ({ children, title }) => {
     return (
         <>
             <Head>
-                <title>CRM</title>
+                <title>Narcotica | El vicio es cultura</title>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerPolicy="no-referrer" /> 
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet"></link>
             </Head>
-            <div className="bg-green-50 min-h-screen">
+            <div className="bg-purple-50 min-h-screen">
                 <div className="sm:flex min-h-screen">
                     <Sidebar />
                     <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen">

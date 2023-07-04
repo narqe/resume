@@ -1,6 +1,7 @@
 { 
     "WELCOME": "Hola, {{ name }}",
     "PAGE_TITLE": "Narcotica",
+    "PAGE_SUBTITLE": "El vicio es cultura",
     "LOADING": "Cargando datos, esperá unos momentos.",
     "BUTTONS": {
       "NEW_CLIENT": "Registrar cliente",
@@ -38,7 +39,8 @@
       "ASSIGN_PRODUCTS": "Seleccioná productos",
       "TITLE": "Ingresá el título del artículo",
       "AUTHOR": "Ingresá el autor del artículo",
-      "SUMMARY": "Ingresá un resumen del artículo"
+      "SUMMARY": "Ingresá un resumen del artículo",
+      "CATEGORY": "Ingresá las categorías (podés seleccionar más de una)"
     },
     "LABELS": {
       "CLIENT": "Cliente",
@@ -83,7 +85,7 @@
       "ADMIN": "Dashboard",
       "CINEMA": "Cine",
       "SERIES": "Series",
-      "BOOKS": "Libros",
+      "BOOKS": "Literatura",
       "MUSIC": "Música",
       "GAMES": "Juegos",
       "EVENTS": "Eventos"
@@ -104,7 +106,8 @@
       "PRODUCTS_SELECTED": "No hay productos seleccionados.",
       "ORDERS": "No hay pedidos cargados momentáneamente",
       "CLIENT_RESULTS": "No hay clientes registrados momentáneamente",
-      "PRODUCT_RESULTS": "No hay productos disponibles momentáneamente"
+      "PRODUCT_RESULTS": "No hay productos disponibles momentáneamente",
+      "BLOGS": "No hay notas disponibles momentáneamente"
     },
     "MESSAGES": {
       "REDIRECTING": "Redirigiendo...",
@@ -162,7 +165,7 @@
       "SERIES": "Series",
       "CINEMA": "Cine",
       "EVENTS": "Eventos",
-      "BOOKS": "Libros",
+      "BOOKS": "Literatura",
       "OTHER": "Sin categoría",
       "FEATURED": "Destacadas"
     }

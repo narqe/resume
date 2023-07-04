@@ -35,7 +35,7 @@ const NewOrder = () => {
     const validateOrder = () => {
         return (!products?.every(product => product.quantity > 0) || total === 0 || !client) 
             ? "bg-gray-200 opacity-50 cursor-not-allowed text-gray-500" 
-            : "text-white bg-yellow-800"
+            : "text-white bg-yellow-500"
     }
 
     const createNewOrder = async () => {

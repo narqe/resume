@@ -20,7 +20,7 @@ const Footer = ({ id, isAdmin }) => {
     return (
         <div className='flex justify-end items-center py-2 px-5 gap-5'>
             <button 
-                className='bg-yellow-800 flex justify-center items-center gap-2 my-1 px-2 py-1 text-white text-xs rounded-lg uppercase hover:bg-yellow-700 cursor-pointer'
+                className='bg-yellow-500 flex justify-center items-center gap-2 my-1 px-2 py-1 text-white text-xs rounded-lg uppercase hover:bg-yellow-300 cursor-pointer'
                 onClick={() => viewMoreDetail(id)}
                 type='button'>
                     <MdOutlineReadMore />

@@ -29,8 +29,6 @@ const Featured = ({ limit = 3, isAuth }) => {
                 ?   <ErrorCustomTableResults />
                 :   data?.getFeaturedPosts?.length 
                     ?   <>
-                            <h1 className="text-2xl font-bold leading-5 m-4">{t(`CATEGORY_BLOG.FEATURED`)}</h1>
-                            <Separator />
                             <Carousel
                                 showStatus={false}
                                 showIndicators={false}

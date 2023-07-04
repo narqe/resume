@@ -110,7 +110,7 @@ const BlogForm = () => {
                 className="appearance-none rounder w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 options={data?.getBlogCategories}
                 getOptionValue={options => options.id}
-                getOptionLabel={options => options.title}
+                getOptionLabel={options => t(`CATEGORY_BLOG.${options.title}`)}
                 onBlur={formik.handleBlur}
                 onChange={selected => onChangeSelected(selected)}
                 placeholder={t('PLACEHOLDERS.CATEGORY')}

@@ -40,11 +40,14 @@ const NavMenu = () => {
 
     return (
         <div className={`${menuClass} bg-purple-900 w-full lg:py-5 py-1 px-12`}>
-            <div className='inline-flex justify-start lg:w-full w-2/4'>
-                <p className="text-white lg:text-2xl">
-                    <Link href="/">
+            <div className='text-white inline-block justify-start lg:w-full w-2/4' style={{ fontFamily: 'Anonymous Pro, monospace' }}>
+                <p className="lg:text-2xl">
+                    <Link href="/" className='uppercase'>
                         {t('PAGE_TITLE')}
                     </Link>
+                </p>
+                <p className="text-sm">
+                    {t('PAGE_SUBTITLE')}
                 </p>
             </div>
             <div className="inline-flex justify-end lg:w-full w-2/4">
@@ -56,18 +59,16 @@ const NavMenu = () => {
                     </button>
                 </div>
             </div>
-            <nav className={`${hamburgerClass} lg:flex list-none w-full justify-end lg:text-left text-center`}>
-                {/* <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.HOME')} />
+            <nav className={`${hamburgerClass} lg:flex list-none w-full justify-end lg:text-left text-center items-center`}>
+                <MenuLi pathname={'/'} label={t('LAYOUT_TITLES.HOME')} />
                 <MenuLi pathname={'/music'} label={t('LAYOUT_TITLES.MUSIC')} />
                 <MenuLi pathname={'/cinema'} label={t('LAYOUT_TITLES.CINEMA')} />
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.SERIES')} />
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.BOOKS')} />
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.GAMES')} />
-                <MenuLi pathname={'#'} label={t('LAYOUT_TITLES.EVENTS')} />
+                <MenuLi pathname={'/series'} label={t('LAYOUT_TITLES.SERIES')} />
+                <MenuLi pathname={'/books'} label={t('LAYOUT_TITLES.BOOKS')} />
                 { hasToken
                     ? <MenuLi pathname={'/admin/'} label={t('LAYOUT_TITLES.ADMIN')} />
                     : <MenuLi pathname={'/admin/login'} label={t('LAYOUT_TITLES.LOGIN')} />
-                } */}
+                }
             </nav>
         </div>
     )
