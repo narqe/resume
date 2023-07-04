@@ -6,7 +6,7 @@ import SocialShareToolbar from '@components/shared/SocialShareToolbar';
 import NavMenu from '@components/shared/Structure/NavMenu';
 import useCoverPhoto from '@hooks/useCoverPhoto'
 
-const ClientBlogLayout = ({ children, title, author, createdOn, url, content, isAuth }) => {
+const ClientBlogLayout = ({ children, title, author, createdOn, url, content }) => {
     const { coverPhoto } = useCoverPhoto(content)
 
     return (
@@ -18,7 +18,7 @@ const ClientBlogLayout = ({ children, title, author, createdOn, url, content, is
             </Head>
             <div className="bg-gray-100 min-h-screen">
                 <div className="flex-col min-h-screen">
-                    <NavMenu isAuth={isAuth} />
+                    <NavMenu />
                     <main className="w-full sm:min-h-screen relative">
                         { coverPhoto && !coverPhoto.includes('icon-no-image.svg') && 
                             <div className='w-full h-48 lg:h-96 opacity-30 top-0 left-0'>
