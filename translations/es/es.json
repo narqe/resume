@@ -1,0 +1,52 @@
+{
+  "MENU": {
+    "ABOUT_ME": "Sobre mí",
+    "PROJECTS": "Proyectos",
+    "EDUCATION": "Educación",
+    "LANGUAGES": "Idiomas",
+    "SKILLS": "Habilidades"
+  },
+  "CONTACT_DATA": {
+    "BIRTHPLACE": "Residencia",
+    "BIRTHDATE": "Fecha de nacimiento",
+    "CHANGE_LANG": "Cambiar idioma"
+  },
+  "ABOUT_ME": {
+    "PRESENTATION": "Hola, soy Joel, un <strong>Desarrollador Frontend y Diseñador Interactivo</strong> que ha trabajado en varios proyectos con <strong>React, Angular y Vue.js</strong> desde 2019. Como profesional de TI, me interesan los proyectos desafiantes que me mantienen aprendiendo permanentemente. Además, me gusta implementar nuevas tecnologías, mejores prácticas, bibliotecas y frameworks en los proyectos en los que trabajo. Desde 2023, he tenido la oportunidad de comenzar a coordinar el equipo con el que trabajaba, por lo que empecé a interesarme en la gestión y las tareas relacionadas con el liderazgo y la coordinación de equipos. Me considero una persona curiosa que disfruta creciendo como profesional, trabajando en proyectos en diferentes áreas."
+  },
+  "EDUCATION": {
+    "COMPLETED": "Completado",
+    "NOT_COMPLETED": "No completado",
+    "COURSE_1": "Título de Secundaria en CEF San Buenaventura",
+    "COURSE_2": "Título Técnico en Diseño Interactivo en La Metro",
+    "COURSE_3": "Licenciatura en Comunicación Social en UNC",
+    "COURSE_4": "Desarrollador Web Fullstack en Acámica",
+    "COURSE_5": "Gerente de Proyectos en Kinetic"
+  },
+  "SKILLS": {
+    "SPANISH": "Español (Nativo)",
+    "ENGLISH": "Inglés Avanzado"
+  },
+  "PROJECTS": {
+    "PROJECT_1": {
+      "TITLE": "<strong>JS Software</strong> (Área: Retail) | <strong>Jun 2023 - Presente</strong>",
+      "DESC": "Estoy a cargo del proyecto principal de la empresa, una aplicación web de Back Office desarrollada con <strong>React</strong> y <strong>Next.js</strong>. Realizo tareas de gestión y programación. Empecé a implementar metodologías ágiles ya que no se aplicaban cuando ingresé. Además, para la misma empresa trabajé en otro proyecto, un e-commerce para minoristas desarrollado con <strong>Vue.js</strong>. Aunque el proyecto estaba iniciado, todo tuvo que ser refactorizado para adaptarse a diferentes clientes de otras áreas."
+    },
+    "PROJECT_2": {
+      "TITLE": "<strong>Mendel</strong> (Área: Fintech) | <strong>Feb 2022 - Jun 2023</strong>",
+      "DESC": "Trabajé en el proyecto principal de la empresa, una aplicación web para la gestión y control de gastos corporativos. El proyecto se desarrolló con <strong>Angular</strong> y algunas de mis tareas y responsabilidades fueron: desarrollar nuevas características web orientadas al usuario, crear código y bibliotecas reutilizables para uso futuro, garantizar la viabilidad técnica de los diseños UI/UX, optimizar aplicaciones para máxima velocidad y escalabilidad. Fui uno de los responsables del área de frontend y, en ocasiones, realizaba entrevistas técnicas."
+    },
+    "PROJECT_3": {
+      "TITLE": "<strong>Bitlogic (Área: Educación)</strong> | <strong>Jun 2019 - Feb 2022</strong>",
+      "DESC": "Trabajé en dos de los proyectos principales de la empresa: una aplicación web para estudiantes universitarios desarrollada con <strong>React</strong>. En estos proyectos apliqué tecnologías como pruebas unitarias con Jest, Enzyme y React Testing Library, Redux, Material UI, Bootstrap y Node.js (Axios y Express.js).<br /> El otro proyecto en el que trabajé fue una aplicación web con <strong>Angular</strong> para el personal comercial, para vender paquetes de carreras universitarias. En este proyecto también realizaba algunas tareas de backend en JAVA (SpringBoot) y Node.js.<br /> En ambos proyectos trabajé utilizando metodologías ágiles (Scrum), JIRA, AWS, CI/CD, Gitlab. También tuve algo de experiencia con la configuración de pipelines."
+    },
+    "PROJECT_4": {
+      "TITLE": "<strong>Trompo Agencia</strong> (Área: Marketing Digital) | <strong>Ene 2018 - Jun 2019</strong>",
+      "DESC": "Estuve a cargo del área de Desarrollo Web, enfocándome en tareas de Frontend. Trabajé con plantillas de Wordpress y Prestashop, en la mayoría de los casos personalizando plantillas para diferentes clientes. También desarrollé sitios en HTML5, CSS3 y JavaScript, ya sea desde cero o personalizando plantillas. Utilicé frameworks como Bootstrap y JQuery."
+    },
+    "PROJECT_5": {
+      "TITLE": "<strong>Criterio Net</strong> (Área: Marketing Digital) | <strong>Sep 2011 - Jun 2013</strong>",
+      "DESC": "Esta experiencia comenzó como una pasantía universitaria y terminó convirtiéndose en un trabajo de tiempo completo. Estuve a cargo del área de Desarrollo Web, enfocándome en tareas de frontend y soporte. Trabajé con plantillas de Wordpress y Prestashop, en la mayoría de los casos personalizando plantillas para diferentes clientes. También desarrollé sitios en HTML5, CSS3 y JavaScript, ya sea desde cero o personalizando plantillas. Utilicé frameworks como Bootstrap y JQuery."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.about-me {
+    line-height: 1.5;
+    font-size: 16px;
+    padding: 2em 2.5em;
+    background: #e9af8b;
+    border: 3px dashed #a7643e;
+    color: #a7643e;
+}
+
+
+a.behance, a.linkedin, a.github {    
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+a.behance {
+    background: url('../../../public/img/iconos/behance.png') center center no-repeat;
+}
+
+a.linkedin {
+    background: url('../../../public/img/iconos/linkedin.png') center center no-repeat;
+}
+
+a.github {
+    background: url('../../../public/img/iconos/github.png') center center no-repeat;
+    background-size: cover;
+}

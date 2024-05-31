@@ -1,0 +1,44 @@
+{
+  "name": "cv",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.24.6",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.19",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@mui/material": "^5.15.19",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@react-icons/all-files": "^4.1.0",
+    "apollo-link-context": "^1.0.20",
+    "autoprefixer": "^10.4.14",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
+    "i18next": "22.5.0",
+    "i18next-browser-languagedetector": "7.0.1",
+    "i18next-http-backend": "2.2.1",
+    "next": "^14.2.3",
+    "next-remove-imports": "^1.0.11",
+    "next-share": "^0.20.0",
+    "node-fetch": "^3.3.1",
+    "postcss": "^8.4.23",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^11.8.15",
+    "react-icons": "^4.8.0",
+    "recharts": "^2.6.2",
+    "styled-components": "^6.1.11",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4"
+  }
+}
