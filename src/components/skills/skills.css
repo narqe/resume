@@ -1,15 +1,20 @@
-.skill {
-    padding: 0;
-    margin: 0 10px 0 0;
-    display: -webkit-inline-box;
-    position: relative;
-    height: 20px;
-    display: inline-flex;
-    gap: 5px
-}
-
-.rightside-container .contenedor-der__list-skills {
-    gap: 10px;
+.skills-container {
+    gap: 20px;
     display: grid;
     grid-template-columns: 33% 33% 33%;
+}
+
+.skill {
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    display: inline-flex;
+    gap: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .skills-container {
+        gap: 40px;
+        grid-template-columns: auto auto;
+    }
 }

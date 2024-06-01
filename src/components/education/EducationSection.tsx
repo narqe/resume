@@ -7,7 +7,7 @@ const EducationSection = () => {
     const { t } = useTranslation();
 
     return (
-        <article id="education" className="contenedor-der__formacion">
+        <article id="education">
             <h2>{t('MENU.EDUCATION')}</h2>
             <Timeline position="alternate">
                 <Course year="2024" degree={t('EDUCATION.COURSE_5')} status={t('EDUCATION.COMPLETED')} />

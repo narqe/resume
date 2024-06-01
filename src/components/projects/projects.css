@@ -1,3 +1,24 @@
+.projects-container {
+    position: relative;
+}
+
+.projects-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: #e9af8b;
+    top: 0;
+    left: 4px;
+    margin-left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.project-item {
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
 .project-title {
     line-height: 1.5;
     font-size: 16px;
@@ -9,9 +30,4 @@
 .project-description {
     line-height: 2;
     font-size: 14px;
-}
-
-.project-container {
-    margin-bottom: 25px;
-    padding-bottom: 10px;
 }

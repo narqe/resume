@@ -5,9 +5,9 @@ const ProjectSection = () => {
     const { t } = useTranslation();
 
     return (
-        <article id="projects" className="contenedor-der__experiencia">
+        <article id="projects">
             <h2>{t('MENU.PROJECTS')}</h2>
-            <div className="contenedor-der__list-experiencia">
+            <div className="projects-container">
                 <Project title="PROJECTS.PROJECT_1.TITLE" desc="PROJECTS.PROJECT_1.DESC" />
                 <Project title="PROJECTS.PROJECT_2.TITLE" desc="PROJECTS.PROJECT_2.DESC" />
                 <Project title="PROJECTS.PROJECT_3.TITLE" desc="PROJECTS.PROJECT_3.DESC" />

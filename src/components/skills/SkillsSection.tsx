@@ -7,9 +7,9 @@ import './skills.css';
 const SkillsSection = () => {
     const { t } = useTranslation()
     return (
-        <article id="skills" className="contenedor-der__idiomas">
+        <article id="skills">
             <h2>{t('MENU.SKILLS')}</h2>
-            <div className="contenedor-der__list-skills">
+            <div className="skills-container">
                 <Skill imgSrc="espanol" label="Español" desc={t("SKILLS.SPANISH")} />
                 <Skill imgSrc="ingles" label="English" desc={`${t("SKILLS.ENGLISH")} (B1)`} />
                 <Skill imgSrc="react" label="React" desc="React" />
