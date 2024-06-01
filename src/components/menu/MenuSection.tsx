@@ -12,12 +12,12 @@ const MenuSection = () => {
     } 
 
     return (
-        <header className="contenedor-izq__menu" id="menu">
-            <figure className="foto-cv">
+        <header className="menu-container" id="menu">
+            <figure className="profile-img">
                 <img src="img/foto.jpg" alt="Joel Acef" title="Joel Acef" width="200" />
             </figure>
-            <h1 className="nombre">Joel <span>Acef</span></h1>
-            <div className="close-menu">
+            <h1 className="name-title">Joel <span>Acef</span></h1>
+            <div className="mobile-menu">
                 <a href="#menu" title="Menu" className="menu"></a>
                 <div
                     onClick={() => changeLang(i18n.language === 'es' ? 'en' : 'es')} 

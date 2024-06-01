@@ -9,7 +9,7 @@ const Navbar = () => {
     } 
     return (
         <nav>
-            <ul className="contenedor-izq__list-nav">
+            <ul>
                 <li><a href="#about-me" title={t('MENU.ABOUT_ME')}>{t('MENU.ABOUT_ME')}</a></li>
                 <li><a href="#projects" title={t('MENU.PROJECTS')}>{t('MENU.PROJECTS')}</a></li>
                 <li><a href="#education" title={t('MENU.EDUCATION')}>{t('MENU.EDUCATION')}</a></li>

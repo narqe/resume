@@ -8,7 +8,7 @@
     gap: 5px
 }
 
-.contenedor-der .contenedor-der__list-skills {
+.rightside-container .contenedor-der__list-skills {
     gap: 10px;
     display: grid;
     grid-template-columns: 33% 33% 33%;

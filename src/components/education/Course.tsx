@@ -36,14 +36,14 @@ const Course = ({
             </TimelineSeparator>
             <TimelineContent>
                 <Typography variant="overline" sx={{ fontWeight: 'bold' }}>
-                    { degree }
+                    {`${ degree } `}
                 </Typography>
                 <Typography 
                     sx={{ 
                         fontWeight: 'normal', 
                         color: '#fff' 
                     }} 
-                    component="p" 
+                    variant="overline" 
                 > 
                     ({ status })
                 </Typography>

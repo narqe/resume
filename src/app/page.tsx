@@ -12,11 +12,11 @@ export default function Home() {
   const { t, i18n } = useTranslation();
 
   return (
-    <main className="contenedor">
-      <section className="contenedor-izq">
+    <main className="container">
+      <section className="leftside-container">
         <MenuSection />
       </section>
-      <section className="contenedor-der">
+      <section className="rightside-container">
         <AboutMe />
         <ProjectSection />
         <EducationSection />
