@@ -19,15 +19,16 @@ const ContactData = () => {
             </p>
             <p className="lang">
                 <span>{t('CONTACT_DATA.CHANGE_LANG')}: </span>
-                <img 
-                    src={i18n.language === 'es' ? "img/skills/ingles.png" : "img/skills/espanol.png"}
-                    alt={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'} 
-                    title={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'}
-                    width="14"
-                    height="14" 
-                    onClick={() => changeLang(i18n.language === 'es' ? 'en' : 'es')} 
-                />
-                {i18n.language === 'es' ? 'English' : 'Español'}
+                <div className="lang-container" onClick={() => changeLang(i18n.language === 'es' ? 'en' : 'es')}>
+                    <img 
+                        src={i18n.language === 'es' ? "img/skills/ingles.png" : "img/skills/espanol.png"}
+                        alt={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'} 
+                        title={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'}
+                        width="14"
+                        height="14" 
+                    />
+                    {i18n.language === 'es' ? 'English' : 'Español'}
+                </div>
             </p>
         </div>
     )

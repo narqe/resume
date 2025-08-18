@@ -4,21 +4,18 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './projects.css';
 
-const Project = ({ title, desc } : { title: string, desc: string }) => {
+const Project = ({ project } : { project: string }) => {
     const { t } = useTranslation();
 
     return (
-        <div className="project-container">
-            <p 
-                className="project-title"
-                dangerouslySetInnerHTML={{ __html: t(title) }}>
-            </p>
-            <p  
-                className="project-description" 
-                dangerouslySetInnerHTML={{ __html: t(desc) }}
-            >
-            </p>
-        </div>
+        <section className="project-item">
+            <h1 className="project-title">{t(`${project}.TITLE`)}</h1>
+            <div className="project-metadata">
+                <span>{t(`${project}.PERIOD`)}</span>
+                <span><strong>({t(`${project}.AREA`)})</strong></span>
+            </div>
+            <p className="project-description" dangerouslySetInnerHTML={{ __html: t(`${project}.DESC`) }} />
+        </section>
     )
 }
 

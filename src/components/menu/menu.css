@@ -116,6 +116,13 @@
     height: 32px;  
 }
 
+.lang-container {
+    gap: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .contact-data {
     padding-top: 10px;
     padding-bottom: 10px;

@@ -12,7 +12,7 @@
     "CHANGE_LANG": "Change language"
   },
   "ABOUT_ME": {
-    "PRESENTATION" : "Hi I'm Joel, a <strong>Frontend Developer and Interactive Designer </strong> who has been working in several projects with <strong>React, Angular and Vue.js</strong> since 2019. As an IT professional I am interested in challenging projects that keep me permanently learning. Also I like to implement new technologies, best practices, libraries and frameworks in the projects I work. Furthermore, since 2023, I had the opportunity to start coordinating the team I worked with, so I began to be interested in management and tasks related to leadership and teams coordination. I consider myself a curious person who enjoys growing as a professional, working on projects in different areas."
+    "PRESENTATION" : "Hi I'm Joel, a <strong>Frontend Developer and Interactive Designer </strong> who has been working in several projects with <strong>React, NextJS, Angular and Vue.js</strong> since 2019. As an IT professional I am interested in challenging projects that keep me permanently learning. Also I like to implement new technologies, best practices, libraries and frameworks in the projects I work. Furthermore, since 2023, I had the opportunity to start coordinating the team I worked with, so I began to be interested in management and tasks related to leadership and teams coordination. I consider myself a curious person who enjoys growing as a professional, working on projects in different areas."
   },
   "EDUCATION": {
     "COMPLETED": "Completed",
@@ -28,25 +28,41 @@
     "ENGLISH": "English Advanced"
   },
   "PROJECTS": {
+    "PROJECT_6": {
+      "TITLE": "Globant",
+      "AREA": "Airlines",
+      "PERIOD": "Nov 2024 - Now",
+      "DESC": "I worked for a team responsible for managing all ancillary services for a major British airline, developing everything related to seats and baggage for reservations. We worked with React, Next JS, and Typescript. We used vitest for UT, and we focused specifically on A11Y (Accessibility) due to European airline regulations."
+    },
     "PROJECT_1": {
-      "TITLE": "<strong>JS Software</strong> (Area: Retailing) | <strong>Jun 2023 - Now</strong>",
+      "TITLE": "JS Software",
+      "AREA": "Retailing",
+      "PERIOD": "Jun 2023 - Nov 2024",
       "DESC": "I am in charge of the company's main project, a Back Office web application developed with <strong>React</strong> and <strong>Next.js</strong>. I am doing management and programming tasks. I started to implement agile methodologies since they were not applied when I entered. Also for the same company I worked in other project, an e-commerce for retailers developed with <strong>Vue.js.</strong>. Although the project was started, everything had to be refactored to be able to adapt it to different clients from other areas."
     },
     "PROJECT_2": {
-      "TITLE": "<strong>Mendel</strong> (Area: Fintec) | <strong>Feb 2022 - Jun 2023</strong>",
+      "TITLE": "Mendel",
+      "AREA": "Fintech",
+      "PERIOD": "Feb 2022 - Jun 2023",
       "DESC": "I worked on the company's main project, a web application for the management and control of corporate expenses. The project was developed with <strong>Angular</strong> and some of my duties and responsibilities were: Develop new user-facing web features, create reusable code and libraries for future use, ensure technical feasibility of UI/UX designs, optimize applications for maximum speed and scalability. I was one of those responsible for the frontend area, sometimes I carried out technical interviews."
     },
     "PROJECT_3": {
-      "TITLE": "<strong>Bitlogic (Area: Education)</strong> | <strong>Jun 2019 - Feb 2022</strong>",
+      "TITLE": "Bitlogic",
+      "AREA": "Education",
+      "PERIOD": "Jun 2019 - Feb 2022",
       "DESC": "I worked for two of the company's main projects: a web application for university students developed on <strong>React</strong>. In this projects I applied technologies like, unit test with Jest, Enzyme and React Testing Library, RedUx, Material UI, Bootstrap, and Node.js (Axios and Express.js).<br /> The other project I worked was an <strong>Angular</strong> web application for commercial staff, to sell university careers packages. In this project I also was doing some backend tasks in JAVA (SpringBoot) and Node.js. <br /> In both projects I worked using agile methodologies (Scrum), JIRA, AWS, CI/CD, Gitlab. I also had some experience with pipelines configuration."
     },
     "PROJECT_4": {
-      "TITLE": "<strong>Trompo Agencia</strong> (Area: Digital Marketing) | <strong>Ene 2018 - Jun 2019</strong>",
+      "TITLE": "Trompo Agencia",
+      "AREA": "Digital Marketing",
+      "PERIOD": "Jan 2018 - Jun 2019",
       "DESC": "In charge of the Web Development area, focused on Frontend tasks. I worked with Wordpress and Prestashop templates, in most cases customizing templates for different clients. I also developed sites in HTML5, CSS3 and JavaScript, either from scratch or customizing templates. I used frameworks like Bootstrap and JQuery."
     },
     "PROJECT_5": {
-      "TITLE": "<strong>Criterio Net</strong> (Area: Digital Marketing) | <strong>Sep 2011 - Jun 2013</strong> ",
-      "DESC": " This experience started as a Collage Intership and ended up becoming a full-time job. I was in charge of the Web Development area, focused on frontend and support tasks. I worked with Wordpress and Prestashop templates, in most cases customizing templates for different clients. I also developed sites in HTML5, CSS3 and JavaScript, either from scratch or customizing templates. I used frameworks like Bootstrap and JQuery."
+      "TITLE": "Criterio Net",
+      "AREA": "Digital Marketing",
+      "PERIOD": "Sep 2011 - Jun 2013 ",
+      "DESC": "This experience started as a Collage Intership and ended up becoming a full-time job. I was in charge of the Web Development area, focused on frontend and support tasks. I worked with Wordpress and Prestashop templates, in most cases customizing templates for different clients. I also developed sites in HTML5, CSS3 and JavaScript, either from scratch or customizing templates. I used frameworks like Bootstrap and JQuery."
     }
   }
 }

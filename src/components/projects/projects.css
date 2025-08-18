@@ -15,8 +15,8 @@
 }
 
 .project-item {
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
 }
 
 .project-title {
@@ -30,4 +30,12 @@
 .project-description {
     line-height: 2;
     font-size: 14px;
+}
+
+.project-metadata {
+    display: flex;
+    line-height: 2;
+    justify-items: center;
+    gap: 0.5em;
+    font-style: italic;
 }

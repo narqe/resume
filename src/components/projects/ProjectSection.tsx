@@ -5,16 +5,17 @@ const ProjectSection = () => {
     const { t } = useTranslation();
 
     return (
-        <article id="projects">
+        <main id="projects">
             <h2>{t('MENU.PROJECTS')}</h2>
-            <div className="projects-container">
-                <Project title="PROJECTS.PROJECT_1.TITLE" desc="PROJECTS.PROJECT_1.DESC" />
-                <Project title="PROJECTS.PROJECT_2.TITLE" desc="PROJECTS.PROJECT_2.DESC" />
-                <Project title="PROJECTS.PROJECT_3.TITLE" desc="PROJECTS.PROJECT_3.DESC" />
-                <Project title="PROJECTS.PROJECT_4.TITLE" desc="PROJECTS.PROJECT_4.DESC" />
-                <Project title="PROJECTS.PROJECT_5.TITLE" desc="PROJECTS.PROJECT_5.DESC" />
-            </div>
-        </article>
+            <article className="projects-container">
+                <Project project="PROJECTS.PROJECT_6" />
+                <Project project="PROJECTS.PROJECT_1" />
+                <Project project="PROJECTS.PROJECT_2" />
+                <Project project="PROJECTS.PROJECT_3" />
+                <Project project="PROJECTS.PROJECT_4" />
+                <Project project="PROJECTS.PROJECT_5" />
+            </article>
+        </main>
     )
 }
 
