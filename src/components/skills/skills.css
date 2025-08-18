@@ -4,11 +4,15 @@
     grid-template-columns: 33% 33% 33%;
 }
 
+.rounded-image {
+    border-radius: 50%;
+}
+
 .skill {
     padding: 0;
     margin: 0;
-    height: 20px;
     display: inline-flex;
+    align-items: center;
     gap: 5px;
 }
 

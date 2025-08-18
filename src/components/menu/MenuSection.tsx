@@ -16,7 +16,8 @@ const MenuSection = () => {
             <figure className="profile-img">
                 <img src="img/foto.jpg" alt="Joel Acef" title="Joel Acef" width="200" />
             </figure>
-            <h1 className="name-title">Joel <span>Acef</span></h1>
+            <h1 className="name-title">Joel Acef</h1>
+            <h2 className="subtitle">SR Front-End Developer</h2>
             <div className="mobile-menu">
                 <a href="#menu" title="Menu" className="menu"></a>
                 <div
@@ -25,7 +26,7 @@ const MenuSection = () => {
                 >
                 </div>
             </div>  
-            <Navbar /><hr />
+            <Navbar />
             <ContactData />
         </header>
     )

@@ -17,19 +17,20 @@ const ContactData = () => {
                     joelacef@gmail.com
                 </a>
             </p>
-            <p className="lang">
-                <span>{t('CONTACT_DATA.CHANGE_LANG')}: </span>
-                <div className="lang-container" onClick={() => changeLang(i18n.language === 'es' ? 'en' : 'es')}>
-                    <img 
-                        src={i18n.language === 'es' ? "img/skills/ingles.png" : "img/skills/espanol.png"}
-                        alt={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'} 
-                        title={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'}
-                        width="14"
-                        height="14" 
-                    />
-                    {i18n.language === 'es' ? 'English' : 'Español'}
-                </div>
-            </p>
+            <div className="social-links">
+                <a href="https://www.linkedin.com/in/joelacef" title="Linkedin" target="_blank" className="linkedin"></a>
+                <a href="https://github.com/narqe" title="Github" target="_blank" className="github"></a>
+            </div>
+            <div className="lang-container" onClick={() => changeLang(i18n.language === 'es' ? 'en' : 'es')}>
+                <img 
+                    src={i18n.language === 'es' ? "img/skills/ingles.png" : "img/skills/espanol.png"}
+                    alt={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'} 
+                    title={i18n.language === 'es' ? 'Change to English' : 'Cambiar a Español'}
+                    width="14"
+                    height="14" 
+                />
+                {i18n.language === 'es' ? 'English' : 'Español'}
+            </div>
         </div>
     )
 }

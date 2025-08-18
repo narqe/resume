@@ -17,25 +17,45 @@
 .project-item {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    padding-bottom: 2.5em;
+    border-bottom: 1px solid #e9af8b;
 }
 
 .project-title {
     line-height: 1.5;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     text-transform: uppercase;
 }
 
 .project-description {
     line-height: 2;
     font-size: 14px;
+    padding: 10px 0;
 }
 
 .project-metadata {
     display: flex;
-    line-height: 2;
     justify-items: center;
     gap: 0.5em;
     font-style: italic;
+    text-transform: uppercase;
+    background: #a7643e;
+    padding: 3px 10px;
+    color: #e9af8b;
+    width: fit-content;
+}
+
+.project-skills {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.project-skill-container {
+    flex-wrap: wrap;
+    margin-top: 1em;
+    display: grid;
+    gap: 1em;
 }

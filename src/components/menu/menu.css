@@ -54,22 +54,30 @@
     padding-top: 20px;
     background: #e9af8b;
     position: fixed;
-    height: 100vh;
-    min-width: 270px
+    border-radius: 0px 0px 20px 20px;
+    min-width: 270px;
+    top: 0;
+}
+
+.navbar-container {
+    padding: 15px 0;
 }
 
 .name-title {
     font-size: 40px;
     text-transform: uppercase;
     line-height: 1;
-    margin: 10px 0 40px 0;
+    margin-top: 30px;
     text-align: center;
     letter-spacing: 2.5px;
 }
 
-.name-title > span {
+.subtitle {
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
     color: #d48150;
-    font-weight: bold;
 }
 
 .profile-img {
@@ -86,12 +94,6 @@
 
 .mobile-menu {
     display: none;
-}
-
-.lang {
-    display: inline-flex;
-    gap: 1em;
-    cursor: pointer;
 }
 
 .es {
@@ -121,6 +123,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
 .contact-data {
@@ -146,6 +150,26 @@
     color: #7c4b2f
 }
 
+.social-links {
+    display: flex;
+    gap: 1em;
+    padding: 15px;
+}
+
+a.linkedin, a.github {    
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+a.linkedin {
+    background: url('../../../public/img/social/linkedin.png') center center no-repeat;
+}
+
+a.github {
+    background: url('../../../public/img/social/github.png') center center no-repeat;
+    background-size: cover;
+}
 /* Screen max 768px (tablets & phones) */
 
 @media only screen and (max-width: 768px) {
@@ -153,6 +177,10 @@
         position: relative;
         height: 100%;
         padding-top: 55px;
+    }
+
+    .social-links {
+        display: none;
     }
 
     nav ul {
@@ -168,6 +196,7 @@
     }
 
     .profile-img,
+    .subtitle,
     .name-title {
         display: none;
     }
@@ -190,7 +219,7 @@
         min-height: 100vh;
     }
 
-    .lang {
+    .lang-container {
         display: none;
     }
 

@@ -8,12 +8,12 @@ const ProjectSection = () => {
         <main id="projects">
             <h2>{t('MENU.PROJECTS')}</h2>
             <article className="projects-container">
-                <Project project="PROJECTS.PROJECT_6" />
-                <Project project="PROJECTS.PROJECT_1" />
-                <Project project="PROJECTS.PROJECT_2" />
-                <Project project="PROJECTS.PROJECT_3" />
-                <Project project="PROJECTS.PROJECT_4" />
-                <Project project="PROJECTS.PROJECT_5" />
+                <Project project="PROJECT_6" />
+                <Project project="PROJECT_1" />
+                <Project project="PROJECT_2" />
+                <Project project="PROJECT_3" />
+                <Project project="PROJECT_4" />
+                <Project project="PROJECT_5" />
             </article>
         </main>
     )

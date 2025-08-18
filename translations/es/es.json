@@ -4,7 +4,7 @@
     "PROJECTS": "Proyectos",
     "EDUCATION": "Educación",
     "LANGUAGES": "Idiomas",
-    "SKILLS": "Habilidades"
+    "SKILLS": "Otras habilidades"
   },
   "CONTACT_DATA": {
     "BIRTHPLACE": "Residencia",
@@ -12,7 +12,7 @@
     "CHANGE_LANG": "Cambiar idioma"
   },
   "ABOUT_ME": {
-    "PRESENTATION": "Hola, soy Joel, un <strong>Desarrollador Frontend y Diseñador Interactivo</strong> que ha trabajado en varios proyectos con <strong>React, NextJS, Angular y Vue.js</strong> desde 2019. Como profesional de TI, me interesan los proyectos desafiantes que me mantienen aprendiendo permanentemente. Además, me gusta implementar nuevas tecnologías, mejores prácticas, bibliotecas y frameworks en los proyectos en los que trabajo. Desde 2023, he tenido la oportunidad de comenzar a coordinar el equipo con el que trabajaba, por lo que empecé a interesarme en la gestión y las tareas relacionadas con el liderazgo y la coordinación de equipos. Me considero una persona curiosa que disfruta creciendo como profesional, trabajando en proyectos en diferentes áreas."
+    "PRESENTATION": "Hola, soy Joel, un <strong>Desarrollador Frontend y Diseñador Interactivo</strong> que ha trabajado en varios proyectos con <strong>React + NextJS, Angular y Vue.js</strong> desde 2019. Como profesional de TI, me interesan los proyectos desafiantes que me mantienen aprendiendo permanentemente. Además, me gusta implementar nuevas tecnologías, mejores prácticas, bibliotecas y frameworks en los proyectos en los que trabajo. Desde 2023, he tenido la oportunidad de comenzar a coordinar el equipo con el que trabajaba, por lo que empecé a interesarme en la gestión y las tareas relacionadas con el liderazgo y la coordinación de equipos. Me considero una persona curiosa que disfruta creciendo como profesional, trabajando en proyectos en diferentes áreas."
   },
   "EDUCATION": {
     "COMPLETED": "Completado",
@@ -28,6 +28,7 @@
     "ENGLISH": "Inglés Avanzado"
   },
   "PROJECTS": {
+    "SKILLS": "Tecnologías aplicadas en esta posición",
     "PROJECT_6": {
       "TITLE": "Globant",
       "AREA": "Airlines",

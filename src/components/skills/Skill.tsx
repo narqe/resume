@@ -1,5 +1,7 @@
-import React from 'react'
+
+import React from 'react';
 import Typography from '@mui/material/Typography';
+import SkillImage from './SkillImage';
 
 const Skill = ({ 
     desc,
@@ -12,14 +14,7 @@ const Skill = ({
 }) => {
     return (
         <div className="skill">
-            {
-                imgSrc && <img 
-                    src={`img/skills/${imgSrc}.png`} 
-                    alt={label} 
-                    title={label} 
-                    width="20"
-                />
-            }
+            {imgSrc ? <SkillImage imgSrc={imgSrc} label={label} /> : null}
             <Typography variant="h6">{ desc }</Typography>
         </div>
     )

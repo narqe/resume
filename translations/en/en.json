@@ -4,7 +4,7 @@
     "PROJECTS": "Projects",
     "EDUCATION": "Education",
     "LANGUAGES": "Languages",
-    "SKILLS": "Skills & Tech"
+    "SKILLS": "Other skills"
   },
   "CONTACT_DATA": {
     "BIRTHPLACE": "Residance",
@@ -12,7 +12,7 @@
     "CHANGE_LANG": "Change language"
   },
   "ABOUT_ME": {
-    "PRESENTATION" : "Hi I'm Joel, a <strong>Frontend Developer and Interactive Designer </strong> who has been working in several projects with <strong>React, NextJS, Angular and Vue.js</strong> since 2019. As an IT professional I am interested in challenging projects that keep me permanently learning. Also I like to implement new technologies, best practices, libraries and frameworks in the projects I work. Furthermore, since 2023, I had the opportunity to start coordinating the team I worked with, so I began to be interested in management and tasks related to leadership and teams coordination. I consider myself a curious person who enjoys growing as a professional, working on projects in different areas."
+    "PRESENTATION" : "Hi I'm Joel, a <strong>Frontend Developer and Interactive Designer </strong> who has been working in several projects with <strong>React + NextJS, Angular and Vue.js</strong> since 2019. As an IT professional I am interested in challenging projects that keep me permanently learning. Also I like to implement new technologies, best practices, libraries and frameworks in the projects I work. Furthermore, since 2023, I had the opportunity to start coordinating the team I worked with, so I began to be interested in management and tasks related to leadership and teams coordination. I consider myself a curious person who enjoys growing as a professional, working on projects in different areas."
   },
   "EDUCATION": {
     "COMPLETED": "Completed",
@@ -28,6 +28,7 @@
     "ENGLISH": "English Advanced"
   },
   "PROJECTS": {
+    "SKILLS": "Tech stack for this position",
     "PROJECT_6": {
       "TITLE": "Globant",
       "AREA": "Airlines",

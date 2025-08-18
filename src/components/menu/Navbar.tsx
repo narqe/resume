@@ -8,7 +8,7 @@ const Navbar = () => {
         i18n.changeLanguage(lang)
     } 
     return (
-        <nav>
+        <nav className="navbar-container">
             <ul>
                 <li><a href="#about-me" title={t('MENU.ABOUT_ME')}>{t('MENU.ABOUT_ME')}</a></li>
                 <li><a href="#projects" title={t('MENU.PROJECTS')}>{t('MENU.PROJECTS')}</a></li>
