@@ -9,14 +9,17 @@ const ContactData = () => {
     } 
     return (
         <div className="contact-data">
-            <p><span>{t('CONTACT_DATA.BIRTHDATE')}: </span>24/07/1992</p>
-            <p><span>{t('CONTACT_DATA.BIRTHPLACE')}: </span>Córdoba, Argentina</p>
+            <p>Córdoba, Argentina</p>
             <p>
-                <span>E-mail:</span> 
-                <a href="mailto:joelacef@gmail.com" target="_blank" title="joelacef@gmail.com">
+                <a 
+                    href="mailto:joelacef@gmail.com" 
+                    target="_blank" 
+                    title="joelacef@gmail.com"
+                >
                     joelacef@gmail.com
                 </a>
             </p>
+            <p>24/07/1992</p>
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/joelacef" title="Linkedin" target="_blank" className="linkedin"></a>
                 <a href="https://github.com/narqe" title="Github" target="_blank" className="github"></a>

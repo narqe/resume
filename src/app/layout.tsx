@@ -19,7 +19,7 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <html lang="en">
         <head>
-            <title>Joel Acef - CV</title>
+            <title>Joel Acef - Frontend Developer</title>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <link rel="stylesheet" type="text/css" media="screen" href="./main.css"/>
             <link rel="shortcut icon" type="image/png" href="./favicon.png" />
