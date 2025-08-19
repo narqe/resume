@@ -33,25 +33,25 @@
       "TITLE": "Globant",
       "AREA": "Airlines",
       "PERIOD": "Nov 2024 - Now",
-      "DESC": "I worked for a team responsible for managing all ancillary services for a major British airline, developing everything related to seats and baggage for reservations. We worked with React, Next JS, and Typescript. We used vitest for UT, and we focused specifically on A11Y (Accessibility) due to European airline regulations."
+      "DESC": "I worked on a team responsible for managing all ancillary services for a major British airline, specifically developing features related to seat selection and baggage within the reservation system. Our stack included <strong>React, Next.js, and TypeScript</strong>, with unit testing implemented using <strong>Vitest</strong>. A key focus of the project was ensuring compliance with European airline <strong>accessibility (A11Y)</strong> regulations."
     },
     "PROJECT_1": {
       "TITLE": "JS Software",
       "AREA": "Retailing",
       "PERIOD": "Jun 2023 - Nov 2024",
-      "DESC": "I am in charge of the company's main project, a Back Office web application developed with <strong>React</strong> and <strong>Next.js</strong>. I am doing management and programming tasks. I started to implement agile methodologies since they were not applied when I entered. Also for the same company I worked in other project, an e-commerce for retailers developed with <strong>Vue.js.</strong>. Although the project was started, everything had to be refactored to be able to adapt it to different clients from other areas."
+      "DESC": "I was responsible for the company’s main project, a Back Office web application developed with <strong>React and Next.js</strong>, where I carried out both management and development tasks. When I joined, I introduced and implemented agile methodologies, as they had not been applied before. Additionally, for the same company, I worked on another project—an e-commerce platform for retailers built with <strong>Vue.js</strong>. Although the project had already been started, it required a full refactor to make it adaptable for clients across different industries."
     },
     "PROJECT_2": {
       "TITLE": "Mendel",
       "AREA": "Fintech",
       "PERIOD": "Feb 2022 - Jun 2023",
-      "DESC": "I worked on the company's main project, a web application for the management and control of corporate expenses. The project was developed with <strong>Angular</strong> and some of my duties and responsibilities were: Develop new user-facing web features, create reusable code and libraries for future use, ensure technical feasibility of UI/UX designs, optimize applications for maximum speed and scalability. I was one of those responsible for the frontend area, sometimes I carried out technical interviews."
+      "DESC": "I worked on the company’s main project, a web application for the management and control of corporate expenses, developed with <strong>Angular</strong>. My main duties and responsibilities inclued: Developing new user-facing web features, creating reusable code and libraries for future use, ensuring the technical feasibility of UI/UX designs, optimizing applications for maximum speed and scalability.</li></ul> I was one of the people responsible for the frontend area and occasionally conducted technical interviews."
     },
     "PROJECT_3": {
       "TITLE": "Bitlogic",
       "AREA": "Education",
       "PERIOD": "Jun 2019 - Feb 2022",
-      "DESC": "I worked for two of the company's main projects: a web application for university students developed on <strong>React</strong>. In this projects I applied technologies like, unit test with Jest, Enzyme and React Testing Library, RedUx, Material UI, Bootstrap, and Node.js (Axios and Express.js).<br /> The other project I worked was an <strong>Angular</strong> web application for commercial staff, to sell university careers packages. In this project I also was doing some backend tasks in JAVA (SpringBoot) and Node.js. <br /> In both projects I worked using agile methodologies (Scrum), JIRA, AWS, CI/CD, Gitlab. I also had some experience with pipelines configuration."
+      "DESC": "I worked on two of the company’s main projects: <br/>1) Web application for university students in <strong>React</strong>: In this project, I applied technologies such as unit testing with Jest, Enzyme, and React Testing Library, as well as <strong>Redux, Material UI, Bootstrap, and Node.js</strong> (Axios and Express.js) <br/> 2) Web application for commercial staff in <strong>Angular</strong>: This project was designed to sell university career packages. Alongside frontend development, I also performed backend tasks using Java (SpringBoot) and Node.js. <br/>For both projects, I worked with agile methodologies <strong>(Scrum), JIRA, AWS, CI/CD, and GitLab</strong>, and I gained experience in pipeline configuration."
     },
     "PROJECT_4": {
       "TITLE": "Trompo Agencia",
