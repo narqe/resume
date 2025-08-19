@@ -5,11 +5,11 @@
     vertical-align: top;
 }
 
-.leftside-container nav ul {
+.leftside-container__nav-ul {
     display: block;
 }
 
-.leftside-container nav ul li {
+.leftside-container__nav-li {
     text-transform: uppercase;
     font-style: italic;
     font-weight: 700;
@@ -20,25 +20,27 @@
     margin: 2px 15px;
 }
 
-.leftside-container nav ul li a {
+.leftside-container__nav-link {
     font-size: 20px;
     color: #FFFFFF;
     letter-spacing: 1.7px;
-    text-decoration: none;
     text-shadow: 1px 1px #000;
     -webkit-transition: all 400ms linear 0s;
     -o-transition: all 400ms linear 0s;
     transition: all 400ms linear 0s;
+    text-decoration: none;
 }
 
-.leftside-container nav ul li a::before {
+
+.leftside-container__nav-link::before {
     content: "";
     width: 0%;
     transition: width .5s ease-in;
     display: block;
+    text-decoration: none;
 }
 
-.leftside-container nav ul li:hover a::before {
+.leftside-container__nav-li:hover .leftside-container__nav-link::before {
     content: "";
     height: 10px;
     bottom: 0px;
@@ -136,20 +138,24 @@
     text-align: center;
 }
 
-.contact-data p {
+
+.contact-data__p {
     padding: 0px 15px;
     line-height: 1.5;
     text-transform: uppercase;
 }
 
-.contact-data span {
+
+.contact-data__span {
     font-weight: normal;
     text-transform: capitalize;
 }
 
-.contact-data a {
+
+.contact-data__a {
     color: #7c4b2f
 }
+
 
 .social-links {
     display: flex;
@@ -159,17 +165,20 @@
     padding: 15px;
 }
 
-a.linkedin, a.github {    
+
+.linkedin, .github {    
     width: 32px;
     height: 32px;
     display: inline-block;
 }
 
-a.linkedin {
+
+.linkedin {
     background: url('../../../public/img/social/linkedin.png') center center no-repeat;
 }
 
-a.github {
+
+.github {
     background: url('../../../public/img/social/github.png') center center no-repeat;
     background-size: cover;
 }
@@ -186,15 +195,18 @@ a.github {
         display: none;
     }
 
-    nav ul {
+
+    .leftside-container__nav-ul {
         height: 100vh;
     }
 
-    .leftside-container nav ul li {
+
+    .leftside-container__nav-li {
         margin: 30px 10px !important;
     }
 
-    .leftside-container nav ul li a {
+
+    .leftside-container__nav-link {
         font-size: 45px !important;
     }
 

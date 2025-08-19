@@ -1,17 +1,9 @@
 
-import React from 'react';
 import Typography from '@mui/material/Typography';
 import SkillImage from './SkillImage';
+import { SkillProp } from '@/models/Skill';
 
-const Skill = ({ 
-    desc,
-    label,
-    imgSrc, 
-} : { 
-    desc: string,
-    label?: string,
-    imgSrc?: string, 
-}) => {
+const Skill = ({ desc, label, imgSrc } : SkillProp) => {
     return (
         <div className="skill">
             {imgSrc ? <SkillImage imgSrc={imgSrc} label={label} /> : null}

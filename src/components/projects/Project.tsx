@@ -1,15 +1,12 @@
-"use client";
-
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PROJECT_SKILLS } from '../../constants/SKILLS'; 
-import './projects.css';
 import Skill from '../skills/Skill';
 import SkillImage from '../skills/SkillImage';
+import './projects.css';
+import { getProjectSkills } from '@/services/skillsService';
 
 const Project = ({ project } : { project: string }) => {
     const { t } = useTranslation();
-    const skills = PROJECT_SKILLS[project];
+    const skills = getProjectSkills(project);
 
     return (
         <section className="project-item">

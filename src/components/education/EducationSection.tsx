@@ -1,4 +1,3 @@
-import React from 'react'
 import Course from './Course';
 import { useTranslation } from 'react-i18next';
 import Timeline from '@mui/lab/Timeline';

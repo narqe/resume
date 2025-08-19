@@ -22,7 +22,7 @@ export default function RootLayout({
             <title>Joel Acef - Frontend Developer</title>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <link rel="stylesheet" type="text/css" media="screen" href="./main.css"/>
-            <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+            <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
             <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'/>
             <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
         </head>
